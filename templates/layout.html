@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link href="{{ url_for('static', filename='favicon.ico')}}" rel="icon">
+        <!-- Font awesome -->
+        <script src="https://kit.fontawesome.com/5c47da1bc1.js" crossorigin="anonymous"></script>
+        <!-- jquery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class-="nav-wrapper">
+                <nav class="navbar">
+                    <a href="{{ url_for('index') }}"><img class="logo" src="static/images/logo.svg" alt="Toebeans Sanctuary logo"></a>
+                    <div class="hamburger" id="hamburger-menu">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                    <ul class="nav">
+                        <li class="nav-item"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="nav-item"><a href="">Cats</a></li>
+                        <li class="nav-item"><a href="">About</a></li>
+                        <li class="nav-item"><a href="">Contact</a></li>
+                        <li class="nav-item"><a href="">Volunteer</a></li>
+                    </ul>
+                </nav>
+            </div>
+        {% block main %}
+        {% endblock %}
+        <footer>
+            <div class="social-links">
+                <h3>Follow us on these sites!</h3>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <div class="newletter-wrapper">
+                <h3>Sign up for our monthly newsletter below!</h3>
+                <input class="newsletter-box" type="email" placeholder="Email" name="email">
+                <button type="submit" class="newsletter-button">Sign Up!</button>
+                <h4>&copy; Toebeans Sanctuary 2022</h4>
+            </div>
+            <div class="contact">
+                <h3>Get in touch with us!</h3>
+                <i class="fa-solid fa-phone"></i>
+            </div>
+            <div class="site-map">
+                <h3>Navigation</h3>
+                <ul class="bottom-nav">
+                    <li class="bottom-nav-item"><a href="{{ url_for('index') }}">Home</a></li>
+                    <li class="bottom-nav-item"><a href="">Cats</a></li>
+                    <li class="bottom-nav-item"><a href="">About</a></li>
+                    <li class="bottom-nav-item"><a href="">Contact</a></li>
+                    <li class="bottom-nav-item"><a href="">Volunteer</a></li>
+                </ul>
+            </div>
+        </footer>
+        </div>
+    <script src="static/scripts.js" async defer></script>
+    </body>
+</html>
