@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block title %}
+Contact Us!
+{% endblock %}
+{% block main %}
+    <div class="hero">
+        <img src="static/images/contact_page.webp" alt="Ziggy the cat">
+        <h1 class="hero-text">Giving a safe space to cats for 11 years</h1>
+    </div>
+    <div class="contact-wrapper">
+        <h1>Got a question?</h1>
+        <h2>You can get in touch with us on these platforms!</h2>
+        <div class="button-wrapper">
+            <button class="social-button" type="button"><i class="fa-brands fa-facebook"></i>Follow us on Facebook</button>
+            <button class="social-button" type="button"><i class="fa-brands fa-twitter"></i>Drop us a Tweet</button>
+            <button class="social-button" type="button"><i class="fa-brands fa-instagram"></i></i>For all your picture needs</button>
+        </div>
+        <form class="contact-form" action="/Contact" method="POST">
+                <h2>or can ask it below!</h2>
+                <label for="name">What can we call you?</label>
+                <input class="contact-name" type="text" name="contact-name" placeholder="Your name here.." required><br>
+                <label for="email">Leave you email so we can get in touch!</label>
+                <input class="contact-email" type="email" name="email" placeholder="Email here" required>
+                <label for="message">Whats on your mind?</label>
+                <input class="contact-message" type="text" name="message" placeholder="..." required>
+                <input type="submit">
+        </form>
+    </div>
+{% endblock %}

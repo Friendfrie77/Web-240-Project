@@ -1,7 +1,8 @@
-from os import error
+import os
+from unittest import result
 from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
-from helpers import email
+from helpers import  is_email_valid
 from flask_mail import Mail, Message
 
 app = Flask(__name__, static_url_path='/static')
@@ -13,10 +14,22 @@ app.config.update(dict(
     MAIL_USE_TLS= False,
     MAIL_USE_SSL= True,
     MAIL_USERNAME= 'cs50cat@gmail.com',
+    MAIL_PASSWORD= 'NDHJiN7BX8T2XwH',
     MAIL_DEFAULT_SENDER= 'cs50cat@gmail.com'
+
     ))
 mail = Mail(app)
-
+# for sending contact page messages #
+def SendContactForm(result):
+    msg=Message('Contact Form', recipients=["cs50cat@gmail.com"]) 
+    msg.body= """
+    Name: {}
+    Email: {}
+    Message: {}
+    """.format(result['name'], result['email'], result ['message'])
+    print(msg)
+    mail.send(msg)
+# start of html pages #
 @app.route("/", methods=["GET", "POST"])
 def index():
     return render_template("index.html")
@@ -31,7 +44,22 @@ def Volunteer():
 
 @app.route("/Contact", methods=["GET", "POST"])
 def Contact():
-    return render_template("contact.html")
+    if request.method == "POST":
+        status = (request.form.get('email'))
+        status = is_email_valid()
+        if status == "error":
+            flash("Please enter a vaild email adress!")
+            return render_template("contact.html")
+        else:
+            result={}
+            result['name'] = request.form.get('contact-name')
+            result['email'] = request.form.get('email')
+            result['message'] = request.form.get('message')
+
+            SendContactForm(result)
+            return render_template("contact.html")
+    else:
+        return render_template("contact.html")
 
 @app.route("/About", methods=["GET", "POST"])
 def About():
@@ -44,13 +72,11 @@ def Thanks():
 @app.route("/Newsletter", methods=["POST"])
 def newsletter():
     if request.method == "POST":
-        status = email()
+        status = is_email_valid(request.form.get('email'))
         if status == "error":
-            flash("Please check your email", "warning")
+            flash("Invaild email adresss!", "warning")
             return render_template("index.html")
         if status == "valid":
             flash("Thank you for signing up!", "info")
             return render_template("index.html")
-        else:
-            flash("Invald email", "error")
-            return render_template("index.html")
+

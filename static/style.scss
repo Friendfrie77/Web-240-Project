@@ -1,35 +1,45 @@
 /* scss constants */
 $headline-colors:#0C0F0A;
+$primary-color:#E2C2C6;
+$secondary-color: #596ca3;
 $button-color: #FFAAEA;
+$card-primary: red;
+$card-secondary: blue;
+$headline-font: 'Yanone Kaffeesatz', sans-serif;
+$content-font:  'PT Sans Narrow', sans-serif;
+$drop-shadow: 0px 0px 2px #0f0f0f;
 /* page setup */
 *{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    font-family: $content-font;
 }
-
+body{
+    min-height: 100vh;
+    width: 100%;
+    background-color: $primary-color;
+}
+h1, h2, h3{
+    font-family: $headline-font;
+}
 /* wrappers */
 .wrapper{
-    background-color: #fff;
     display: flex;
     flex-direction: column;
     height: 100vh;
     margin: 0;
 }
-.nav-wrapper{
-    width: 100%;
-    position: sticky;
-    top: 0px;
-}
 /* navigation */
-
 .navbar{
     display: grid;
     grid-template-columns: 1fr 3fr;
     align-items: center;
     height: 75px;
     overflow: hidden;
-    background-color: white;
+    background-color: $secondary-color;
+    box-shadow: 0px 0px 10px #0f0f0f;
+    z-index: 1000;
 }
 .navbar img{
     height: 55px;
@@ -81,10 +91,20 @@ footer{
     display: grid;
     grid-template-columns: 2fr 3fr 1fr 1fr;
     align-items: center;
-    background-color: white;
+    background-color: $secondary-color;
     margin-top: auto;
-    min-height: 100px;
     padding-bottom: 15px;
+    min-height: 200px;
+}
+.email-error{
+    font-size: 1.2rem;
+    background-color: $button-color;
+    position: relative;
+    bottom: 10px;
+    left: 80px;
+    padding: 3px 4px 4px 3px;
+    border-radius: 10px 10px 0px 10px;
+    color: #fff;
 }
 .social-links{
 
@@ -134,6 +154,34 @@ footer{
         }
     }
 }
+/* flip cards */
+.card-holder{
+    display: grid;
+    grid-template: auto auto auto;
+}
+.card{
+    perspective: 40rem;
+}
+.card-body{
+    display: flex;
+    transform-style: preserve-3d;
+    transition: transform .7s;
+    &:hover, &:focus{
+        transform: rotateX(-180deg);
+    }
+}
+.card-front, .card-back{
+    backface-visibility: hidden;
+    min-width: 100%;
+}
+.card-front{
+
+}
+.card-back{
+    transform: rotateX(-180deg) translate(-100%, 0);
+
+}
+
 /* hero image */
 .hero{
     position: relative;
@@ -160,15 +208,73 @@ footer{
     color: white;
     position: absolute;
     top: 70%;
-    left: 30%;
+    left: 50%;
     transform: translate(-65%, 0%);
     z-index: 2;
     text-shadow: #000 5px 5px 10px;
 }
-/* index page */
-.index-header{
-    text-align: center;
+.mid-page-hero{
+    height: 35%;
+    width: 100%;
 }
+.mid-page-pic{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+/* contact page */
+.contact-wrapper{
+    display: block;
+    text-align: center;
+    h1{
+        margin-top: 20px;
+        font-size: 3rem;
+    }
+}
+
+.social-button{
+    width: 20%;
+    margin: 20px;
+    font-size: 1.5rem;
+    box-shadow: $drop-shadow;
+    background-color: $secondary-color;
+    .fa-brands{
+        font-size: 2rem;
+    }
+    &:hover{
+        background-color: blue;
+    }
+}
+.contact-form{
+    box-shadow: $drop-shadow;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid .2rem $secondary-color;
+    max-width: 1400px;
+    
+}
+
+/* page content */
+.headline{
+    font-family: $headline-font;
+    font-size: 3rem;
+    padding: 10px;
+}
+.content {
+    max-width: 1400px;
+    align-self: center;
+   
+    h2{
+        text-align: center;
+
+    } 
+    p{
+        padding: 0px 0px 20px 0px;
+        font-size: 2rem;
+    } 
+}
+
 /* Navbar Mobile Animation */
 #hamburger-menu.is-active{
     .bar{
@@ -191,16 +297,27 @@ footer{
         font-size: calc(1.1vw + 10px);
         left: 42%
     }
+    /* contact page */
+    .button-wrapper{
+        display: flex;
+        flex-direction: column;
+    }
     /* footer */
     footer{
         display: flex;
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: auto;
     }
     .fa-brands{
         font-size: 2rem;
     }
     .newsletter-box{
         width: 100%;
+    }
+    .newsletter-button{
+        width: 30%;
     }
     /* Mobile navigation */
     .navbar .nav{

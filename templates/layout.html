@@ -12,6 +12,8 @@
         <script src="https://kit.fontawesome.com/5c47da1bc1.js" crossorigin="anonymous"></script>
         <!-- jquery -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <!-- google font-->
+        <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Yanone+Kaffeesatz:wght@700&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="wrapper">
@@ -25,9 +27,9 @@
                     </div>
                     <ul class="nav">
                         <li class="nav-item"><a href="{{ url_for('index') }}">Home</a></li>
-                        <li class="nav-item"><a href="">Cats</a></li>
+                        <li class="nav-item"><a href="{{ url_for('Cats') }}">Cats</a></li>
                         <li class="nav-item"><a href="">About</a></li>
-                        <li class="nav-item"><a href="">Contact</a></li>
+                        <li class="nav-item"><a href="{{ url_for('Contact') }}">Contact</a></li>
                         <li class="nav-item"><a href="">Volunteer</a></li>
                     </ul>
                 </nav>
@@ -42,9 +44,18 @@
                 <i class="fa-brands fa-instagram"></i>
             </div>
             <div class="newletter-wrapper">
-                <h3>Sign up for our monthly newsletter below!</h3>
-                <input class="newsletter-box" type="email" placeholder="Email" name="email">
-                <button type="submit" class="newsletter-button">Sign Up!</button>
+                <form action="/Newsletter" method="POST" novalidate>
+                    <h3>Sign up for our monthly newsletter below!</h3>
+                    {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                            {% for message in messages %} 
+                                <span class="email-error">{{ message }}</span>
+                            {% endfor %}
+                        {% endif %}
+                    {% endwith %}
+                    <input class="newsletter-box" type="email"  placeholder="Email" name="email" id="email" required>
+                    <button type="submit" class="newsletter-button">Sign Up!</button>
+                </form>
                 <h4>&copy; Toebeans Sanctuary 2022</h4>
             </div>
             <div class="contact">
@@ -63,6 +74,8 @@
             </div>
         </footer>
         </div>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
     <script src="static/scripts.js" async defer></script>
     </body>
 </html>

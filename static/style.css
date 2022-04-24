@@ -5,11 +5,21 @@
   padding: 0px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-family: "PT Sans Narrow", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #E2C2C6;
+}
+
+h1, h2, h3 {
+  font-family: "Yanone Kaffeesatz", sans-serif;
 }
 
 /* wrappers */
 .wrapper {
-  background-color: #fff;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -19,13 +29,6 @@
           flex-direction: column;
   height: 100vh;
   margin: 0;
-}
-
-.nav-wrapper {
-  width: 100%;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0px;
 }
 
 /* navigation */
@@ -39,7 +42,10 @@
           align-items: center;
   height: 75px;
   overflow: hidden;
-  background-color: white;
+  background-color: #596ca3;
+  -webkit-box-shadow: 0px 0px 10px #0f0f0f;
+          box-shadow: 0px 0px 10px #0f0f0f;
+  z-index: 1000;
 }
 
 .navbar img {
@@ -109,10 +115,21 @@ footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background-color: white;
+  background-color: #596ca3;
   margin-top: auto;
-  min-height: 100px;
   padding-bottom: 15px;
+  min-height: 200px;
+}
+
+.email-error {
+  font-size: 1.2rem;
+  background-color: #FFAAEA;
+  position: relative;
+  bottom: 10px;
+  left: 80px;
+  padding: 3px 4px 4px 3px;
+  border-radius: 10px 10px 0px 10px;
+  color: #fff;
 }
 
 .social-links {
@@ -178,6 +195,46 @@ footer {
   color: #FFAAEA;
 }
 
+/* flip cards */
+.card-holder {
+  display: -ms-grid;
+  display: grid;
+  grid-template: auto auto auto;
+}
+
+.card {
+  -webkit-perspective: 40rem;
+          perspective: 40rem;
+}
+
+.card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-transition: -webkit-transform .7s;
+  transition: -webkit-transform .7s;
+  transition: transform .7s;
+  transition: transform .7s, -webkit-transform .7s;
+}
+
+.card-body:hover, .card-body:focus {
+  -webkit-transform: rotateX(-180deg);
+          transform: rotateX(-180deg);
+}
+
+.card-front, .card-back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  min-width: 100%;
+}
+
+.card-back {
+  -webkit-transform: rotateX(-180deg) translate(-100%, 0);
+          transform: rotateX(-180deg) translate(-100%, 0);
+}
+
 /* hero image */
 .hero {
   position: relative;
@@ -208,16 +265,84 @@ footer {
   color: white;
   position: absolute;
   top: 70%;
-  left: 30%;
+  left: 50%;
   -webkit-transform: translate(-65%, 0%);
           transform: translate(-65%, 0%);
   z-index: 2;
   text-shadow: #000 5px 5px 10px;
 }
 
-/* index page */
-.index-header {
+.mid-page-hero {
+  height: 35%;
+  width: 100%;
+}
+
+.mid-page-pic {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+/* contact page */
+.contact-wrapper {
+  display: block;
   text-align: center;
+}
+
+.contact-wrapper h1 {
+  margin-top: 20px;
+  font-size: 3rem;
+}
+
+.social-button {
+  width: 20%;
+  margin: 20px;
+  font-size: 1.5rem;
+  -webkit-box-shadow: 0px 0px 2px #0f0f0f;
+          box-shadow: 0px 0px 2px #0f0f0f;
+  background-color: #596ca3;
+}
+
+.social-button .fa-brands {
+  font-size: 2rem;
+}
+
+.social-button:hover {
+  background-color: blue;
+}
+
+.contact-form {
+  -webkit-box-shadow: 0px 0px 2px #0f0f0f;
+          box-shadow: 0px 0px 2px #0f0f0f;
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  border: solid 0.2rem #596ca3;
+  max-width: 1400px;
+}
+
+/* page content */
+.headline {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 3rem;
+  padding: 10px;
+}
+
+.content {
+  max-width: 1400px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.content h2 {
+  text-align: center;
+}
+
+.content p {
+  padding: 0px 0px 20px 0px;
+  font-size: 2rem;
 }
 
 /* Navbar Mobile Animation */
@@ -243,6 +368,16 @@ footer {
     font-size: calc(1.1vw + 10px);
     left: 42%;
   }
+  /* contact page */
+  .button-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
   /* footer */
   footer {
     display: -webkit-box;
@@ -252,12 +387,22 @@ footer {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    min-height: auto;
   }
   .fa-brands {
     font-size: 2rem;
   }
   .newsletter-box {
     width: 100%;
+  }
+  .newsletter-button {
+    width: 30%;
   }
   /* Mobile navigation */
   .navbar .nav {
