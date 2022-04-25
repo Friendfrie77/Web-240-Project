@@ -320,6 +320,55 @@ footer {
   margin-right: auto;
   border: solid 0.2rem #596ca3;
   max-width: 1400px;
+  padding: 15px;
+}
+
+.contact-form h2 {
+  font-size: 3rem;
+}
+
+.contact-form input {
+  border: none;
+}
+
+.contact-form input::-webkit-input-placeholder {
+  color: pink;
+  font-size: 1.5em;
+}
+
+.contact-form input:-ms-input-placeholder {
+  color: pink;
+  font-size: 1.5em;
+}
+
+.contact-form input::-ms-input-placeholder {
+  color: pink;
+  font-size: 1.5em;
+}
+
+.contact-form input::placeholder {
+  color: pink;
+  font-size: 1.5em;
+}
+
+.contact-form label {
+  font-size: 2rem;
+}
+
+.contact-name, .contact-email, .contact-message {
+  height: 25px;
+}
+
+.contact-form-button {
+  width: 20%;
+  font-size: 2rem;
+  -webkit-box-shadow: 0px 0px 2px #0f0f0f;
+          box-shadow: 0px 0px 2px #0f0f0f;
+  background-color: #596ca3;
+}
+
+.contact-form-button:hover {
+  background-color: #FFAAEA;
 }
 
 /* page content */
@@ -377,6 +426,9 @@ footer {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
   /* footer */
   footer {

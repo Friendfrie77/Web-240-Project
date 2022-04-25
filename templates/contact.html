@@ -17,13 +17,15 @@ Contact Us!
         </div>
         <form class="contact-form" action="/Contact" method="POST">
                 <h2>or can ask it below!</h2>
-                <label for="name">What can we call you?</label>
-                <input class="contact-name" type="text" name="contact-name" placeholder="Your name here.." required><br>
+                <input class="contact-name" type="text" name="contact-name" autocomplete="off" required>
+                <lable for="contact-name" class="label-name">
+                    <span class="content-name">Name</span>
+                </lable>
                 <label for="email">Leave you email so we can get in touch!</label>
-                <input class="contact-email" type="email" name="email" placeholder="Email here" required>
+                <input class="contact-email" type="email" name="email" placeholder="Email here" required><br>
                 <label for="message">Whats on your mind?</label>
-                <input class="contact-message" type="text" name="message" placeholder="..." required>
-                <input type="submit">
+                <input class="contact-message" type="text" name="message" placeholder="..." required><br>
+                <input class="contact-form-button" type="submit">
         </form>
     </div>
 {% endblock %}

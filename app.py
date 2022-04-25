@@ -4,18 +4,21 @@ from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from helpers import  is_email_valid
 from flask_mail import Mail, Message
-
 app = Flask(__name__, static_url_path='/static')
-app.secret_key = b'_5#y2L"F4Q8z\n\xec]/'
-
+email= os.environ.get('email')
+email_pass= os.environ.get('email_pass')
+key= os.environ.get('app_key')
+app.secret_key = 'key'
+email= os.environ.get('email')
+email_pass= os.environ.get('email_pass')
 app.config.update(dict(
     MAIL_SERVER = 'smtp.googlemail.com',
     MAIL_PORT= 465,
     MAIL_USE_TLS= False,
     MAIL_USE_SSL= True,
-    MAIL_USERNAME= 'cs50cat@gmail.com',
-    MAIL_PASSWORD= 'NDHJiN7BX8T2XwH',
-    MAIL_DEFAULT_SENDER= 'cs50cat@gmail.com'
+    MAIL_USERNAME= email,
+    MAIL_PASSWORD= email_pass,
+    MAIL_DEFAULT_SENDER= email
 
     ))
 mail = Mail(app)

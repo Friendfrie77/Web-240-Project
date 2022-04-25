@@ -174,9 +174,7 @@ footer{
     backface-visibility: hidden;
     min-width: 100%;
 }
-.card-front{
 
-}
 .card-back{
     transform: rotateX(-180deg) translate(-100%, 0);
 
@@ -252,9 +250,33 @@ footer{
     margin-right: auto;
     border: solid .2rem $secondary-color;
     max-width: 1400px;
-    
+    padding: 15px;
+    h2{
+        font-size: 3rem;
+    }
+    input{
+        border: none;
+        &::placeholder{
+            color: pink;
+            font-size: 1.5em;
+        }
+    }
+    label{
+        font-size: 2rem;
+    }
 }
-
+.contact-name, .contact-email, .contact-message{
+    height: 25px;
+}
+.contact-form-button{
+    width: 20%;
+    font-size: 2rem;
+    box-shadow: $drop-shadow;
+    background-color: $secondary-color;
+    &:hover{
+        background-color: #FFAAEA;
+    }
+}
 /* page content */
 .headline{
     font-family: $headline-font;
@@ -301,6 +323,7 @@ footer{
     .button-wrapper{
         display: flex;
         flex-direction: column;
+        align-items: center;
     }
     /* footer */
     footer{
