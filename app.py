@@ -24,13 +24,28 @@ app.config.update(dict(
 mail = Mail(app)
 # for sending contact page messages #
 def SendContactForm(result):
-    msg=Message('Contact Form', recipients=["cs50cat@gmail.com"]) 
+    msg=Message('Contact Form', recipients=[email]) 
     msg.body= """
     Name: {}
     Email: {}
+    Subject: {}
     Message: {}
-    """.format(result['name'], result['email'], result ['message'])
-    print(msg)
+    """.format(result['name'], result['email'], result['subject'], result ['message'])
+    mail.send(msg)
+# if user wants a copy of message #
+def UserContactForm(result):
+    user_email=(result['email'])
+    msg=Message('Your copy of contact message', recipients=[user_email])
+    msg.body="""
+    Hello,
+    This is the copy of your contact message that you requested:
+    Subject:{}
+    Message:
+    {}
+    We will try to get back with you in 2-3 days.
+    Thanks,
+    Toebean Sanctuary
+    """.format(result['subject'],result['message'])
     mail.send(msg)
 # start of html pages #
 @app.route("/", methods=["GET", "POST"])
@@ -50,6 +65,7 @@ def Contact():
     if request.method == "POST":
         status = (request.form.get('email'))
         status = is_email_valid()
+        check = (request.form.get('contact-check'));
         if status == "error":
             flash("Please enter a vaild email adress!")
             return render_template("contact.html")
@@ -57,8 +73,10 @@ def Contact():
             result={}
             result['name'] = request.form.get('contact-name')
             result['email'] = request.form.get('email')
+            result['subject'] = request.form.get('subject')
             result['message'] = request.form.get('message')
-
+            if check == "yes":
+                UserContactForm(result)
             SendContactForm(result)
             return render_template("contact.html")
     else:

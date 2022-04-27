@@ -4,8 +4,9 @@ from flask import Flask, request
 from flask_mail import Mail, Message
 from email_validator import validate_email, EmailNotValidError
 
+email_api=os.environ.get('email-api')
 def is_email_valid():
-    api_key = "2b108cae-8197-46b9-89af-68d87286c19c"
+    api_key = email_api
     email_address = request.form.get('email')
     try: 
         vaild=validate_email(email_address)

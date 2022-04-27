@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block main %}
+<form class="contact-form" action="/Contact" method="POST">
+    <h2>or can ask it below!</h2>
+    <div class="email-form">                
+        <input class="contact-email" type="email" name="email" required><br>
+        <lable for="contact-email" class="label-name">
+            <span class="content-name">Email</span>
+        </lable>
+    </div>
+</form>
+{% endblock %}

@@ -3,5 +3,9 @@
 Home
 {% endblock %}
 {% block main %}
-
+<label for="email">Leave you email so we can get in touch!</label>
+<input class="contact-email" type="email" name="email" placeholder="Email here" required><br>
+<label for="message">Whats on your mind?</label>
+<input class="contact-message" type="text" name="message" placeholder="..." required><br>
+<input class="contact-form-button" type="submit">
 {% endblock %}
