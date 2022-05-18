@@ -1,0 +1,130 @@
+/* scss constants */
+    /* colors */
+$headline-colors:#2D080A;
+$primary-color:#E2C2C6;
+$secondary-color: #0d3b66;
+$button-color: #DA627D;
+$contact-animation: #DA627D;
+$contact-before: #0d3b66;
+$card-primary: red;
+$card-secondary: blue;
+    /* fonts */
+$headline-font: 'Yanone Kaffeesatz', sans-serif;
+$content-font:  'PT Sans Narrow', sans-serif;
+$drop-shadow: 0px 0px 2px #0f0f0f;
+$font-size: 16px;
+
+/* mixins */
+@mixin center {
+    margin: auto;
+    width: 50vw;
+}
+/* scss page imports */
+@import './reset';
+@import './wrappers';
+@import './navgation';
+@import './contact';
+@import './media_queries';
+
+/* flip cards */
+.card-holder{
+    display: grid;
+    grid-template: auto auto auto;
+}
+.card{
+    perspective: 40rem;
+}
+.card-body{
+    display: flex;
+    transform-style: preserve-3d;
+    transition: transform .7s;
+    &:hover, &:focus{
+        transform: rotateX(-180deg);
+    }
+}
+.card-front, .card-back{
+    backface-visibility: hidden;
+    min-width: 100%;
+}
+
+.card-back{
+    transform: rotateX(-180deg) translate(-100%, 0);
+
+}
+
+/* hero image */
+.hero{
+    position: relative;
+    height: 35%;
+    width: 100%;
+    &:after{
+        content: "";
+        background-color: #000;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity:0.03;
+    }
+}
+.hero img{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+.hero-text{
+    font-size: calc(1.2vw + 12px);
+    color: white;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-65%, 0%);
+    z-index: 2;
+    text-shadow: #000 5px 5px 10px;
+}
+.mid-page-hero{
+    height: 35%;
+    width: 100%;
+}
+.mid-page-pic{
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+/* page content */
+.headline{
+    font-family: $headline-font;
+    font-size: 3rem;
+    padding: 10px;
+}
+.content {
+    max-width: 1400px;
+    align-self: center;
+   
+    h2{
+        text-align: center;
+
+    } 
+    p{
+        padding: 0px 0px 20px 0px;
+        font-size: 2rem;
+    } 
+}
+
+/* Navbar Mobile Animation */
+#hamburger-menu.is-active{
+    .bar{
+        &:nth-child(2){
+            opacity: 0;
+        }
+        &:nth-child(1){
+            transform: translateY(8px) rotate(45deg);
+        }
+        &:nth-child(3){
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    }
+}
+

@@ -1,0 +1,162 @@
+/* contact page */
+.social-button{
+    width: 20%;
+    margin: 20px;
+    font-size: 1.5rem;
+    box-shadow: $drop-shadow;
+    background-color: $secondary-color;
+    .fa-brands{
+        font-size: 2rem;
+    }
+    &:hover{
+        background-color: blue;
+    }
+}
+.contact-form{
+    box-shadow: $drop-shadow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 10px 10px 10px;
+    max-width: 1400px;
+}
+.name-form,.email-form, .subject-form{
+    width: 50%;
+    position: relative;
+    height: 40px;
+    overflow: hidden;
+    input{
+        width: 100%;
+        height: 100%;
+        padding-top: 20px;
+        padding-left: 3px;
+        border: none;
+        outline: none;
+        font-size: 1.3rem;
+    }
+    label{
+        position: absolute;
+        bottom: 0px;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        border-bottom: 1px solid $headline-colors;
+        color: $headline-colors;
+        transform: all 0.2s ease;
+        &:after{
+            content:"";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-bottom: 3px solid $contact-animation;
+            left: 0px;
+            bottom: -1px;
+            transform: translateX(-100%);
+            transition: all 0.3s ease;
+        }
+    }
+}
+.text-form{
+    width: 50%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+    textarea{
+        width:100%;
+        height:100%;
+        resize: none;
+        border: none;
+        outline: none;
+    }
+    label{
+        position: absolute;
+        top: -90%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        color:$headline-colors;
+        transform: all 0.2s ease;
+        &:before{
+            content: "";
+            border-bottom: 2px solid $headline-colors;
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            bottom: -90%;
+        }
+        &:after{
+            content:"";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-bottom: 3px solid $contact-animation;
+            left: 0px;
+            bottom: -90%;
+            transform: translateX(-100%);
+            transition: all 0.3s ease;
+        }
+    }
+}
+.email-form, .subject-form{ 
+    label{
+        bottom: 5px;
+    }
+}
+.content-name, .contact-email, .contact-subject{
+    position: absolute;
+    bottom: 5px;
+    padding-left: 10px;
+    transform: all 0.3s ease;
+}
+.contact-check{
+    position: relative;
+    background-color: red;
+    label{
+        position: absolute;
+        top: 0px;
+    }
+}
+/* contact page animation */
+.name-form input:focus + .label-name .content-name, .name-form input:valid + .label-name .content-name{
+    transform: translateY(-75%);
+    padding-left: 0px;
+    color: rgba(127, 127, 127, .5);
+}
+.name-form input:focus + .label-name::after, .name-form input:valid + .label-name::after{
+    transform: translateX(0%);
+}
+.email-form input:focus + .label-name .content-name, .email-form input:not(:placeholder-shown) + .label-name .content-name{
+    transform: translateY(-55%);
+    padding-left: 0px;
+    color: rgba(127, 127, 127, .5);
+}
+.email-form input:focus + .label-name::after, .email-form input:not(:placeholder-shown) + .label-name::after{
+    transform: translateX(0%);
+}
+.subject-form input:focus + .label-name .content-name, .subject-form input:valid + .label-name .content-name{
+    transform: translateY(-55%);
+    padding-left: 0px;
+    color: rgba(127, 127, 127, .5);
+}
+.subject-form input:focus + .label-name::after, .subject-form input:valid + .label-name::after{
+    transform: translateX(0%);
+}
+.text-form textarea:focus + .label-name .content-name, .text-form textarea:valid + .label-name .content-name{
+    transform: translateY(1100%);
+    color: rgba(127, 127, 127, .2);
+}
+.text-form textarea:focus + .label-name::after, .text-form textarea:valid + .label-name::after{
+    transform: translateX(0%);
+}
+.contact-form-button{
+    width: 20%;
+    font-size: 2rem;
+    box-shadow: $drop-shadow;
+    background-color: $secondary-color;
+    &:hover{
+        background-color: #FFAAEA;
+    }
+}

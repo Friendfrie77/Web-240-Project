@@ -1,0 +1,138 @@
+/* navigation */
+.navbar{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    height: 75px;
+    overflow: hidden;
+    background-color: $secondary-color;
+    box-shadow: 0px 0px 10px #0f0f0f;
+    z-index: 1000;
+}
+.navbar img{
+    height: 55px;
+    width: auto;
+    justify-self: start;
+    margin-left: 20px;
+}
+.navbar .nav{
+    display: grid;
+    list-style: none;
+    grid-template-columns: repeat(5,1fr);
+    gap: 5px;
+    justify-self: end;
+    transition: .7s ease-in-out;
+    z-index: 100;
+    .nav-item{
+        &:nth-child(5){
+            padding-right: 15px;
+        }
+    }
+}
+.navbar .nav a{
+    color:#000;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: color 0.3s ease-out;
+    &:hover{
+        color:pink;
+    }
+}
+
+.hamburger{
+    justify-self: end;
+    margin-right: 25px;
+    display: none;
+    &:hover{
+        cursor: pointer;
+    }
+    .bar{
+        width:25px;
+        height: 3px;
+        background-color: #000;
+        margin: 5px auto;
+        transition: all 0.3s ease-in-out;
+    }
+}
+/* footer */
+footer{
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr 1fr;
+    align-items: center;
+    background-color: $secondary-color;
+    margin-top: auto;
+    padding-bottom: 15px;
+    min-height: 200px;
+}
+.email-error{
+    font-size: 1.2rem;
+    background-color: $button-color;
+    position: relative;
+    bottom: 10px;
+    left: 80px;
+    padding: 3px 4px 4px 3px;
+    border-radius: 10px 10px 0px 10px;
+    color: #fff;
+}
+.social-links{
+
+    justify-self: center;
+    h3{
+        color: $headline-colors;
+        padding-left: 10px;
+    }
+}
+.fa-brands{
+    color: $button-color;
+    font-size: 3.4rem;
+    padding: 10px 10px 10px 10px;
+    text-align: center;
+}
+.newletter-wrapper{
+    justify-self: center;
+    h3{
+        color: $headline-colors;
+        padding-bottom: 15px;
+    }
+    h4{
+        color: $headline-colors;
+        padding-top: 20px;
+        text-align: center;
+    }
+}
+.newsletter-box{
+    width: 65%;
+    height: 25px;
+}
+.newsletter-button{
+    height: 25px;
+    width: 80px;
+}
+.site-map{
+    justify-self: center;
+}
+.bottom-nav-item{
+    list-style:none;
+    a{
+        text-decoration: none;
+        color: $headline-colors;
+        transform: color .7s ease-out;
+        &:hover{
+            color: $button-color;
+        }
+    }
+}
+/* Navbar Mobile Animation */
+#hamburger-menu.is-active{
+    .bar{
+        &:nth-child(2){
+            opacity: 0;
+        }
+        &:nth-child(1){
+            transform: translateY(8px) rotate(45deg);
+        }
+        &:nth-child(3){
+            transform: translateY(-8px) rotate(-45deg);
+        }
+    }
+}
