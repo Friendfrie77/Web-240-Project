@@ -14,6 +14,11 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- google font-->
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&family=Yanone+Kaffeesatz:wght@700&display=swap" rel="stylesheet">
+        <!-- gsap -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/Flip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.css">
     </head>
     <body>
         <div class="wrapper">
@@ -66,7 +71,7 @@
                 <h3>Navigation</h3>
                 <ul class="bottom-nav">
                     <li class="bottom-nav-item"><a href="{{ url_for('index') }}">Home</a></li>
-                    <li class="bottom-nav-item"><a href="">Cats</a></li>
+                    <li class="bottom-nav-item"><a href="{{ url_for('Cats') }}">Cats</a></li>
                     <li class="bottom-nav-item"><a href="">About</a></li>
                     <li class="bottom-nav-item"><a href="">Contact</a></li>
                     <li class="bottom-nav-item"><a href="">Volunteer</a></li>
@@ -74,8 +79,6 @@
             </div>
         </footer>
         </div>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js"></script>
-    <script src="static/scripts.js" async defer></script>
+    <script src="../static/scripts/scripts.js" async defer></script>
     </body>
 </html>

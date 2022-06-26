@@ -1,10 +1,11 @@
 import os
-from unittest import result
+import sqlite3
 from flask import Flask, render_template, request, flash
-from flask_sqlalchemy import SQLAlchemy
-from helpers import  is_email_valid
 from flask_mail import Mail, Message
+
 app = Flask(__name__, static_url_path='/static')
+from helpers import is_email_valid
+
 email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
 key= os.environ.get('app_key')
@@ -58,13 +59,28 @@ def Cats():
 
 @app.route("/Volunteer", methods=["Get", "POST"])
 def Volunteer():
-    return render_template("volunteer.html")
+    freejob = []
+    day = []
+    job = []
+    jobs = sqlite3.connect("Site.db")
+    cur = jobs.cursor()
+    cur.execute('SELECT * FROM TDayJobs WHERE Taken = "0"')
+    result = cur.fetchall()
+    for results in result:
+        day.append(results[1])
+        freejob.append(results[2])
+    cur.execute('SELECT * FROM TJobs')
+    result = cur.fetchall()
+    for results in result:
+        job.append(results)
+    jobs.close
+    return render_template("volunteer.html", day=day, job=job)
 
 @app.route("/Contact", methods=["GET", "POST"])
 def Contact():
     if request.method == "POST":
         status = (request.form.get('email'))
-        status = is_email_valid()
+        status = is_email_valid(status)
         check = (request.form.get('contact-check'));
         if status == "error":
             flash("Please enter a vaild email adress!")
@@ -93,11 +109,32 @@ def Thanks():
 @app.route("/Newsletter", methods=["POST"])
 def newsletter():
     if request.method == "POST":
-        status = is_email_valid(request.form.get('email'))
+        news_letter_email=request.form.get('email')
+        status = is_email_valid(news_letter_email)
         if status == "error":
             flash("Invaild email adresss!", "warning")
             return render_template("index.html")
         if status == "valid":
-            flash("Thank you for signing up!", "info")
-            return render_template("index.html")
+            #sqlite connection to check if email is in db already.
+            connection = sqlite3.connect("Site.db")
+            cur = connection.cursor()
+            result = cur.execute("SELECT NewsLetterPK FROM TNewsLetter WHERE STREmail='{email}'".format(email=news_letter_email))
+            result = result.fetchone()
+            if result is None:
+                cur.execute("INSERT INTO TNewsLetter (StrEmail) VALUES ('{email}')".format(email=news_letter_email))
+                connection.commit()
+                connection.close()
+                #sending newsletter
+                print(news_letter_email)
+                with app.open_resource("static/newsletters/newsletter.pdf") as fp:
+                    msg=Message("Monthly News Letter", recipients=[news_letter_email])
+                    msg.body="Here is this months newsletter"
+                    msg.attach("newsletter.pdf", "application/pdf", fp.read())
+                mail.send(msg)
+                flash("Thank you for signing up!", "info")
+                return render_template("index.html")
+            else:
+                flash("Looks like you are already signed up", "warning")
+                return render_template("index.html")
 
+       

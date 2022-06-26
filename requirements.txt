@@ -2,8 +2,9 @@
 # Usage: pip install -r requirements.txt
 
 # Flask Framework
-Flask==1.0.2
+Flask==2.0.2
 
 #Flask Packages
 flask-mail==0.9.1
 email-validator==1.1.1
+sqlite3==3.37.0

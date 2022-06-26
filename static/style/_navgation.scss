@@ -31,7 +31,7 @@
 }
 .navbar .nav a{
     color:#000;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     text-decoration: none;
     transition: color 0.3s ease-out;
     &:hover{
@@ -90,6 +90,7 @@ footer{
 }
 .newletter-wrapper{
     justify-self: center;
+    width: 40%;
     h3{
         color: $headline-colors;
         padding-bottom: 15px;
@@ -113,6 +114,7 @@ footer{
 }
 .bottom-nav-item{
     list-style:none;
+    font-size: 1.4rem;
     a{
         text-decoration: none;
         color: $headline-colors;

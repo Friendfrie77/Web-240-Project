@@ -19,79 +19,29 @@ $font-size: 16px;
     margin: auto;
     width: 50vw;
 }
+@mixin parallax{
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+@mixin form-p{
+    font-size: 1.5rem;
+    line-height: 1.75;
+}
+@mixin  form-h2 {
+    text-align: center;
+    font-size: 3rem;
+}
 /* scss page imports */
 @import './reset';
 @import './wrappers';
 @import './navgation';
 @import './contact';
+@import './volunteer';
+@import './images';
+@import './calander';
 @import './media_queries';
-
-/* flip cards */
-.card-holder{
-    display: grid;
-    grid-template: auto auto auto;
-}
-.card{
-    perspective: 40rem;
-}
-.card-body{
-    display: flex;
-    transform-style: preserve-3d;
-    transition: transform .7s;
-    &:hover, &:focus{
-        transform: rotateX(-180deg);
-    }
-}
-.card-front, .card-back{
-    backface-visibility: hidden;
-    min-width: 100%;
-}
-
-.card-back{
-    transform: rotateX(-180deg) translate(-100%, 0);
-
-}
-
-/* hero image */
-.hero{
-    position: relative;
-    height: 35%;
-    width: 100%;
-    &:after{
-        content: "";
-        background-color: #000;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        opacity:0.03;
-    }
-}
-.hero img{
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-}
-.hero-text{
-    font-size: calc(1.2vw + 12px);
-    color: white;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-65%, 0%);
-    z-index: 2;
-    text-shadow: #000 5px 5px 10px;
-}
-.mid-page-hero{
-    height: 35%;
-    width: 100%;
-}
-.mid-page-pic{
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-}
 
 /* page content */
 .headline{
@@ -102,7 +52,6 @@ $font-size: 16px;
 .content {
     max-width: 1400px;
     align-self: center;
-   
     h2{
         text-align: center;
 

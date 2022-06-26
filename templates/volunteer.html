@@ -1,15 +1,32 @@
 {% extends "layout.html" %}
 {% block title %}
-Home
+Volunteer
 {% endblock %}
 {% block main %}
-<form class="contact-form" action="/Contact" method="POST">
-    <h2>or can ask it below!</h2>
-    <div class="email-form">                
-        <input class="contact-email" type="email" name="email" required><br>
-        <lable for="contact-email" class="label-name">
-            <span class="content-name">Email</span>
-        </lable>
+<div class="volunteer-wrapper">
+    <h2>Got some free time?</h2>
+    <p>Do you have free time that you would like to spend helping cats? Well, you are in luck! Below you can find some jobs that are available to do. Just either select a job to see what day it is available or select a day that you are free to see what job is open that day. If you just want to spend time with the cats, that’s an option too. The cats love having people spend time just playing and petting them.</p>
+
+        <div id="calander"></div>
+        {% for jobs in job %}
+        <div class="jobs">
+            <h2>{{jobs[1]}}</h2>
+            <p><img class="job-image" src={{jobs[3]}} alt="{{jobs[4]}}" target="{{jobs[0]}}">{{jobs[2]}}</p>
+            <div class="calendar-wrapper" id="job{{jobs[0]}}">
+                <iframe class="calendar" src={{jobs[5]}} width="800px" height="600px"></iframe>
+                <form>
+                    
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+<div class="donation-wrapper">
+    <h2>Got some help fund world purrnation?</h2>
+    <p>Short on time or do you want to help fund our every growing army of cats? You can donate directly to us below! We also have both an Amazon wish list and a Chewy wish list of our most needed supplies. Be sure to enter in your email so we can send you a thank you, and some personalized pictures of your donation in use!</p>
+    <div class="logo-grid">
+        <i class="fa-brands fa-amazon"></i>
     </div>
-</form>
+</div>
+<script src="../static/scripts/volunteer.js"></script>
 {% endblock %}

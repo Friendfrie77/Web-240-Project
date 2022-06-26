@@ -3,10 +3,6 @@
 Contact Us!
 {% endblock %}
 {% block main %}
-    <div class="hero">
-        <img src="static/images/contact_page.webp" alt="Ziggy the cat">
-        <h1 class="hero-text">Whats on your mind?</h1>
-    </div>
     <div class="contact-wrapper">
         <h1>Got a question?</h1>
         <h2>You can get in touch with us on these platforms!</h2>
@@ -22,27 +18,28 @@ Contact Us!
                 <div class="name-form">                
                     <input class="contact-name" type="text" name="contact-name" autocomplete="off" required>
                     <label for="contact-name" class="label-name">
-                        <span class="content-name">Name</span>
+                        <span class="content-name">Name<small>*</small></span>
                     </lable>
                 </div><br>
                 <div class="email-form">                
                     <input class="contact-email" type="email" name="email" autocomplete="off" required placeholder=" ">
                     <label for="contact-email" class="label-name">
-                        <span class="content-name">Email</span>
+                        <span class="content-name">Email<small>*</small></span>
                     </lable>
                 </div><br>                
                 <div class="subject-form">                
                     <input class="contact-subject" type="text" name="subject" autocomplete="off" required>
                     <label for="contact-subject" class="label-name">
-                        <span class="content-name">Subject</span>
+                        <span class="content-name">Subject<small>*</small></span>
                     </lable>
                 </div><br>
                 <div class="text-form">                
                     <textarea name="message" class="contact-message" autocomplete="off" required></textarea>
                     <label for="contact-message" class="label-name">
-                        <span class="content-name">Message</span>
+                        <span class="content-name">Message<small>*</small></span>
                     </lable>
                 </div><br>
+                <span>* Required Field</span>
                 <input class="contact-form-button" type="submit"><br>
                 <input class="contact-check" type="checkbox" value="yes" name="contact-check"> 
                 <label for="contact-check">Click here if you want a copy of the message</lable>

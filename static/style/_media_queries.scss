@@ -1,11 +1,6 @@
 /* Media Queries */
     /* Mobile Devices */
     @media only screen and (max-width: 720px){
-        /* hero img */
-        .hero-text{
-            font-size: calc(1.1vw + 10px);
-            left: 42%
-        }
         /* contact page */
         .center{
             width: 80vw;
@@ -17,6 +12,12 @@
         }
         .social-button{
             width: 40%;
+        }
+        .name-form,.email-form, .subject-form, .text-form{
+            width: 100%;
+        }
+        .contact-form-button{
+            width: 80%;
         }
         /* footer */
         footer{
@@ -33,7 +34,7 @@
             width: 100%;
         }
         .newsletter-button{
-            width: 30%;
+            width: 100%;
         }
         /* Mobile navigation */
         .navbar .nav{

@@ -1,0 +1,26 @@
+/* hero image */
+.index-img-1{
+    background-image: url("../images/parallax/index_hero.webp");
+    min-height: 600px;
+    @include parallax;
+    
+}
+.index-img-2{
+    background-image: url("../images/parallax/Boo_large.webp");
+    min-height: 600px;
+    @include parallax;
+}
+
+/* index page gallary */
+.card-holder{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-bottom: 10px;
+}
+.cat-card{
+    cursor: pointer;
+    font-size: 0;
+}
+.detail {
+    position: fixed;
+}

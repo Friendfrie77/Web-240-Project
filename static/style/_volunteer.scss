@@ -1,0 +1,123 @@
+.job-image{
+    float: right;
+}
+.volunteer-wrapper{
+    max-width: 1400px;
+    margin: 0 auto;
+    clear: right;
+    p{
+        @include form-p;
+        margin-bottom: 15px;
+    }
+    h2{
+        @include form-h2;
+    }
+}
+.donation-wrapper{
+    max-width: 1400px;
+    margin: 0 auto;
+    p{
+        @include form-p;
+    }
+    h2{
+        @include form-h2;
+    }
+}
+.jobs{
+    clear:right;
+    margin-bottom: 20px;
+    border: 10px solid transparent;
+    border-image: url("../images/tiles/boarder-test.png") round 65; 
+    border-radius: 10px;
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    background-color:$secondary-color;
+    box-shadow: 0 0 15px black;
+}
+.calendar-wrapper{
+    display: none;
+    position: relative;
+    width: 100%;
+    height: 600px;
+    padding: 25px;
+    margin-top: 15px;
+    iframe{
+        position: absolute;
+        top:0;
+        left:0;
+        height: 100%;
+        width: 100%;
+    }
+}
+.calender{
+    width: 800px;
+    height: auto;
+}
+.volunteer-form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    max-width: 100%;
+    margin: auto;
+}
+.selVol{
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.date-wrapper{
+    width: 20%;
+    position: relative;
+    height: 40px;
+    overflow: hidden;
+    input{
+        width: 100%;
+        height: 100%;
+        padding-top: 20px;
+        padding-left: 3px;
+        border: none;
+        outline: none;
+        font-size: 1.3rem;
+    }
+    label{
+        position: absolute;
+        bottom: 0px;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        border-bottom: 1px solid $headline-colors;
+        color: $headline-colors;
+        transform: all 0.2s ease;
+        &:after{
+            content:"";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            border-bottom: 3px solid $contact-animation;
+            left: 0px;
+            bottom: -1px;
+            transform: translateX(-100%);
+            transition: all 0.3s ease;
+        }
+    }
+}
+
+.label-span{
+    position: absolute;
+    bottom: 100;
+    padding-left: 10px;
+    transform: all 0.3s ease;
+}
+/* animations */
+.date-wrapper input:focus + .label-name .label-span, .date-wrapper input:valid + .label-name .label-span{
+    transform: translateY(-75%);
+    padding-left: 0px;
+    color: rgba(127, 127, 127, .5);
+}
+.date-wrapper input:focus + .label-name::after, .date-wrapper input:valid + .label-name::after{
+    transform: translateX(0%);
+}
+
