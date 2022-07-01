@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, flash
 from flask_mail import Mail, Message
 from sqlalchemy import ForeignKey, create_engine
+import sqlalchemy
 app = Flask(__name__, static_url_path='/static')
 from helpers import is_email_valid, calinfo
 from flask_sqlalchemy import SQLAlchemy
@@ -32,14 +33,11 @@ app.config.update(dict(
 mail = Mail(app)
 db= SQLAlchemy(app)
 engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
-print(engine.table_names())
 #db model
 class Useremail(db.Model):
-    NesletterID = db.Column(db.Integer, primary_key=True)
+    NewletterID = db.Column(db.Integer, primary_key=True)
     txtEmail= db.Column(db.String(200), nullable = False, unique = True )
 
-    def __repr__(self):
-        return '<Name %r>' % self.name
 class Jobs(db.Model):
     JobsID = db.Column(db.Integer, primary_key=True)
     txtJobName = db.Column(db.String(200), nullable = False)
@@ -47,10 +45,6 @@ class Jobs(db.Model):
     txtJobpic = db.Column(db.String(200), nullable = False)
     txtImgalt = db.Column(db.String(200), nullable = False)
     volunteers = db.relationship('jobopen', backref= 'jobs')
-
-    def __repr__(self):
-        return '<Name %r>' % self.name
-
 class jobopen(db.Model):
     JobopenID = db.Column(db.Integer, primary_key=True)
     JobID = db.Column(db.Integer, db.ForeignKey('jobs.JobsID'), nullable=False)
@@ -99,47 +93,51 @@ def Cats():
 def Volunteer():
     job = []
     jobs_ID=[]
+    query= sqlalchemy.select(Jobs)
+    result = engine.execute(query).fetchall()
     for results in result:
         jobs_ID.append(results[0])
         job.append(results)
-    jobs.close
     if request.method == "POST":
         count = 0
         partysize=int((request.form.get('party-size')))
         jobID= request.form.get('job-ID')
         txtCal= request.form.get('txtCal')
         txtTime= request.form.get('txtTime')
-        jobs = sqlite3.connect("Site.db")
-        cur = jobs.cursor()
-        cur.execute("SELECT * FROM TDAYJOBS")
-        result = cur.fetchall()
         count += partysize
         for number in jobs_ID:
             if int(jobID) == number:
-                cur.execute("SELECT * FROM TDayJobs WHERE JobID=?", jobID)
-                result= cur.fetchall()
-                if (jobID != "2") or (jobID != "3"):
-                    if count < 30:
-                        for results in result:
-                            if results[2] == txtCal:
-                                count += results[4]
-                        cur.execute("INSERT INTO TDayJobs (JobID, txtDate, txtTime, intPartySize) values (?,?,?,?)", (int(jobID), txtCal, txtTime, partysize))
-                        jobs.commit()
-                        jobs.close
-                        jobinfo= calinfo(jobID)
-                        return redirect('thanks.html')
-                    else:
-                        return redirect('volunteer.html', job=job)
-                elif (jobID == "2") or (jobID == "3"):
-                    if count < 10:
-                        for results in result:
-                            if results[2] == txtCal:
-                                count =+ results[4]
-                        cur.execute("INSERT INTO TDayJobs (JobID, txtDate, txtTime, intPartySize) values (?,?,?,?)", (int(jobID), txtCal, txtTime, partysize))
-                        jobs.commit()
-                        jobs.close
-                else:
-                    render_template("thanks.html")
+                print(jobID)
+                test=jobopen.query.filter_by(JobID=jobID)
+                print(test)
+                # Useremail.query.filter_by(txtEmail=news_letter_email)
+                # query = sqlalchemy.select(jobopen).filter_by(JobID=jobID)
+                # result = engine.execute(query).fetchall()
+                return redirect('thanks.html')
+                # cur.execute("SELECT * FROM TDayJobs WHERE JobID=?", jobID)
+                # result= cur.fetchall()
+                # if (jobID != "2") or (jobID != "3"):
+                #     if count < 30:
+                #         for results in result:
+                #             if results[2] == txtCal:
+                #                 count += results[4]
+                #         cur.execute("INSERT INTO TDayJobs (JobID, txtDate, txtTime, intPartySize) values (?,?,?,?)", (int(jobID), txtCal, txtTime, partysize))
+                #         jobs.commit()
+                #         jobs.close
+                #         jobinfo= calinfo(jobID)
+                        # return redirect('thanks.html')
+                #     else:
+                #         return redirect('volunteer.html', job=job)
+                # elif (jobID == "2") or (jobID == "3"):
+                #     if count < 10:
+                #         for results in result:
+                #             if results[2] == txtCal:
+                #                 count =+ results[4]
+                #         cur.execute("INSERT INTO TDayJobs (JobID, txtDate, txtTime, intPartySize) values (?,?,?,?)", (int(jobID), txtCal, txtTime, partysize))
+                #         jobs.commit()
+                #         jobs.close
+                # else:
+                #     render_template("thanks.html")
         return render_template("volunteer.html", job=job)
     return render_template("volunteer.html", job=job)
 
@@ -182,30 +180,20 @@ def newsletter():
             flash("Invaild email adresss!", "warning")
             return redirect(request.referrer)
         if status == "valid":
-            user = Useremail.query.fliter_by(news_letter_email).first()
+            user = Useremail.query.filter_by(txtEmail=news_letter_email).first()
             if user is None:
-                print('test')
-            #sqlite connection to check if email is in db already.
-            # connection = sqlite3.connect("Site.db")
-            # cur = connection.cursor()
-            # result = cur.execute("SELECT NewsLetterPK FROM TNewsLetter WHERE STREmail='{email}'".format(email=news_letter_email))
-            # result = result.fetchone()
-            # result = db.session.query(Newsletter).filter(Newsletter.txtEmail)
-            # if result is None:
-            #     cur.execute("INSERT INTO TNewsLetter (StrEmail) VALUES ('{email}')".format(email=news_letter_email))
-            #     connection.commit()
-            #     connection.close()
-            #     #sending newsletter
-            #     print(news_letter_email)
-            #     with app.open_resource("static/newsletters/newsletter.pdf") as fp:
-            #         msg=Message("Monthly News Letter", recipients=[news_letter_email])
-            #         msg.body="Here is this months newsletter"
-            #         msg.attach("newsletter.pdf", "application/pdf", fp.read())
-            #     mail.send(msg)
-            #     flash("Thank you for signing up!", "info")
-            #     return redirect(request.referrer)
-            # else:
-            #     flash("Looks like you are already signed up", "warning")
-            #     return redirect(request.referrer)
+                user= Useremail(txtEmail=news_letter_email)
+                db.session.add(user)
+                db.session.commit()
+                with app.open_resource("static/newsletters/newsletter.pdf") as fp:
+                    msg=Message("Monthly News Letter", recipients=[news_letter_email])
+                    msg.body="Here is this months newsletter"
+                    msg.attach("newsletter.pdf", "application/pdf", fp.read())
+                mail.send(msg)
+                flash("Thank you for signing up!", "info")
+                return redirect(request.referrer)
+            else:
+                flash("Looks like you are already signed up", "warning")
+                return redirect(request.referrer)
 
        
