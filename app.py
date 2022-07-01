@@ -17,9 +17,8 @@ app.secret_key = 'key'
 email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
 email_api=os.environ.get('email_api')
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht'
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config.update(dict(
     MAIL_SERVER = 'smtp.googlemail.com',
     MAIL_PORT= 465,
