@@ -8,6 +8,7 @@ from sqlalchemy import create_engine
 app = Flask(__name__, static_url_path='/static')
 from helpers import is_email_valid, calinfo
 from flask_sqlalchemy import SQLAlchemy
+
 load_dotenv() 
 email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
@@ -30,8 +31,8 @@ app.config.update(dict(
     ))
 mail = Mail(app)
 db= SQLAlchemy(app)
-con = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
-dbcon = con.connect()
+engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
+print(engine.table_names())
 #db model
 class Newsletter(db.Model):
     NesletterID = db.Column(db.Integer, primary_key=True)
@@ -41,7 +42,8 @@ class Newsletter(db.Model):
         return '<Name %r>' % self.name
 class TJobs(db.Model):
     JobsID = db.Column(db.Integer, primary_key=True)
-    txtJobdes = db.Column(db.String(200), nullable = False)
+    txtJobName = db.Column(db.String(200), nullable = False)
+    txtJobdes = db.Column(db.String(6000), nullable = False)
     txtJobpic = db.Column(db.String(200), nullable = False)
     txtImgalt = db.Column(db.String(200), nullable = False)
 
@@ -87,10 +89,6 @@ def Cats():
 def Volunteer():
     job = []
     jobs_ID=[]
-    jobs = sqlite3.connect("db")
-    cur = jobs.cursor()
-    cur.execute('SELECT * FROM TJobs')
-    result = cur.fetchall()
     for results in result:
         jobs_ID.append(results[0])
         job.append(results)
