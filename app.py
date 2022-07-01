@@ -1,6 +1,7 @@
 from enum import unique
 import os
 import sqlite3
+from unittest import result
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, flash
 from flask_mail import Mail, Message
@@ -30,10 +31,10 @@ app.config.update(dict(
     ))
 mail = Mail(app)
 db= SQLAlchemy(app)
-# engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
-# print(engine.table_names())
+engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
+print(engine.table_names())
 #db model
-class Newsletter(db.Model):
+class Useremail(db.Model):
     NesletterID = db.Column(db.Integer, primary_key=True)
     txtEmail= db.Column(db.String(200), nullable = False, unique = True )
 
@@ -45,13 +46,13 @@ class Jobs(db.Model):
     txtJobdes = db.Column(db.String(6000), nullable = False)
     txtJobpic = db.Column(db.String(200), nullable = False)
     txtImgalt = db.Column(db.String(200), nullable = False)
-    volunteers = db.relationship('JobRes', backref= 'jobs')
+    volunteers = db.relationship('jobopen', backref= 'jobs')
 
     def __repr__(self):
         return '<Name %r>' % self.name
 
-class Volunteer(db.Model):
-    JobResID = db.Column(db.Integer, primary_key=True)
+class jobopen(db.Model):
+    JobopenID = db.Column(db.Integer, primary_key=True)
     JobID = db.Column(db.Integer, db.ForeignKey('jobs.JobsID'), nullable=False)
     txtDate = db.Column(db.String(200), nullable=False)
     txtTime = db.Column(db.String(200), nullable=False)
@@ -59,7 +60,6 @@ class Volunteer(db.Model):
 
     def __repr__(self):
         return '<Name %r>' % self.name
-
 
 # for sending contact page messages #
 def SendContactForm(result):
@@ -182,26 +182,30 @@ def newsletter():
             flash("Invaild email adresss!", "warning")
             return redirect(request.referrer)
         if status == "valid":
+            user = Useremail.query.fliter_by(news_letter_email).first()
+            if user is None:
+                print('test')
             #sqlite connection to check if email is in db already.
-            connection = sqlite3.connect("Site.db")
-            cur = connection.cursor()
-            result = cur.execute("SELECT NewsLetterPK FROM TNewsLetter WHERE STREmail='{email}'".format(email=news_letter_email))
-            result = result.fetchone()
-            if result is None:
-                cur.execute("INSERT INTO TNewsLetter (StrEmail) VALUES ('{email}')".format(email=news_letter_email))
-                connection.commit()
-                connection.close()
-                #sending newsletter
-                print(news_letter_email)
-                with app.open_resource("static/newsletters/newsletter.pdf") as fp:
-                    msg=Message("Monthly News Letter", recipients=[news_letter_email])
-                    msg.body="Here is this months newsletter"
-                    msg.attach("newsletter.pdf", "application/pdf", fp.read())
-                mail.send(msg)
-                flash("Thank you for signing up!", "info")
-                return redirect(request.referrer)
-            else:
-                flash("Looks like you are already signed up", "warning")
-                return redirect(request.referrer)
+            # connection = sqlite3.connect("Site.db")
+            # cur = connection.cursor()
+            # result = cur.execute("SELECT NewsLetterPK FROM TNewsLetter WHERE STREmail='{email}'".format(email=news_letter_email))
+            # result = result.fetchone()
+            # result = db.session.query(Newsletter).filter(Newsletter.txtEmail)
+            # if result is None:
+            #     cur.execute("INSERT INTO TNewsLetter (StrEmail) VALUES ('{email}')".format(email=news_letter_email))
+            #     connection.commit()
+            #     connection.close()
+            #     #sending newsletter
+            #     print(news_letter_email)
+            #     with app.open_resource("static/newsletters/newsletter.pdf") as fp:
+            #         msg=Message("Monthly News Letter", recipients=[news_letter_email])
+            #         msg.body="Here is this months newsletter"
+            #         msg.attach("newsletter.pdf", "application/pdf", fp.read())
+            #     mail.send(msg)
+            #     flash("Thank you for signing up!", "info")
+            #     return redirect(request.referrer)
+            # else:
+            #     flash("Looks like you are already signed up", "warning")
+            #     return redirect(request.referrer)
 
        
