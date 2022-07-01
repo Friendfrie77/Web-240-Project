@@ -17,9 +17,9 @@ app.secret_key = 'key'
 email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
 email_api=os.environ.get('email_api')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///project.db'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///test.db'
 app.config.update(dict(
     MAIL_SERVER = 'smtp.googlemail.com',
     MAIL_PORT= 465,
@@ -31,28 +31,29 @@ app.config.update(dict(
     ))
 mail = Mail(app)
 db= SQLAlchemy(app)
-engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
-print(engine.table_names())
+# engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
+# print(engine.table_names())
 #db model
-class TNewsletter(db.Model):
+class Newsletter(db.Model):
     NesletterID = db.Column(db.Integer, primary_key=True)
     txtEmail= db.Column(db.String(200), nullable = False, unique = True )
 
     def __repr__(self):
         return '<Name %r>' % self.name
-class TJobs(db.Model):
+class Jobs(db.Model):
     JobsID = db.Column(db.Integer, primary_key=True)
     txtJobName = db.Column(db.String(200), nullable = False)
     txtJobdes = db.Column(db.String(6000), nullable = False)
     txtJobpic = db.Column(db.String(200), nullable = False)
     txtImgalt = db.Column(db.String(200), nullable = False)
+    volunteers = db.relationship('JobRes', backref= 'jobs')
 
     def __repr__(self):
         return '<Name %r>' % self.name
 
-class TJobRes(db.Model):
+class Volunteer(db.Model):
     JobResID = db.Column(db.Integer, primary_key=True)
-    JobID = db.Column(db.Integer, db.ForeignKey('TJobs.JobsID'), nullable=False)
+    JobID = db.Column(db.Integer, db.ForeignKey('jobs.JobsID'), nullable=False)
     txtDate = db.Column(db.String(200), nullable=False)
     txtTime = db.Column(db.String(200), nullable=False)
     intPartySize = db.Column(db.Integer, nullable=False)
