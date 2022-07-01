@@ -4,7 +4,7 @@ import sqlite3
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, flash
 from flask_mail import Mail, Message
-from sqlalchemy import create_engine
+from sqlalchemy import ForeignKey, create_engine
 app = Flask(__name__, static_url_path='/static')
 from helpers import is_email_valid, calinfo
 from flask_sqlalchemy import SQLAlchemy
@@ -34,7 +34,7 @@ db= SQLAlchemy(app)
 engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
 print(engine.table_names())
 #db model
-class Newsletter(db.Model):
+class TNewsletter(db.Model):
     NesletterID = db.Column(db.Integer, primary_key=True)
     txtEmail= db.Column(db.String(200), nullable = False, unique = True )
 
@@ -46,6 +46,16 @@ class TJobs(db.Model):
     txtJobdes = db.Column(db.String(6000), nullable = False)
     txtJobpic = db.Column(db.String(200), nullable = False)
     txtImgalt = db.Column(db.String(200), nullable = False)
+
+    def __repr__(self):
+        return '<Name %r>' % self.name
+
+class TJobRes(db.Model):
+    JobResID = db.Column(db.Integer, primary_key=True)
+    JobID = db.Column(db.Integer, db.ForeignKey('TJobs.JobsID'), nullable=False)
+    txtDate = db.Column(db.String(200), nullable=False)
+    txtTime = db.Column(db.String(200), nullable=False)
+    intPartySize = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return '<Name %r>' % self.name
