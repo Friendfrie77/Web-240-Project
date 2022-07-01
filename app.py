@@ -1,17 +1,21 @@
 import os
 import sqlite3
-from flask import Flask, render_template, request, flash
+from dotenv import load_dotenv
+from flask import Flask, redirect, render_template, request, flash
 from flask_mail import Mail, Message
-
 app = Flask(__name__, static_url_path='/static')
-from helpers import is_email_valid
-
+from helpers import is_email_valid, calinfo
+import googlecalupdate
+from flask_sqlalchemy import SQLAlchemy
+load_dotenv() 
 email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
 key= os.environ.get('app_key')
 app.secret_key = 'key'
 email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
+email_api=os.environ.get('email_api')
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht'
 app.config.update(dict(
     MAIL_SERVER = 'smtp.googlemail.com',
     MAIL_PORT= 465,
@@ -20,9 +24,9 @@ app.config.update(dict(
     MAIL_USERNAME= email,
     MAIL_PASSWORD= email_pass,
     MAIL_DEFAULT_SENDER= email
-
     ))
 mail = Mail(app)
+db= SQLAlchemy(app)
 # for sending contact page messages #
 def SendContactForm(result):
     msg=Message('Contact Form', recipients=[email]) 
@@ -59,22 +63,56 @@ def Cats():
 
 @app.route("/Volunteer", methods=["Get", "POST"])
 def Volunteer():
-    freejob = []
-    day = []
     job = []
+    jobs_ID=[]
     jobs = sqlite3.connect("Site.db")
     cur = jobs.cursor()
-    cur.execute('SELECT * FROM TDayJobs WHERE Taken = "0"')
-    result = cur.fetchall()
-    for results in result:
-        day.append(results[1])
-        freejob.append(results[2])
     cur.execute('SELECT * FROM TJobs')
     result = cur.fetchall()
     for results in result:
+        jobs_ID.append(results[0])
         job.append(results)
     jobs.close
-    return render_template("volunteer.html", day=day, job=job)
+    if request.method == "POST":
+        count = 0
+        partysize=int((request.form.get('party-size')))
+        jobID= request.form.get('job-ID')
+        txtCal= request.form.get('txtCal')
+        txtTime= request.form.get('txtTime')
+        jobs = sqlite3.connect("Site.db")
+        cur = jobs.cursor()
+        cur.execute("SELECT * FROM TDAYJOBS")
+        result = cur.fetchall()
+        count += partysize
+        for number in jobs_ID:
+            if int(jobID) == number:
+                cur.execute("SELECT * FROM TDayJobs WHERE JobID=?", jobID)
+                result= cur.fetchall()
+                if (jobID != "2") or (jobID != "3"):
+                    if count < 30:
+                        for results in result:
+                            if results[2] == txtCal:
+                                count += results[4]
+                        cur.execute("INSERT INTO TDayJobs (JobID, txtDate, txtTime, intPartySize) values (?,?,?,?)", (int(jobID), txtCal, txtTime, partysize))
+                        jobs.commit()
+                        jobs.close
+                        jobinfo= calinfo(jobID)
+                        calsave(jobinfo,txtCal,count)
+                        return redirect('thanks.html')
+                    else:
+                        return redirect('volunteer.html', job=job)
+                elif (jobID == "2") or (jobID == "3"):
+                    if count < 10:
+                        for results in result:
+                            if results[2] == txtCal:
+                                count =+ results[4]
+                        cur.execute("INSERT INTO TDayJobs (JobID, txtDate, txtTime, intPartySize) values (?,?,?,?)", (int(jobID), txtCal, txtTime, partysize))
+                        jobs.commit()
+                        jobs.close
+                else:
+                    render_template("thanks.html")
+        return render_template("volunteer.html", job=job)
+    return render_template("volunteer.html", job=job)
 
 @app.route("/Contact", methods=["GET", "POST"])
 def Contact():
@@ -93,8 +131,8 @@ def Contact():
             result['message'] = request.form.get('message')
             if check == "yes":
                 UserContactForm(result)
-            SendContactForm(result)
-            return render_template("contact.html")
+                SendContactForm(result)
+                return render_template("contact.html")
     else:
         return render_template("contact.html")
 
@@ -113,7 +151,7 @@ def newsletter():
         status = is_email_valid(news_letter_email)
         if status == "error":
             flash("Invaild email adresss!", "warning")
-            return render_template("index.html")
+            return redirect(request.referrer)
         if status == "valid":
             #sqlite connection to check if email is in db already.
             connection = sqlite3.connect("Site.db")
@@ -132,9 +170,9 @@ def newsletter():
                     msg.attach("newsletter.pdf", "application/pdf", fp.read())
                 mail.send(msg)
                 flash("Thank you for signing up!", "info")
-                return render_template("index.html")
+                return redirect(request.referrer)
             else:
                 flash("Looks like you are already signed up", "warning")
-                return render_template("index.html")
+                return redirect(request.referrer)
 
        

@@ -40,7 +40,6 @@ $font-size: 16px;
 @import './contact';
 @import './volunteer';
 @import './images';
-@import './calander';
 @import './media_queries';
 
 /* page content */
@@ -62,18 +61,4 @@ $font-size: 16px;
     } 
 }
 
-/* Navbar Mobile Animation */
-#hamburger-menu.is-active{
-    .bar{
-        &:nth-child(2){
-            opacity: 0;
-        }
-        &:nth-child(1){
-            transform: translateY(8px) rotate(45deg);
-        }
-        &:nth-child(3){
-            transform: translateY(-8px) rotate(-45deg);
-        }
-    }
-}
 

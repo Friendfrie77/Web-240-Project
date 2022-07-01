@@ -6,16 +6,24 @@ Volunteer
 <div class="volunteer-wrapper">
     <h2>Got some free time?</h2>
     <p>Do you have free time that you would like to spend helping cats? Well, you are in luck! Below you can find some jobs that are available to do. Just either select a job to see what day it is available or select a day that you are free to see what job is open that day. If you just want to spend time with the cats, that’s an option too. The cats love having people spend time just playing and petting them.</p>
-
-        <div id="calander"></div>
         {% for jobs in job %}
         <div class="jobs">
             <h2>{{jobs[1]}}</h2>
-            <p><img class="job-image" src={{jobs[3]}} alt="{{jobs[4]}}" target="{{jobs[0]}}">{{jobs[2]}}</p>
+            <p><img onclick="ShowCalendar{{jobs[0]}}()" class="job-image" src={{jobs[3]}} alt="{{jobs[4]}}" width="200" height="200" target="{{jobs[0]}}">{{jobs[2]}}</p>
             <div class="calendar-wrapper" id="job{{jobs[0]}}">
-                <iframe class="calendar" src={{jobs[5]}} width="800px" height="600px"></iframe>
-                <form>
+                <div id="calendar{{jobs[0]}}" class="calendar"></div>
+                <form action="/Volunteer" class="volunteer-form" method="POST">
                     
+                    <label for="txtCal">Please select a date:</label>
+                    <input type="date" name="txtCal" class="txtCal txtVol" id="test" >
+                    <label for="txtTime">Please enter an approximate time you will arrive:</label>
+                    <input type="time" name="txtTime" class="txtVol" min="9:30" max="18:30" >
+                    <label for="txtAmount">How many people are coming?</label>
+                    <input type="number" name="party-size" class="txtVol" min="1" max="5" value="1">
+                    <label for="chkWavier">Would you like a wavier sent to your email?</label>
+                    <input type="checkbox" name="chkWavier" class="paw-checkbox">
+                    <button type="submit">test</button>
+                    <input type="hidden" name="job-ID" value="{{jobs[0]}}">
                 </form>
             </div>
         </div>
