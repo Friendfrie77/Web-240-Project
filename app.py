@@ -4,6 +4,7 @@ import sqlite3
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, flash
 from flask_mail import Mail, Message
+from sqlalchemy import create_engine
 app = Flask(__name__, static_url_path='/static')
 from helpers import is_email_valid, calinfo
 from flask_sqlalchemy import SQLAlchemy
@@ -16,6 +17,7 @@ email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
 email_api=os.environ.get('email_api')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['SQLALCHEMY_DATABASE_URI'] ='sqlite:///project.db'
 app.config.update(dict(
     MAIL_SERVER = 'smtp.googlemail.com',
@@ -28,6 +30,8 @@ app.config.update(dict(
     ))
 mail = Mail(app)
 db= SQLAlchemy(app)
+con = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
+dbcon = con.connect()
 #db model
 class Newsletter(db.Model):
     NesletterID = db.Column(db.Integer, primary_key=True)
@@ -35,6 +39,16 @@ class Newsletter(db.Model):
 
     def __repr__(self):
         return '<Name %r>' % self.name
+class TJobs(db.Model):
+    JobsID = db.Column(db.Integer, primary_key=True)
+    txtJobdes = db.Column(db.String(200), nullable = False)
+    txtJobpic = db.Column(db.String(200), nullable = False)
+    txtImgalt = db.Column(db.String(200), nullable = False)
+
+    def __repr__(self):
+        return '<Name %r>' % self.name
+
+
 # for sending contact page messages #
 def SendContactForm(result):
     msg=Message('Contact Form', recipients=[email]) 
@@ -73,7 +87,7 @@ def Cats():
 def Volunteer():
     job = []
     jobs_ID=[]
-    jobs = sqlite3.connect("Site.db")
+    jobs = sqlite3.connect("db")
     cur = jobs.cursor()
     cur.execute('SELECT * FROM TJobs')
     result = cur.fetchall()
