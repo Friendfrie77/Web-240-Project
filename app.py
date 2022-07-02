@@ -9,7 +9,7 @@ from requests import session
 from sqlalchemy import ForeignKey, create_engine
 import sqlalchemy
 app = Flask(__name__, static_url_path='/static')
-from helpers import is_email_valid, calinfo
+from helpers import is_email_valid
 from flask_sqlalchemy import SQLAlchemy
 
 load_dotenv() 
@@ -46,7 +46,7 @@ class Jobs(db.Model):
     txtJobdes = db.Column(db.String(6000), nullable = False)
     txtJobpic = db.Column(db.String(200), nullable = False)
     txtImgalt = db.Column(db.String(200), nullable = False)
-    volunteers = db.relationship('jobopen', backref= 'jobs')
+    volunteers = db.relationship('Jobopen', backref= 'jobs')
 class Jobopen(db.Model):
     JobopenID = db.Column(db.Integer, primary_key=True)
     JobID = db.Column(db.Integer, db.ForeignKey('jobs.JobsID'), nullable=False)
@@ -80,6 +80,15 @@ def UserContactForm(result):
     Toebean Sanctuary
     """.format(result['subject'],result['message'])
     mail.send(msg)
+#calinfo for Fullcalender mod
+# def calinfo(jobID):
+#     jobinfo=[]
+#     query = sqlalchemy.select(Jobopen).filter_by(JobID=jobID)
+#     query = engine.execute(query).fetchall()
+#     print(result)
+#     for results in result:
+#         jobinfo.extend((results[1], results[4]))
+#     return jobinfo
 # start of html pages #
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -101,6 +110,7 @@ def Volunteer():
     #when users signs up for a job
     if request.method == "POST":
         count = 0
+        jobinfo=[]
         partysize=int((request.form.get('party-size')))
         jobID= request.form.get('job-ID')
         txtCal= request.form.get('txtCal')
@@ -108,34 +118,28 @@ def Volunteer():
         count += partysize
         for number in jobs_ID:
             if int(jobID) == number:
-                # Useremail.query.filter_by(txtEmail=news_letter_email)
-                query = sqlalchemy.select(jobopen).filter_by(JobID=jobID)
-                result = engine.execute(query).fetchall()
-                return redirect("thanks.html")
-                # cur.execute("SELECT * FROM TDayJobs WHERE JobID=?", jobID)
-                # result= cur.fetchall()
-                # if (jobID != "2") or (jobID != "3"):
-                #     if count < 30:
-                #         for results in result:
-                #             if results[2] == txtCal:
-                #                 count += results[4]
-                #         cur.execute("INSERT INTO TDayJobs (JobID, txtDate, txtTime, intPartySize) values (?,?,?,?)", (int(jobID), txtCal, txtTime, partysize))
-                #         jobs.commit()
-                #         jobs.close
-                #         jobinfo= calinfo(jobID)
-                        # return redirect('thanks.html')
-                #     else:
-                #         return redirect('volunteer.html', job=job)
-                # elif (jobID == "2") or (jobID == "3"):
-                #     if count < 10:
-                #         for results in result:
-                #             if results[2] == txtCal:
-                #                 count =+ results[4]
-                #         cur.execute("INSERT INTO TDayJobs (JobID, txtDate, txtTime, intPartySize) values (?,?,?,?)", (int(jobID), txtCal, txtTime, partysize))
-                #         jobs.commit()
-                #         jobs.close
-                # else:
-                #     render_template("thanks.html")
+                query = sqlalchemy.select(Jobopen).filter_by(JobID=jobID)
+                result = engine.execute(query).fetchall() 
+                if (jobID != "2") or (jobID != "3"):
+                    if count < 30:
+                        for results in result:
+                            if results[2] == txtCal:
+                                count += results[4]
+                        Job = Jobopen(JobID=jobID, txtDate=txtCal, txtTime=txtTime, intPartySize=partysize)
+                        db.session.add(Job)
+                        db.session.commit()
+                    else:
+                        return redirect('volunteer.html', job=job)
+                elif (jobID == "2") or (jobID == "3"):
+                    if count < 10:
+                        for results in result:
+                            if results[2] == txtCal:
+                                count =+ results[4]
+                        Job = Jobopen(JobID=jobID, txtDate=txtCal, txtTime=txtTime, intPartySize=partysize)
+                        db.session.add(Job)
+                        db.session.commit()
+                #setting up fullcalender data
+                return redirect('thanks.html')
         return render_template("volunteer.html", job=job)
     return render_template("volunteer.html", job=job)
 

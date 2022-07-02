@@ -24,12 +24,4 @@ def is_email_valid(email):
             headers = {'Authorization': "Bearer " + api_key })
     return response.json()['status']
 
-def calinfo(jobID):
-    jobinfo=[]
-    jobs = sqlite3.connect("Site.db")
-    cur= jobs.cursor()
-    cur.execute("SELECT * FROM TJobs WHERE JobID = ?", jobID)
-    result= cur.fetchall()
-    for results in result:
-        jobinfo.extend((results[1], results[5]))
-    return jobinfo
+
