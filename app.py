@@ -3,7 +3,7 @@ import os
 import sqlite3
 from unittest import result
 from dotenv import load_dotenv
-from flask import Flask, redirect, render_template, request, flash
+from flask import Flask, redirect, render_template, request, flash, json, url_for
 from flask_mail import Mail, Message
 from requests import session
 from sqlalchemy import ForeignKey, create_engine
@@ -53,7 +53,6 @@ class Jobopen(db.Model):
     txtDate = db.Column(db.String(200), nullable=False)
     txtTime = db.Column(db.String(200), nullable=False)
     intPartySize = db.Column(db.Integer, nullable=False)
-
 
 # for sending contact page messages #
 def SendContactForm(result):
@@ -110,7 +109,7 @@ def Volunteer():
     #when users signs up for a job
     if request.method == "POST":
         count = 0
-        jobinfo=[]
+        jobinfo = []
         partysize=int((request.form.get('party-size')))
         jobID= request.form.get('job-ID')
         txtCal= request.form.get('txtCal')
@@ -121,10 +120,10 @@ def Volunteer():
                 query = sqlalchemy.select(Jobopen).filter_by(JobID=jobID)
                 result = engine.execute(query).fetchall() 
                 if (jobID != "2") or (jobID != "3"):
-                    if count < 30:
-                        for results in result:
+                    for results in result:
                             if results[2] == txtCal:
                                 count += results[4]
+                    if count <= 30:
                         Job = Jobopen(JobID=jobID, txtDate=txtCal, txtTime=txtTime, intPartySize=partysize)
                         db.session.add(Job)
                         db.session.commit()
@@ -138,9 +137,28 @@ def Volunteer():
                         Job = Jobopen(JobID=jobID, txtDate=txtCal, txtTime=txtTime, intPartySize=partysize)
                         db.session.add(Job)
                         db.session.commit()
-                #setting up fullcalender data
-                return redirect('thanks.html')
-        return render_template("volunteer.html", job=job)
+                # setting up fullcalender data
+                jobinfo = open('static/json/test.json')
+                jobinfo = json.load(jobinfo)
+                print(jobinfo)
+                itr = 0
+                for dic in jobinfo:
+                    while itr != len(jobinfo):
+                        if (dic.get('jobID') == str(jobID)) and (dic.get('start')== txtCal):
+                            jobinfo[itr]['count'] = count
+                            itr += 1
+                            jsonsave = open('static/json/test.json', 'w')
+                            json.dump(jobinfo, jsonsave)
+                            jsonsave.close()
+                            return redirect(url_for('Thanks'))
+                        else:
+                            itr += 1
+                    if dic.get('start') != txtCal:
+                        jobinfo.append({"jobID":jobID, "start":txtCal, "count":count})
+                        jsonsave = open('static/json/test.json', 'w')
+                        json.dump(jobinfo, jsonsave)
+                        jsonsave.close()
+                        return redirect(url_for('Thanks'))
     return render_template("volunteer.html", job=job)
 
 @app.route("/Contact", methods=["GET", "POST"])

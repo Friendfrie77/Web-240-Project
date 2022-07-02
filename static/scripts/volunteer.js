@@ -1,3 +1,7 @@
+/* imports json for calendars */
+import('../json/test.json', {assert: {type: 'json'}}).then((mod)=>{
+  console.log(mod)
+});
 /* show and hide calander */
 jQuery(function() {
     jQuery('.job-image').click(function() {
@@ -9,10 +13,15 @@ function ShowCalendar1() {
   var calendarEl = document.getElementById('calendar1');
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
-    googleCalendarApiKey: 'AIzaSyBvT8Tqbh0ygPsWTylTiE0MejzwDsr9bQU',
-    events: {
-      googleCalendarId: 'k8h6u4seguf3d3ilm7gle4hhpo@group.calendar.google.com'
-    }
+    events:[
+      {
+        id:'event1',
+        title: 'Brushing Cats',
+        start: '2022-07-02',
+        allDay: true,
+        description:'test'
+      }
+    ]
   });
   calendar.render();
 };
