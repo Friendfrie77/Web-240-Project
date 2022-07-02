@@ -5,6 +5,7 @@ from unittest import result
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, flash
 from flask_mail import Mail, Message
+from requests import session
 from sqlalchemy import ForeignKey, create_engine
 import sqlalchemy
 app = Flask(__name__, static_url_path='/static')
@@ -33,6 +34,7 @@ app.config.update(dict(
 mail = Mail(app)
 db= SQLAlchemy(app)
 engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
+con = engine.connect()
 #db model
 class Useremail(db.Model):
     NewletterID = db.Column(db.Integer, primary_key=True)
@@ -45,15 +47,13 @@ class Jobs(db.Model):
     txtJobpic = db.Column(db.String(200), nullable = False)
     txtImgalt = db.Column(db.String(200), nullable = False)
     volunteers = db.relationship('jobopen', backref= 'jobs')
-class jobopen(db.Model):
+class Jobopen(db.Model):
     JobopenID = db.Column(db.Integer, primary_key=True)
     JobID = db.Column(db.Integer, db.ForeignKey('jobs.JobsID'), nullable=False)
     txtDate = db.Column(db.String(200), nullable=False)
     txtTime = db.Column(db.String(200), nullable=False)
     intPartySize = db.Column(db.Integer, nullable=False)
 
-    def __repr__(self):
-        return '<Name %r>' % self.name
 
 # for sending contact page messages #
 def SendContactForm(result):
@@ -98,6 +98,7 @@ def Volunteer():
     for results in result:
         jobs_ID.append(results[0])
         job.append(results)
+    #when users signs up for a job
     if request.method == "POST":
         count = 0
         partysize=int((request.form.get('party-size')))
@@ -107,13 +108,10 @@ def Volunteer():
         count += partysize
         for number in jobs_ID:
             if int(jobID) == number:
-                print(jobID)
-                test=jobopen.query.filter_by(JobID=jobID)
-                print(test)
                 # Useremail.query.filter_by(txtEmail=news_letter_email)
-                # query = sqlalchemy.select(jobopen).filter_by(JobID=jobID)
-                # result = engine.execute(query).fetchall()
-                return redirect('thanks.html')
+                query = sqlalchemy.select(jobopen).filter_by(JobID=jobID)
+                result = engine.execute(query).fetchall()
+                return redirect("thanks.html")
                 # cur.execute("SELECT * FROM TDayJobs WHERE JobID=?", jobID)
                 # result= cur.fetchall()
                 # if (jobID != "2") or (jobID != "3"):
@@ -167,7 +165,7 @@ def Contact():
 def About():
     return render_template("about.html")
 
-@app.route("/Thanks", methods=["POST"])
+@app.route("/Thanks", methods=["Get","POST"])
 def Thanks():
     return render_template("thanks.html")
 
