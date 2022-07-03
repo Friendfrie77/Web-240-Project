@@ -1,0 +1,19 @@
+                while itr < len(jobinfo):
+                    print(type(jobinfo))
+                    if (jobinfo[itr]["jobID"] == int(jobID)) and (jobinfo[itr]['jobID'] == txtCal):
+                        jobinfo[itr][count] = count
+                        jsonsave = open('static/json/test1.json', 'w')
+                        json.dump(jobinfo, jsonsave)
+                        jsonsave.close()
+                        # jsoncleanup(jobinfo)
+                        return redirect(url_for('Thanks'))
+                    else:
+                        itr += 1
+                else:
+                    # jobinfo[len(jobinfo)]= {"count": count, "jobID": jobID, "start": txtCal}
+                    jobinfo.append({"count": count, "jobID": jobID, "start": txtCal})
+                    print(jobinfo)
+                    jsonsave = open('static/json/test1.json', 'w')
+                    json.dump(jobinfo, jsonsave)
+                    jsonsave.close()
+                    # jsoncleanup(jobinfo

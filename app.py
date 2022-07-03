@@ -3,13 +3,13 @@ import os
 import sqlite3
 from unittest import result
 from dotenv import load_dotenv
-from flask import Flask, redirect, render_template, request, flash, json, url_for
+from flask import Flask, redirect, render_template, request, flash, json, url_for, jsonify
 from flask_mail import Mail, Message
 from requests import session
 from sqlalchemy import ForeignKey, create_engine
 import sqlalchemy
 app = Flask(__name__, static_url_path='/static')
-from helpers import is_email_valid
+from helpers import is_email_valid, jsoncleaner
 from flask_sqlalchemy import SQLAlchemy
 
 load_dotenv() 
@@ -79,15 +79,86 @@ def UserContactForm(result):
     Toebean Sanctuary
     """.format(result['subject'],result['message'])
     mail.send(msg)
-#calinfo for Fullcalender mod
-# def calinfo(jobID):
-#     jobinfo=[]
-#     query = sqlalchemy.select(Jobopen).filter_by(JobID=jobID)
-#     query = engine.execute(query).fetchall()
-#     print(result)
-#     for results in result:
-#         jobinfo.extend((results[1], results[4]))
-#     return jobinfo
+
+#json apis
+@app.route("/cal1")
+def cal_1_info():
+    try:
+        jobinfo = open('static/json/data.json')
+        jobinfo = json.load(jobinfo)
+    except:
+        pass
+    cal_1=[]
+    for dic in jobinfo:
+        if dic['jobID'] == '1':
+            cal_1.append(dic)
+    return jsonify(cal_1)
+
+@app.route("/cal2")
+def cal_2_info():
+    try:
+        jobinfo = open('static/json/data.json')
+        jobinfo = json.load(jobinfo)
+    except:
+        pass
+    cal_2=[]
+    for dic in jobinfo:
+        if dic['jobID'] == '2':
+            cal_2.append(dic)
+    return jsonify(cal_2)
+
+@app.route("/cal3")
+def cal_3_info():
+    try:
+        jobinfo = open('static/json/data.json')
+        jobinfo = json.load(jobinfo)
+    except:
+        pass
+    cal_3=[]
+    for dic in jobinfo:
+        if dic['jobID'] == '3':
+            cal_3.append(dic)
+    return jsonify(cal_3)
+
+@app.route("/cal4")
+def cal_4_info():
+    try:
+        jobinfo = open('static/json/data.json')
+        jobinfo = json.load(jobinfo)
+    except:
+        pass
+    cal_4=[]
+    for dic in jobinfo:
+        if dic['jobID'] == '4':
+            cal_4.append(dic)
+    return jsonify(cal_4)
+
+@app.route("/cal5")
+def cal_5_info():
+    try:
+        jobinfo = open('static/json/data.json')
+        jobinfo = json.load(jobinfo)
+    except:
+        pass
+    cal_5=[]
+    for dic in jobinfo:
+        if dic['jobID'] == '5':
+            cal_5.append(dic)
+    return jsonify(cal_5)
+
+@app.route("/cal6")
+def cal_6_info():
+    try:
+        jobinfo = open('static/json/data.json')
+        jobinfo = json.load(jobinfo)
+    except:
+        pass
+    cal_6=[]
+    for dic in jobinfo:
+        if dic['jobID'] == '6':
+            cal_6.append(dic)
+    return jsonify(cal_6)
+
 # start of html pages #
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -109,7 +180,7 @@ def Volunteer():
     #when users signs up for a job
     if request.method == "POST":
         count = 0
-        jobinfo = []
+        itr = 0
         partysize=int((request.form.get('party-size')))
         jobID= request.form.get('job-ID')
         txtCal= request.form.get('txtCal')
@@ -138,27 +209,37 @@ def Volunteer():
                         db.session.add(Job)
                         db.session.commit()
                 # setting up fullcalender data
-                jobinfo = open('static/json/test.json')
-                jobinfo = json.load(jobinfo)
-                print(jobinfo)
-                itr = 0
+                try:
+                    jobinfo = open('static/json/data.json')
+                    jobinfo = json.load(jobinfo)
+                except:
+                    jobinfo= []
                 for dic in jobinfo:
                     while itr != len(jobinfo):
                         if (dic.get('jobID') == str(jobID)) and (dic.get('start')== txtCal):
                             jobinfo[itr]['count'] = count
                             itr += 1
-                            jsonsave = open('static/json/test.json', 'w')
+                            jsonsave = open('static/json/data.json', 'w')
                             json.dump(jobinfo, jsonsave)
                             jsonsave.close()
+                            # jsoncleaner()
                             return redirect(url_for('Thanks'))
                         else:
                             itr += 1
                     if dic.get('start') != txtCal:
                         jobinfo.append({"jobID":jobID, "start":txtCal, "count":count})
-                        jsonsave = open('static/json/test.json', 'w')
+                        jsonsave = open('static/json/data.json', 'w')
                         json.dump(jobinfo, jsonsave)
                         jsonsave.close()
+                        # jsoncleaner()
                         return redirect(url_for('Thanks'))
+                else:
+                    jobinfo.append({"jobID":jobID, "start":txtCal, "count":partysize})
+                    jsonsave = open('static/json/data.json', 'w')
+                    json.dump(jobinfo, jsonsave)
+                    jsonsave.close()
+                    # jsoncleaner()
+                return redirect(url_for('Thanks'))
     return render_template("volunteer.html", job=job)
 
 @app.route("/Contact", methods=["GET", "POST"])
