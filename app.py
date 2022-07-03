@@ -53,8 +53,8 @@ class Jobopen(db.Model):
     txtDate = db.Column(db.String(200), nullable=False)
     txtTime = db.Column(db.String(200), nullable=False)
     intPartySize = db.Column(db.Integer, nullable=False)
-    jobopencontact = db.relationship('JobopenContact', backref= 'jobopen')
-class JobopenContact(db.Model):
+    jobocontact = db.relationship('JobContact', backref= 'jobopen')
+class JobContact(db.Model):
     JobopenContactID = JobopenID = db.Column(db.Integer, primary_key=True, nullable=False)
     JobopenID = db.Column(db.Integer, db.ForeignKey('jobopen.JobopenID'), nullable=False)
     txtEmail= db.Column(db.String(200))
