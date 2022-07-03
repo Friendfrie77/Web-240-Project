@@ -6,22 +6,53 @@
     max-width: 1400px;
     margin: 0 auto;
     clear: right;
+    padding: 15px;
+    background-color: black;
     p{
         @include form-p;
         margin-bottom: 15px;
+        color: hsl(0, 0%, 50%)
     }
     h2{
         @include form-h2;
+        margin-top: 15px;
+        color: hsl(354,16%,64%)
     }
 }
 .donation-wrapper{
     max-width: 1400px;
     margin: 0 auto;
+    padding: 15px;
     p{
         @include form-p;
     }
     h2{
         @include form-h2;
+    }
+}
+.volunteer-header{
+    width: 100%;
+    min-height: 500px;
+    background-image: url('../images/volunteer_pictures/hero_test.webp');
+    background-position: left 25%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.volunteer-header-text{
+    text-align: center;
+    position: relative;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $headline-colors;
+    h1{
+        font-family: $headline-font;
+        font-size: 5rem;
+    }
+    span{
+        font-family: $headline-font;
+        font-size: 5rem;
     }
 }
 .jobs{
@@ -33,7 +64,7 @@
     width: 100%;
     padding: 20px;
     background-color:$secondary-color;
-    box-shadow: 0 0 15px black;
+    box-shadow: $drop-shadow;
     img{
         padding-left: 5px;
         cursor: pointer;
@@ -81,7 +112,38 @@
     width: 800px;
     height: auto;
 }
+.email{
+    display: none;
+}
+.checkbox-wrapper{
+    position: relative;
+    height: 40px;
+    width: 40px;
+}
+.paw-checkbox{
+    opacity: 0;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    z-index: 2;
 
+    & + label{
+        background: url('../images/checkboxs/unchecked.svg') no-repeat;
+        height: 40px;
+        width: 40px;
+        display: inline-block;
+        position: absolute;
+        z-index: 1;
+    }
+    &:checked + label{
+        background: url('../images/checkboxs/checked.svg') no-repeat;
+        height: 40px;
+        width: 40px;
+        display: inline-block;
+        position: absolute;
+        z-index: 1;
+    }
+}
 // .date-wrapper{
 //     width: 20%;
 //     position: relative;

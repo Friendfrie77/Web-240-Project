@@ -4,14 +4,13 @@
     flex-direction: column;
     height: 100vh;
     margin: 0;
+    background-color: black;
 }
 .contact-wrapper{
     text-align: center;
+    margin: 15px;
     h1{
         margin-top: 20px;
         font-size: 3rem;
     }
-}
-.form-wrapper{
-    margin-bottom: 5px;
 }

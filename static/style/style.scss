@@ -1,7 +1,8 @@
 /* scss constants */
     /* colors */
-$headline-colors:#2D080A;
-$primary-color:#E2C2C6;
+$headline-colors:hsl(354,16%,64%);
+$text-color:hsl(0,0%,50%);
+$primary-color: white;
 $secondary-color: #0d3b66;
 $button-color: #DA627D;
 $contact-animation: #DA627D;
@@ -11,7 +12,7 @@ $card-secondary: blue;
     /* fonts */
 $headline-font: 'Yanone Kaffeesatz', sans-serif;
 $content-font:  'PT Sans Narrow', sans-serif;
-$drop-shadow: 0px 0px 2px #0f0f0f;
+$drop-shadow: 0px 0px 10px hsl(209,77%,23%);
 $font-size: 16px;
 
 /* mixins */
@@ -28,10 +29,12 @@ $font-size: 16px;
 @mixin form-p{
     font-size: 1.5rem;
     line-height: 1.75;
+    color:$text-color
 }
 @mixin  form-h2 {
     text-align: center;
     font-size: 3rem;
+    color:$headline-colors
 }
 /* scss page imports */
 @import './reset';

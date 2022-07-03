@@ -16,12 +16,12 @@
 body {
   min-height: 100vh;
   width: 100%;
-  background-color: #E2C2C6;
+  background-color: black;
 }
 
 h1, h2, h3 {
   font-family: "Yanone Kaffeesatz", sans-serif;
-  color: #2D080A;
+  color: #b29597;
 }
 
 /* wrappers */
@@ -35,19 +35,17 @@ h1, h2, h3 {
           flex-direction: column;
   height: 100vh;
   margin: 0;
+  background-color: black;
 }
 
 .contact-wrapper {
   text-align: center;
+  margin: 15px;
 }
 
 .contact-wrapper h1 {
   margin-top: 20px;
   font-size: 3rem;
-}
-
-.form-wrapper {
-  margin-bottom: 5px;
 }
 
 /* navigation */
@@ -157,7 +155,7 @@ footer {
 }
 
 .social-links h3 {
-  color: #2D080A;
+  color: #b29597;
   padding-left: 10px;
 }
 
@@ -175,12 +173,12 @@ footer {
 }
 
 .newletter-wrapper h3 {
-  color: #2D080A;
+  color: #b29597;
   padding-bottom: 15px;
 }
 
 .newletter-wrapper h4 {
-  color: #2D080A;
+  color: #b29597;
   padding-top: 20px;
   text-align: center;
 }
@@ -207,7 +205,7 @@ footer {
 
 .bottom-nav-item a {
   text-decoration: none;
-  color: #2D080A;
+  color: #b29597;
   -webkit-transform: color .7s ease-out;
           transform: color .7s ease-out;
 }
@@ -236,8 +234,8 @@ footer {
   width: 20%;
   margin: 20px;
   font-size: 1.5rem;
-  -webkit-box-shadow: 0px 0px 2px #0f0f0f;
-          box-shadow: 0px 0px 2px #0f0f0f;
+  -webkit-box-shadow: 0px 0px 10px #0d3c68;
+          box-shadow: 0px 0px 10px #0d3c68;
   background-color: #0d3b66;
 }
 
@@ -263,10 +261,23 @@ footer {
   padding: 10px 10px 10px 10px;
   max-width: 1400px;
   margin: auto;
+  background-color: #0d3b66;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 6px #0d3b66;
+          box-shadow: 0px 0px 6px #0d3b66;
+  margin: 15px;
 }
 
 .contact-form h2 {
-  padding: 15px;
+  text-align: center;
+  font-size: 3rem;
+  color: #b29597;
+}
+
+.contact-form p {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: gray;
 }
 
 .name-form, .email-form, .subject-form {
@@ -274,6 +285,8 @@ footer {
   position: relative;
   height: 40px;
   overflow: hidden;
+  -webkit-box-shadow: 0px 0px 5px #fff;
+          box-shadow: 0px 0px 5px #fff;
 }
 
 .name-form input, .email-form input, .subject-form input {
@@ -293,8 +306,8 @@ footer {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  border-bottom: 1px solid #2D080A;
-  color: #2D080A;
+  border-bottom: 1px solid #b29597;
+  color: #b29597;
   -webkit-transform: all 0.2s ease;
           transform: all 0.2s ease;
 }
@@ -318,6 +331,8 @@ footer {
   height: 250px;
   position: relative;
   overflow: hidden;
+  -webkit-box-shadow: 0px 0px 5px #fff;
+          box-shadow: 0px 0px 5px #fff;
 }
 
 .text-form textarea {
@@ -335,14 +350,14 @@ footer {
   width: 100%;
   height: 100%;
   pointer-events: none;
-  color: #2D080A;
+  color: #b29597;
   -webkit-transform: all 0.2s ease;
           transform: all 0.2s ease;
 }
 
 .text-form label:before {
   content: "";
-  border-bottom: 2px solid #2D080A;
+  border-bottom: 2px solid #b29597;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -375,14 +390,49 @@ footer {
           transform: all 0.3s ease;
 }
 
-.contact-check {
+.contact-checkbox-wrapper {
   position: relative;
-  background-color: red;
+  height: 60px;
+  width: 60px;
+  margin: auto;
+}
+
+.contact-check {
+  opacity: 0;
+  height: 60px;
+  width: 60px;
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+}
+
+.contact-check + label {
+  background: url("../images/checkboxs/unchecked.svg") no-repeat;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+}
+
+.contact-check:checked + label {
+  background: url("../images/checkboxs/checked.svg") no-repeat;
+  height: 60px;
+  width: 60px;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
 }
 
 .contact-check label {
   position: absolute;
   top: 0px;
+}
+
+.info-text {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: gray;
 }
 
 /* contact page animation */
@@ -436,9 +486,9 @@ footer {
 .contact-form-button {
   width: 20%;
   font-size: 2rem;
-  -webkit-box-shadow: 0px 0px 2px #0f0f0f;
-          box-shadow: 0px 0px 2px #0f0f0f;
-  background-color: #0d3b66;
+  -webkit-box-shadow: 0px 0px 10px #0d3c68;
+          box-shadow: 0px 0px 10px #0d3c68;
+  background-color: #DA627D;
 }
 
 .contact-form-button:hover {
@@ -453,32 +503,72 @@ footer {
   max-width: 1400px;
   margin: 0 auto;
   clear: right;
+  padding: 15px;
+  background-color: black;
 }
 
 .volunteer-wrapper p {
   font-size: 1.5rem;
   line-height: 1.75;
+  color: gray;
   margin-bottom: 15px;
+  color: gray;
 }
 
 .volunteer-wrapper h2 {
   text-align: center;
   font-size: 3rem;
+  color: #b29597;
+  margin-top: 15px;
+  color: #b29597;
 }
 
 .donation-wrapper {
   max-width: 1400px;
   margin: 0 auto;
+  padding: 15px;
 }
 
 .donation-wrapper p {
   font-size: 1.5rem;
   line-height: 1.75;
+  color: gray;
 }
 
 .donation-wrapper h2 {
   text-align: center;
   font-size: 3rem;
+  color: #b29597;
+}
+
+.volunteer-header {
+  width: 100%;
+  min-height: 500px;
+  background-image: url("../images/volunteer_pictures/hero_test.webp");
+  background-position: left 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.volunteer-header-text {
+  text-align: center;
+  position: relative;
+  top: 80%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  color: #b29597;
+}
+
+.volunteer-header-text h1 {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 5rem;
+}
+
+.volunteer-header-text span {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 5rem;
 }
 
 .jobs {
@@ -491,8 +581,8 @@ footer {
   width: 100%;
   padding: 20px;
   background-color: #0d3b66;
-  -webkit-box-shadow: 0 0 15px black;
-          box-shadow: 0 0 15px black;
+  -webkit-box-shadow: 0px 0px 10px #0d3c68;
+          box-shadow: 0px 0px 10px #0d3c68;
 }
 
 .jobs img {
@@ -501,7 +591,7 @@ footer {
 }
 
 .jobs .fc-view {
-  background-color: #E2C2C6;
+  background-color: white;
 }
 
 .jobs .volunteer-form {
@@ -553,6 +643,42 @@ footer {
 .calender {
   width: 800px;
   height: auto;
+}
+
+.email {
+  display: none;
+}
+
+.checkbox-wrapper {
+  position: relative;
+  height: 40px;
+  width: 40px;
+}
+
+.paw-checkbox {
+  opacity: 0;
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  z-index: 2;
+}
+
+.paw-checkbox + label {
+  background: url("../images/checkboxs/unchecked.svg") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
+}
+
+.paw-checkbox:checked + label {
+  background: url("../images/checkboxs/checked.svg") no-repeat;
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  position: absolute;
+  z-index: 1;
 }
 
 /* hero image */
@@ -685,6 +811,35 @@ footer {
             transform: translate(0%) !important;
     background-color: #ffbeef;
     z-index: 100;
+  }
+  /* volunteer page */
+  .volunteer-header {
+    background-position: right;
+  }
+  .volunteer-header-text {
+    text-align: center;
+    position: relative;
+    top: 80%;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    color: #b29597;
+  }
+  .volunteer-header-text h1 {
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-size: 2rem;
+  }
+  .volunteer-header-text span {
+    font-family: "Yanone Kaffeesatz", sans-serif;
+    font-size: 2rem;
+  }
+  .jobs p {
+    font-size: .9rem;
+    color: red;
+  }
+  .jobs img {
+    width: 100px;
+    height: 100px;
   }
 }
 

@@ -48,11 +48,17 @@ class Jobs(db.Model):
     txtImgalt = db.Column(db.String(200), nullable = False)
     volunteers = db.relationship('Jobopen', backref= 'jobs')
 class Jobopen(db.Model):
-    JobopenID = db.Column(db.Integer, primary_key=True)
+    JobopenID = db.Column(db.Integer, primary_key=True, nullable=False)
     JobID = db.Column(db.Integer, db.ForeignKey('jobs.JobsID'), nullable=False)
     txtDate = db.Column(db.String(200), nullable=False)
     txtTime = db.Column(db.String(200), nullable=False)
     intPartySize = db.Column(db.Integer, nullable=False)
+    jobopencontact = db.relationship('JobopenContact', backref= 'jobopen')
+class JobopenContact(db.Model):
+    JobopenContactID = JobopenID = db.Column(db.Integer, primary_key=True, nullable=False)
+    JobopenID = db.Column(db.Integer, db.ForeignKey('jobopen.JobopenID'), nullable=False)
+    txtEmail= db.Column(db.String(200))
+    txtName = db.Column(db.String(200), nullable = False)
 
 # for sending contact page messages #
 def SendContactForm(result):
@@ -174,9 +180,15 @@ def Volunteer():
     jobs_ID=[]
     query= sqlalchemy.select(Jobs)
     result = engine.execute(query).fetchall()
+    target = 0
     for results in result:
         jobs_ID.append(results[0])
         job.append(results)
+    query = sqlalchemy.select(Jobopen).order_by(Jobopen.JobopenID.desc())
+    result = engine.execute(query).fetchall()
+    for results in result:
+        target = results[0]
+        break
     #when users signs up for a job
     if request.method == "POST":
         count = 0
@@ -200,7 +212,7 @@ def Volunteer():
                         db.session.commit()
                     else:
                         return redirect('volunteer.html', job=job)
-                elif (jobID == "2") or (jobID == "3"):
+                elif jobID == "2":
                     if count < 10:
                         for results in result:
                             if results[2] == txtCal:
@@ -208,6 +220,17 @@ def Volunteer():
                         Job = Jobopen(JobID=jobID, txtDate=txtCal, txtTime=txtTime, intPartySize=partysize)
                         db.session.add(Job)
                         db.session.commit()
+                #sending wavier out if user clicks the checkbox
+                check = (request.form.get('chkWavier'))
+                if check == 'yes':
+                    txtEmail = request.form.get('txtEmail')
+                    with app.open_resource("static/newsletters/newsletter.pdf") as fp:
+                        msg=Message("Monthly News Letter", recipients=[txtEmail])
+                        msg.body="Here is this months newsletter"
+                        msg.attach("newsletter.pdf", "application/pdf", fp.read())
+                    mail.send(msg)
+                #adding user contact info to db
+
                 # setting up fullcalender data
                 try:
                     jobinfo = open('static/json/data.json')
@@ -217,30 +240,27 @@ def Volunteer():
                 for dic in jobinfo:
                     while itr != len(jobinfo):
                         if (dic.get('jobID') == str(jobID)) and (dic.get('start')== txtCal):
-                            jobinfo[itr]['count'] = count
+                            jobinfo[itr]['title'] = F'Volunteers for the day {str(count)}'
                             itr += 1
                             jsonsave = open('static/json/data.json', 'w')
                             json.dump(jobinfo, jsonsave)
                             jsonsave.close()
-                            # jsoncleaner()
                             return redirect(url_for('Thanks'))
                         else:
                             itr += 1
                     if dic.get('start') != txtCal:
-                        jobinfo.append({"jobID":jobID, "start":txtCal, "count":count})
+                        jobinfo.append({"jobID":jobID, "title":F'Volunteers for the day {str(partysize)}', "start":txtCal})
                         jsonsave = open('static/json/data.json', 'w')
                         json.dump(jobinfo, jsonsave)
                         jsonsave.close()
-                        # jsoncleaner()
                         return redirect(url_for('Thanks'))
                 else:
-                    jobinfo.append({"jobID":jobID, "start":txtCal, "count":partysize})
+                    jobinfo.append({"jobID":jobID, "title":F'Volunteers for the day: {str(count)}', "start":txtCal,})
                     jsonsave = open('static/json/data.json', 'w')
                     json.dump(jobinfo, jsonsave)
                     jsonsave.close()
-                    # jsoncleaner()
                 return redirect(url_for('Thanks'))
-    return render_template("volunteer.html", job=job)
+    return render_template("volunteer.html", job=job, target=target)
 
 @app.route("/Contact", methods=["GET", "POST"])
 def Contact():

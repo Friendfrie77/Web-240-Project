@@ -3,6 +3,11 @@
 Volunteer
 {% endblock %}
 {% block main %}
+<div class="volunteer-header">
+    <div class="volunteer-header-text">
+        <h1>Total Volunteers this year: <span class="counter" id="counter" data-target="{{target}}"></span>!</h1>
+    </div>
+</div>
 <div class="volunteer-wrapper">
     <h2>Got some free time?</h2>
     <p>Do you have free time that you would like to spend helping cats? Well, you are in luck! Below you can find some jobs that are available to do. Just either select a job to see what day it is available or select a day that you are free to see what job is open that day. If you just want to spend time with the cats, that’s an option too. The cats love having people spend time just playing and petting them.</p>
@@ -13,15 +18,27 @@ Volunteer
             <div class="calendar-wrapper" id="job{{jobs[0]}}">
                 <div id="calendar{{jobs[0]}}" class="calendar"></div>
                 <form action="/Volunteer" class="volunteer-form" method="POST">
-                    
                     <label for="txtCal">Please select a date:</label>
-                    <input type="date" name="txtCal" class="txtCal txtVol" id="test" >
+                    <input type="date" name="txtCal" class="txtCal txtVol" id="date">
+                    <label for="txtName">What can we call you by?</label>
+                    <input type="text" name="txtName" class="txtVol txtName">
                     <label for="txtTime">Please enter an approximate time you will arrive:</label>
                     <input type="time" name="txtTime" class="txtVol" min="9:30" max="18:30" value="10:30">
                     <label for="txtAmount">How many people are coming?</label>
-                    <input type="number" name="party-size" class="txtVol" min="1" max="5" value="1">
+                    {% if jobs[0] == 2 %}
+                        <input type="number" name="party-size" class="txtVol" min="1" max="3" value="1">
+                    {% else %}
+                        <input type="number" name="party-size" class="txtVol" min="1" max="5" value="1">
+                    {% endif %}
                     <label for="chkWavier">Would you like a wavier sent to your email?</label>
-                    <input type="checkbox" name="chkWavier" class="paw-checkbox">
+                    <div class="checkbox-wrapper">
+                        <input onclick="isChecked()" type="checkbox" name="chkWavier" class="paw-checkbox" target="{{jobs[0]}}">
+                        <label for="chkWavier"></label>
+                    </div>
+                    <div class="email" id="email{{jobs[0]}}">
+                        <label for="txtEmail">Enter your email</label>
+                        <input type="email" class="txtVol txtEmail" name="txtEmail">
+                    </div>
                     <button type="submit">test</button>
                     <input type="hidden" name="job-ID" value="{{jobs[0]}}">
                 </form>
@@ -30,7 +47,7 @@ Volunteer
         {% endfor %}
 </div>
 <div class="donation-wrapper">
-    <h2>Got some help fund world purrnation?</h2>
+    <h2>Want to help fund world purrnation?</h2>
     <p>Short on time or do you want to help fund our every growing army of cats? You can donate directly to us below! We also have both an Amazon wish list and a Chewy wish list of our most needed supplies. Be sure to enter in your email so we can send you a thank you, and some personalized pictures of your donation in use!</p>
     <div class="logo-grid">
         <i class="fa-brands fa-amazon"></i>

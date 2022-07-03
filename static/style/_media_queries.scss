@@ -68,5 +68,36 @@
             background-color: #ffbeef;
             z-index: 100;
         }
+        /* volunteer page */
+        .volunteer-header{
+            background-position: right;
+        }
+        .volunteer-header-text{
+            text-align: center;
+            position: relative;
+            top: 80%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: $headline-colors;
+            h1{
+                font-family: $headline-font;
+                font-size: 2rem;
+            }
+            span{
+                font-family: $headline-font;
+                font-size: 2rem;
+            }
+        }
+        .jobs{
+            p{
+                font-size: .9rem;
+                color: red;
+            }
+            img{
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
     }
     
