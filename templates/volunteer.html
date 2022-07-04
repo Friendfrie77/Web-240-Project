@@ -9,6 +9,13 @@ Volunteer
     </div>
 </div>
 <div class="volunteer-wrapper">
+    {% with messages = get_flashed_messages(category_filter=["category2"]) %}
+    {% if messages %}
+        {% for message in messages %} 
+            <span>{ message }}</span>
+        {% endfor %}
+    {% endif %}
+{% endwith %}
     <h2>Got some free time?</h2>
     <p>Do you have free time that you would like to spend helping cats? Well, you are in luck! Below you can find some jobs that are available to do. Just either select a job to see what day it is available or select a day that you are free to see what job is open that day. If you just want to spend time with the cats, that’s an option too. The cats love having people spend time just playing and petting them.</p>
         {% for jobs in job %}
@@ -19,16 +26,16 @@ Volunteer
                 <div id="calendar{{jobs[0]}}" class="calendar"></div>
                 <form action="/Volunteer" class="volunteer-form" method="POST">
                     <label for="txtCal">Please select a date:</label>
-                    <input type="date" name="txtCal" class="txtCal txtVol" id="date">
+                    <input type="date" name="txtCal" class="txtCal txtVol" id="date" required>
                     <label for="txtName">What can we call you by?</label>
-                    <input type="text" name="txtName" class="txtVol txtName">
+                    <input type="text" name="txtName" class="txtVol txtName" required>
                     <label for="txtTime">Please enter an approximate time you will arrive:</label>
-                    <input type="time" name="txtTime" class="txtVol" min="9:30" max="18:30" value="10:30">
+                    <input type="time" name="txtTime" class="txtVol" min="9:30" max="18:30" value="10:30" required>
                     <label for="txtAmount">How many people are coming?</label>
                     {% if jobs[0] == 2 %}
-                        <input type="number" name="party-size" class="txtVol" min="1" max="3" value="1">
+                        <input type="number" name="party-size" class="txtVol" min="1" max="3" value="1" required>
                     {% else %}
-                        <input type="number" name="party-size" class="txtVol" min="1" max="5" value="1">
+                        <input type="number" name="party-size" class="txtVol" min="1" max="5" value="1" required>
                     {% endif %}
                     <label for="chkWavier">Would you like a wavier sent to your email?</label>
                     <div class="checkbox-wrapper">
@@ -36,8 +43,8 @@ Volunteer
                         <label for="chkWavier"></label>
                     </div>
                     <div class="email" id="email{{jobs[0]}}">
-                        <label for="txtEmail">Enter your email</label>
-                        <input type="email" class="txtVol txtEmail" name="txtEmail">
+                        <label for="txtEmail">Enter your email:</label><br>
+                        <input type="email" class="txtVol txtEmail" name="txtEmail" id="emailinput{{jobs[0]}}">
                     </div>
                     <button type="submit">test</button>
                     <input type="hidden" name="job-ID" value="{{jobs[0]}}">

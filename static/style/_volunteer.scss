@@ -1,11 +1,11 @@
 // Volunteer page //
 .job-image{
-    float: right;
+    float: left;
 }
 .volunteer-wrapper{
     max-width: 1400px;
     margin: 0 auto;
-    clear: right;
+    clear: left;
     padding: 15px;
     background-color: black;
     p{
@@ -66,7 +66,7 @@
     background-color:$secondary-color;
     box-shadow: $drop-shadow;
     img{
-        padding-left: 5px;
+        padding: 5px;
         cursor: pointer;
     }
     .fc-view{
@@ -82,6 +82,7 @@
         label{
             font-size: 1.4rem;
             padding-bottom: .5rem;
+            @include form-p;
         }
     }
     .txtVol{
@@ -114,31 +115,33 @@
 }
 .email{
     display: none;
+    margin: auto;
 }
 .checkbox-wrapper{
     position: relative;
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
 }
 .paw-checkbox{
     opacity: 0;
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
     position: absolute;
     z-index: 2;
+    cursor: pointer;
 
     & + label{
         background: url('../images/checkboxs/unchecked.svg') no-repeat;
-        height: 40px;
-        width: 40px;
+        height: inherit;
+        width: inherit;
         display: inline-block;
         position: absolute;
         z-index: 1;
     }
     &:checked + label{
         background: url('../images/checkboxs/checked.svg') no-repeat;
-        height: 40px;
-        width: 40px;
+        height: inherit;
+        width: inherit;
         display: inline-block;
         position: absolute;
         z-index: 1;

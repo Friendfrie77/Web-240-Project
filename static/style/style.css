@@ -157,6 +157,7 @@ footer {
 .social-links h3 {
   color: #b29597;
   padding-left: 10px;
+  font-size: 1.3rem;
 }
 
 .fa-brands {
@@ -173,6 +174,7 @@ footer {
 }
 
 .newletter-wrapper h3 {
+  font-size: 1.4rem;
   color: #b29597;
   padding-bottom: 15px;
 }
@@ -181,6 +183,7 @@ footer {
   color: #b29597;
   padding-top: 20px;
   text-align: center;
+  font-size: 1.4rem;
 }
 
 .newsletter-box {
@@ -204,6 +207,7 @@ footer {
 }
 
 .bottom-nav-item a {
+  font-size: 1.4rem;
   text-decoration: none;
   color: #b29597;
   -webkit-transform: color .7s ease-out;
@@ -212,6 +216,10 @@ footer {
 
 .bottom-nav-item a:hover {
   color: #DA627D;
+}
+
+.contact h3 {
+  font-size: 1.3rem;
 }
 
 /* Navbar Mobile Animation */
@@ -247,6 +255,12 @@ footer {
   background-color: blue;
 }
 
+.form-wrapper {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+}
+
 .contact-form {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -265,7 +279,7 @@ footer {
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 6px #0d3b66;
           box-shadow: 0px 0px 6px #0d3b66;
-  margin: 15px;
+  margin: 15px auto;
 }
 
 .contact-form h2 {
@@ -285,8 +299,9 @@ footer {
   position: relative;
   height: 40px;
   overflow: hidden;
-  -webkit-box-shadow: 0px 0px 5px #fff;
-          box-shadow: 0px 0px 5px #fff;
+  margin: 10px;
+  -webkit-box-shadow: 0px 0px 2px #0d3b66;
+          box-shadow: 0px 0px 2px #0d3b66;
 }
 
 .name-form input, .email-form input, .subject-form input {
@@ -333,6 +348,7 @@ footer {
   overflow: hidden;
   -webkit-box-shadow: 0px 0px 5px #fff;
           box-shadow: 0px 0px 5px #fff;
+  margin: 10px;
 }
 
 .text-form textarea {
@@ -496,13 +512,13 @@ footer {
 }
 
 .job-image {
-  float: right;
+  float: left;
 }
 
 .volunteer-wrapper {
   max-width: 1400px;
   margin: 0 auto;
-  clear: right;
+  clear: left;
   padding: 15px;
   background-color: black;
 }
@@ -586,12 +602,12 @@ footer {
 }
 
 .jobs img {
-  padding-left: 5px;
+  padding: 5px;
   cursor: pointer;
 }
 
 .jobs .fc-view {
-  background-color: white;
+  background-color: #DA627D;
 }
 
 .jobs .volunteer-form {
@@ -613,6 +629,9 @@ footer {
 .jobs .volunteer-form label {
   font-size: 1.4rem;
   padding-bottom: .5rem;
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: gray;
 }
 
 .jobs .txtVol {
@@ -647,26 +666,28 @@ footer {
 
 .email {
   display: none;
+  margin: auto;
 }
 
 .checkbox-wrapper {
   position: relative;
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
 }
 
 .paw-checkbox {
   opacity: 0;
-  height: 40px;
-  width: 40px;
+  height: 60px;
+  width: 60px;
   position: absolute;
   z-index: 2;
+  cursor: pointer;
 }
 
 .paw-checkbox + label {
   background: url("../images/checkboxs/unchecked.svg") no-repeat;
-  height: 40px;
-  width: 40px;
+  height: inherit;
+  width: inherit;
   display: inline-block;
   position: absolute;
   z-index: 1;
@@ -674,8 +695,8 @@ footer {
 
 .paw-checkbox:checked + label {
   background: url("../images/checkboxs/checked.svg") no-repeat;
-  height: 40px;
-  width: 40px;
+  height: inherit;
+  width: inherit;
   display: inline-block;
   position: absolute;
   z-index: 1;

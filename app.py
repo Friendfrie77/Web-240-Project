@@ -1,6 +1,7 @@
 from enum import unique
 import os
 import sqlite3
+from telnetlib import STATUS
 from unittest import result
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, flash, json, url_for, jsonify
@@ -9,7 +10,7 @@ from requests import session
 from sqlalchemy import ForeignKey, create_engine
 import sqlalchemy
 app = Flask(__name__, static_url_path='/static')
-from helpers import is_email_valid, jsoncleaner
+from helpers import is_email_valid
 from flask_sqlalchemy import SQLAlchemy
 
 load_dotenv() 
@@ -198,6 +199,22 @@ def Volunteer():
         txtCal= request.form.get('txtCal')
         txtTime= request.form.get('txtTime')
         count += partysize
+        check = (request.form.get('chkWavier'))
+        # checks if user wants wavier *
+        if check == 'on':
+            txtEmail = request.form.get('txtEmail')
+            print(txtEmail)
+            status=is_email_valid(txtEmail)
+            if (status == "error") or (status == "invalid"):
+                    flash('Please enter a vaild email adress!', 'category2')
+                    return render_template('volunteer.html', job=job, target=target)
+            else:
+                with app.open_resource("static/newsletters/newsletter.pdf") as fp:
+                    msg=Message("Monthly News Letter", recipients=[txtEmail])
+                    msg.body="Here is this months newsletter"
+                    msg.attach("newsletter.pdf", "application/pdf", fp.read())
+                mail.send(msg)
+        #parses user data
         for number in jobs_ID:
             if int(jobID) == number:
                 query = sqlalchemy.select(Jobopen).filter_by(JobID=jobID)
@@ -211,7 +228,8 @@ def Volunteer():
                         db.session.add(Job)
                         db.session.commit()
                     else:
-                        return redirect('volunteer.html', job=job)
+                        flash('Sorry there are too many volunteers that day', 'category2')
+                        return render_template ('volunteer.html', job=job, target=target)
                 elif jobID == "2":
                     if count < 10:
                         for results in result:
@@ -220,25 +238,32 @@ def Volunteer():
                         Job = Jobopen(JobID=jobID, txtDate=txtCal, txtTime=txtTime, intPartySize=partysize)
                         db.session.add(Job)
                         db.session.commit()
-                #sending wavier out if user clicks the checkbox
-                check = (request.form.get('chkWavier'))
-                if check == 'yes':
-                    txtEmail = request.form.get('txtEmail')
-                    with app.open_resource("static/newsletters/newsletter.pdf") as fp:
-                        msg=Message("Monthly News Letter", recipients=[txtEmail])
-                        msg.body="Here is this months newsletter"
-                        msg.attach("newsletter.pdf", "application/pdf", fp.read())
-                    mail.send(msg)
+                    else:
+                        flash('Sorry there are too many volunteers that day', 'category2')
+                        return render_template('volunteer.html', job=job,target=target)
                 #adding user contact info to db
-
+                query = sqlalchemy.select(Jobopen).filter_by(JobID=jobID).order_by(Jobopen.JobopenID.desc())
+                result = engine.execute(query).fetchall()
+                JobopenID = 0
+                for results in result:
+                    JobopenID=results[0]
+                    break
+                if check == 'on':
+                    user = JobContact(JobopenID=JobopenID, txtEmail = request.form.get('txtEmail'), txtName = request.form.get('txtName'))
+                    db.session.add(user)
+                    db.session.commit()
+                else:
+                    user = JobContact(JobopenID=JobopenID, txtEmail = 'Null', txtName = request.form.get('txtName'))
+                    db.session.add(user)
+                    db.session.commit()
                 # setting up fullcalender data
                 try:
                     jobinfo = open('static/json/data.json')
                     jobinfo = json.load(jobinfo)
                 except:
                     jobinfo= []
-                for dic in jobinfo:
-                    while itr != len(jobinfo):
+                while itr != len(jobinfo):
+                    for dic in jobinfo:
                         if (dic.get('jobID') == str(jobID)) and (dic.get('start')== txtCal):
                             jobinfo[itr]['title'] = F'Volunteers for the day {str(count)}'
                             itr += 1
@@ -248,17 +273,12 @@ def Volunteer():
                             return redirect(url_for('Thanks'))
                         else:
                             itr += 1
-                    if dic.get('start') != txtCal:
+                    else:
                         jobinfo.append({"jobID":jobID, "title":F'Volunteers for the day {str(partysize)}', "start":txtCal})
                         jsonsave = open('static/json/data.json', 'w')
                         json.dump(jobinfo, jsonsave)
                         jsonsave.close()
                         return redirect(url_for('Thanks'))
-                else:
-                    jobinfo.append({"jobID":jobID, "title":F'Volunteers for the day: {str(count)}', "start":txtCal,})
-                    jsonsave = open('static/json/data.json', 'w')
-                    json.dump(jobinfo, jsonsave)
-                    jsonsave.close()
                 return redirect(url_for('Thanks'))
     return render_template("volunteer.html", job=job, target=target)
 
@@ -297,8 +317,8 @@ def newsletter():
     if request.method == "POST":
         news_letter_email=request.form.get('email')
         status = is_email_valid(news_letter_email)
-        if status == "error":
-            flash("Invaild email adresss!", "warning")
+        if (status == "error") or (status == "invalid"):
+            flash("Invaild email adresss!", 'category1')
             return redirect(request.referrer)
         if status == "valid":
             user = Useremail.query.filter_by(txtEmail=news_letter_email).first()
@@ -311,10 +331,10 @@ def newsletter():
                     msg.body="Here is this months newsletter"
                     msg.attach("newsletter.pdf", "application/pdf", fp.read())
                 mail.send(msg)
-                flash("Thank you for signing up!", "info")
+                flash("Thank you for signing up!", 'category1')
                 return redirect(request.referrer)
             else:
-                flash("Looks like you are already signed up", "warning")
+                flash("Looks like you are already signed up", 'category1')
                 return redirect(request.referrer)
 
        

@@ -80,6 +80,7 @@ footer{
     h3{
         color: $headline-colors;
         padding-left: 10px;
+        font-size: 1.3rem;
     }
 }
 .fa-brands{
@@ -92,6 +93,7 @@ footer{
     justify-self: center;
     width: 40%;
     h3{
+        font-size: 1.4rem;
         color: $headline-colors;
         padding-bottom: 15px;
     }
@@ -99,6 +101,7 @@ footer{
         color: $headline-colors;
         padding-top: 20px;
         text-align: center;
+        font-size: 1.4rem;
     }
 }
 .newsletter-box{
@@ -116,12 +119,18 @@ footer{
     list-style:none;
     font-size: 1.4rem;
     a{
+        font-size: 1.4rem;
         text-decoration: none;
         color: $headline-colors;
         transform: color .7s ease-out;
         &:hover{
             color: $button-color;
         }
+    }
+}
+.contact{
+    h3{
+        font-size: 1.3rem;
     }
 }
 /* Navbar Mobile Animation */

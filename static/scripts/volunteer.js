@@ -8,10 +8,13 @@ jQuery(function() {
 jQuery(function() {
   jQuery('.paw-checkbox').click(function() {
     jQuery('#email'+$(this).attr('target')).slideToggle();
+//   $(function(){
+//     $(".txtEmail").prop('required',true);
+//   });
   });
 });
 
-/* counter */
+/* counter for hero */
 document.addEventListener('DOMContentLoaded',function counters(){
   var counter = document.getElementById('counter');
   counter.innerText = '0';

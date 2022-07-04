@@ -52,7 +52,7 @@
             <div class="newletter-wrapper">
                 <form action="/Newsletter" method="POST" novalidate>
                     <h3>Sign up for our monthly newsletter below!</h3>
-                    {% with messages = get_flashed_messages() %}
+                    {% with messages = get_flashed_messages(category_filter=["category1"]) %}
                         {% if messages %}
                             {% for message in messages %} 
                                 <span class="email-error">{{ message }}</span>
