@@ -273,13 +273,12 @@ def Volunteer():
                             return redirect(url_for('Thanks'))
                         else:
                             itr += 1
-                    else:
-                        jobinfo.append({"jobID":jobID, "title":F'Volunteers for the day {str(partysize)}', "start":txtCal})
-                        jsonsave = open('static/json/data.json', 'w')
-                        json.dump(jobinfo, jsonsave)
-                        jsonsave.close()
-                        return redirect(url_for('Thanks'))
-                return redirect(url_for('Thanks'))
+                else:
+                    jobinfo.append({"jobID":jobID, "title":F'Volunteers for the day {str(partysize)}', "start":txtCal})
+                    jsonsave = open('static/json/data.json', 'w')
+                    json.dump(jobinfo, jsonsave)
+                    jsonsave.close()
+                    return redirect(url_for('Thanks'))
     return render_template("volunteer.html", job=job, target=target)
 
 @app.route("/Contact", methods=["GET", "POST"])
