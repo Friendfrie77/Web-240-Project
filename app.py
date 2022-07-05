@@ -12,7 +12,7 @@ import sqlalchemy
 app = Flask(__name__, static_url_path='/static')
 from helpers import is_email_valid
 from flask_sqlalchemy import SQLAlchemy
-
+#env vars
 load_dotenv() 
 email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
@@ -21,8 +21,10 @@ app.secret_key = 'key'
 email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
 email_api=os.environ.get('email_api')
+#setting up db connection
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+#setting up flask mail
 app.config.update(dict(
     MAIL_SERVER = 'smtp.googlemail.com',
     MAIL_PORT= 465,
@@ -34,6 +36,7 @@ app.config.update(dict(
     ))
 mail = Mail(app)
 db= SQLAlchemy(app)
+#connecting to the db
 engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
 con = engine.connect()
 #db model
