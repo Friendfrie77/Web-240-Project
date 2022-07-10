@@ -1,6 +1,18 @@
 /* Media Queries */
     /* Mobile Devices */
     @media only screen and (max-width: 720px){
+        /* index page */
+        .index-img-1{
+            bottom: 8.5%;
+            background-position: 75% 30%;
+        }
+        .quick-links{
+            bottom: 9%;
+            height: 150px;
+            h1{
+                font-size: 2.4rem;
+            }
+        }
         /* contact page */
         .center{
             width: 80vw;

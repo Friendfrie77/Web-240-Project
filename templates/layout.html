@@ -23,6 +23,7 @@
     </head>
     <body>
         <div class="wrapper">
+            {% block nav %}
             <div class-="nav-wrapper">
                 <nav class="navbar">
                     <a href="{{ url_for('index') }}"><img class="logo" src="static/images/logo.svg" alt="Toebeans Sanctuary logo"></a>
@@ -32,14 +33,15 @@
                         <span class="bar"></span>
                     </div>
                     <ul class="nav">
-                        <li class="nav-item"><a href="{{ url_for('index') }}">Home</a></li>
-                        <li class="nav-item"><a href="{{ url_for('Cats') }}">Cats</a></li>
-                        <li class="nav-item"><a href="{{ url_for('About') }}">About</a></li>
-                        <li class="nav-item"><a href="{{ url_for('Contact') }}">Contact</a></li>
-                        <li class="nav-item"><a href="{{ url_for('Volunteer') }}">Volunteer</a></li>
+                        <li class="nav-item" id="Index"><a href="{{ url_for('index') }}">Home</a></li>
+                        <li class="nav-item" id="Cats"><a href="{{ url_for('Cats') }}">Cats</a></li>
+                        <li class="nav-item" id="About"><a href="{{ url_for('About') }}">About</a></li>
+                        <li class="nav-item" id="Contact"><a href="{{ url_for('Contact') }}">Contact</a></li>
+                        <li class="nav-item" id="Volunteer"><a href="{{ url_for('Volunteer') }}">Volunteer</a></li>
                     </ul>
                 </nav>
             </div>
+            {% endblock %}
         {% block main %}
         {% endblock %}
         <footer>
@@ -81,5 +83,7 @@
         </footer>
         </div>
     <script src="../static/scripts/scripts.js" async defer></script>
+    {% block scripts %}
+    {% endblock %}
     </body>
 </html>

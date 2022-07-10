@@ -5,14 +5,50 @@ Home
 {% block main %}
     <div class="index-img-1">
     </div>
+    <section class="quick-links">
+        <div class="cats">
+            <a href="/Cats">
+                <h1>Cats</h1>
+                <p>Learn about our furry friends</p>
+            </a>
+        </div>
+        <div class="about">
+            <a href="/About">
+                <h1>Our misson</h1>
+                <p>Learn about our furry friends</p>
+            </a>
+        </div>
+        <div class="volunteer">
+            <a href="/Volunteer">
+                <h1>How you can help</h1>
+                <p>Learn about how you can help our furry friends</p>
+            </a>
+        </div>
+    </section>
     <section class="content" id="section-1">
-        <div id="index-content-1">
-            <h2 class="headline">Our mission</h2>
-            <p>Nisi veniam labore irure officia commodo dolore qui esse proident deserunt ad consequat est. Ad dolore adipisicing eu laboris labore est consequat irure quis proident enim consequat. Ipsum aliqua ad exercitation adipisicing ad reprehenderit duis mollit proident ad cupidatat. Duis laborum ea ut nisi. Occaecat dolore dolore aliqua et minim exercitation officia deserunt pariatur. Est culpa est nulla ad dolore deserunt aute irure commodo.Id voluptate est ullamco aute non minim enim ullamco qui aute exercitation. Consectetur et tempor quis fugiat do aliqua voluptate amet amet et elit labore laborum. Incididunt quis cupidatat voluptate cupidatat amet nostrud cupidatat non anim ipsum anim laborum id irure. Ipsum ad ipsum adipisicing cillum non dolore excepteur proident elit. Ex enim officia ut mollit nulla ad eiusmod mollit eu deserunt et eu. Qui consequat labore dolor minim Lorem deserunt deserunt aliqua sit ad nostrud.</p>
-            <p>Nisi veniam labore irure officia commodo dolore qui esse proident deserunt ad consequat est. Ad dolore adipisicing eu laboris labore est consequat irure quis proident enim consequat. Ipsum aliqua ad exercitation adipisicing ad reprehenderit duis mollit proident ad cupidatat. Duis laborum ea ut nisi. Occaecat dolore dolore aliqua et minim exercitation officia deserunt pariatur. Est culpa est nulla ad dolore deserunt aute irure commodo.Id voluptate est ullamco aute non minim enim ullamco qui aute exercitation. Consectetur et tempor quis fugiat do aliqua voluptate amet amet et elit labore laborum. Incididunt quis cupidatat voluptate cupidatat amet nostrud cupidatat non anim ipsum anim laborum id irure. Ipsum ad ipsum adipisicing cillum non dolore excepteur proident elit. Ex enim officia ut mollit nulla ad eiusmod mollit eu deserunt et eu. Qui consequat labore dolor minim Lorem deserunt deserunt aliqua sit ad nostrud.</p>
+        <div class="content-inner" id="index-content-1">
+            <h1>Our Mission</h1>
+            <p>We believe that every cat should have a chance to at a good life. Wither that is giving a feral cat a new home with a loving family, or a great life within our sanctuary. We also strive to educate the public on how to properly deal with feral cats via trapping and fixing said cats.</p>
+            <div class="index-grid">
+                <div class="spay-neuter-img"></div>
+                <div class="spay-content">
+                    <h2>Total cats spayed or neutered this year:&nbsp;<span class="counter" id="spaycounter" data-target="200"></span></h2>
+                    <p>Spaying and neutering cats is one of the best ways to help control the population of cats and other animals. It is a human way of making sure that they do not reproduce. This not only helps to reduce the number of feral cats around, but also helps to protect other wildlife from the cats. We offer a free service for spaying and neutering cats. You can find out more <a href="/About">here</a>.</p>
+                </div>
+            </div>
+            <div class="index-grid">
+                <div class="adopt-content">
+                    <h2>Total cats adopted this year:&nbsp;<span class="counter" id="adoptcounter' data-target="30"></span></h2>
+                    <p>While the vast majority of our cats are not suitably for adoption, we do get some that would just love to find a loving family. For a small fee, to help cover some of our operating cost you can bring home your own furry friend. You can find a little about the cats that we have open for adoption here.</p>
+                </div>
+                <div class="adopt-img"></div>
+            </div>
         </div>
     </section>
     <div class="index-img-2">
+        <div class="hero-text">
+            <h1><q>The phrase "domestic cat" is an oxymoron.</q> – George Will</h1>
+        </div>
     </div>
     <section class="content" id="section-2">
         <div id="index-content-2">
@@ -34,9 +70,11 @@ Home
             </div>
         </div>
     </section>
-    <section class="content">
-        <h2 class="headline">How you can help!</h2>
-        <p>In ipsum aliquip laboris mollit laboris cillum reprehenderit velit officia quis. Enim ea voluptate enim consectetur in sint qui fugiat exercitation magna cupidatat consequat proident labore. Consectetur sint magna Lorem ullamco.</p>
+    <div class="index-img-3"></div>
+    <section class="content" id="section-3">
+        <h1>Sanctuary News and Updates</h1>
     </section>
+    {% block scripts %}
     <script src="../static/scripts/index-scripts.js"></script>
+    {% endblock %}
 {% endblock %}

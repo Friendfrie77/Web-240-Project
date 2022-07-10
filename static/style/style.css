@@ -17,6 +17,8 @@ body {
   min-height: 100vh;
   width: 100%;
   background-color: black;
+  background: linear-gradient(94deg, #06042d 0%, #02131b 34%, #041924 64%, black 100%);
+  position: relative;
 }
 
 h1, h2, h3 {
@@ -36,6 +38,7 @@ h1, h2, h3 {
   height: 100vh;
   margin: 0;
   background-color: black;
+  background: linear-gradient(94deg, #06042d 0%, #02131b 34%, #041924 64%, black 100%);
 }
 
 .contact-wrapper {
@@ -46,6 +49,10 @@ h1, h2, h3 {
 .contact-wrapper h1 {
   margin-top: 20px;
   font-size: 3rem;
+}
+
+.page-wrapper {
+  margin-bottom: 15px;
 }
 
 /* navigation */
@@ -59,10 +66,11 @@ h1, h2, h3 {
           align-items: center;
   height: 75px;
   overflow: hidden;
-  background-color: #0d3b66;
+  background-color: rgba(13, 60, 104, 0.7);
   -webkit-box-shadow: 0px 0px 10px #0f0f0f;
           box-shadow: 0px 0px 10px #0f0f0f;
   z-index: 1000;
+  position: relative;
 }
 
 .navbar img {
@@ -237,7 +245,174 @@ footer {
           transform: translateY(-8px) rotate(-45deg);
 }
 
+/*index page */
+.content {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  max-width: 2000px;
+}
+
+.content h1 {
+  font-size: 3.5rem;
+}
+
+.content h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: #b29597;
+}
+
+.content p {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: gray;
+}
+
+.quick-links {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 33.33% 33.33% 33.33%;
+      grid-template-columns: 33.33% 33.33% 33.33%;
+  justify-items: center;
+  width: 100vw;
+  height: 100px;
+  position: relative;
+  bottom: 7%;
+  text-align: center;
+}
+
+.quick-links a {
+  text-decoration: none;
+}
+
+.quick-links h1 {
+  font-size: 2.9rem;
+  color: #000;
+}
+
+.quick-links p {
+  color: #000;
+}
+
+.about {
+  background-color: #0d3b66;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.about:hover h1 {
+  color: #DA627D;
+}
+
+.about:hover p {
+  color: #DA627D;
+}
+
+.cats {
+  background-color: #DA627D;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 10px;
+}
+
+.cats:hover h1 {
+  color: #0d3b66;
+}
+
+.cats:hover p {
+  color: #0d3b66;
+}
+
+.volunteer {
+  background-color: #DA627D;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+}
+
+.volunteer:hover h1 {
+  color: #0d3b66;
+}
+
+.volunteer:hover p {
+  color: #0d3b66;
+}
+
+.index-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+}
+
+.index-grid h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: #b29597;
+  font-size: 3rem;
+}
+
+.index-grid h2 span {
+  font-size: 4rem;
+  font-family: "Yanone Kaffeesatz", sans-serif;
+}
+
+.index-grid p {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: gray;
+  padding: 10px;
+  font-size: 1.7rem;
+}
+
+.spay-content {
+  width: 100%;
+}
+
+.spay-neuter-img {
+  width: 100%;
+  height: 300px;
+  background-image: url("../images/spay.webp");
+  background-position: center 75%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.sanctuary-img {
+  width: 100%;
+  min-height: 500px;
+  background-image: url("../images/index_sanctuary.webp");
+  background-position: center 55%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+.adopt-img {
+  width: 100%;
+  height: 300px;
+  background-image: url("../images/adopt_1.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  scale: .5;
+}
+
 /* contact page */
+.contact-header {
+  background-image: url(../images/contact_page.webp);
+  width: 100%;
+  min-height: 550px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  background-position: center 28%;
+}
+
 .social-button {
   width: 20%;
   margin: 20px;
@@ -560,12 +735,13 @@ footer {
 
 .volunteer-header {
   width: 100%;
-  min-height: 500px;
+  min-height: 700px;
   background-image: url("../images/volunteer_pictures/hero_test.webp");
   background-position: left 25%;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  bottom: 6%;
 }
 
 .volunteer-header-text {
@@ -706,15 +882,44 @@ footer {
 /* hero image */
 .index-img-1 {
   background-image: url("../images/parallax/index_hero.webp");
+  min-height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  bottom: 7%;
+  background-position: bottom 30%;
+}
+
+.index-img-2 {
+  background-image: url("../images/parallax/Boo_large.webp");
   min-height: 600px;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
 }
 
-.index-img-2 {
-  background-image: url("../images/parallax/Boo_large.webp");
+.index-img-2 .hero-text {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.index-img-2 q {
+  font-size: 3rem;
+}
+
+.index-img-2 h1 {
+  font-size: 3rem;
+}
+
+.index-img-3 {
+  background-image: url("../images/parallax/sanctuary_index.webp");
   min-height: 600px;
   background-attachment: fixed;
   background-position: center;
@@ -743,6 +948,18 @@ footer {
 /* Media Queries */
 /* Mobile Devices */
 @media only screen and (max-width: 720px) {
+  /* index page */
+  .index-img-1 {
+    bottom: 8.5%;
+    background-position: 75% 30%;
+  }
+  .quick-links {
+    bottom: 9%;
+    height: 150px;
+  }
+  .quick-links h1 {
+    font-size: 2.4rem;
+  }
   /* contact page */
   .center {
     width: 80vw;
@@ -863,28 +1080,5 @@ footer {
     width: 100px;
     height: 100px;
   }
-}
-
-/* page content */
-.headline {
-  font-family: "Yanone Kaffeesatz", sans-serif;
-  font-size: 3rem;
-  padding: 10px;
-}
-
-.content {
-  max-width: 1400px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-}
-
-.content h2 {
-  text-align: center;
-}
-
-.content p {
-  padding: 0px 0px 20px 0px;
-  font-size: 2rem;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,12 +1,35 @@
 /* hero image */
 .index-img-1{
     background-image: url("../images/parallax/index_hero.webp");
-    min-height: 600px;
-    @include parallax;
-    
+    min-height: 800px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    bottom: 7%;
+    background-position: bottom 30%;
 }
 .index-img-2{
     background-image: url("../images/parallax/Boo_large.webp");
+    min-height: 600px;
+    @include parallax;
+    position: relative;
+    .hero-text{
+        position: absolute;
+        z-index: 100;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    q{
+        font-size: 3rem;
+    }
+    h1{
+        font-size: 3rem;
+    }
+}
+.index-img-3{
+    background-image: url("../images/parallax/sanctuary_index.webp");
     min-height: 600px;
     @include parallax;
 }

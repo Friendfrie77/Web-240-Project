@@ -1,0 +1,126 @@
+/*index page */
+.content {
+    align-self: center;
+    max-width: 2000px;
+    h1{
+        font-size: 3.5rem;
+    }
+    h2{
+        @include form-h2;
+    } 
+    p{
+        @include form-p;
+    } 
+}
+
+.quick-links{
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    justify-items: center;
+    width: 100vw;
+    height: 100px;
+    position: relative;
+    bottom: 7%;
+    text-align: center;
+    a{
+        text-decoration: none;
+    }
+    h1{
+        font-size: 2.9rem;
+        color: #000;
+    }
+    p{
+        color: #000;
+    }
+}
+
+.about{
+    background-color: $secondary-color;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    &:hover{
+        h1{
+            color:$button-color;
+        }
+        p{
+            color: $button-color;
+        }
+    }
+}
+.cats{
+    background-color: $primary-color;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 10px;
+    &:hover{
+        h1{
+            color:$secondary-color;
+        }
+        p{
+            color: $secondary-color;
+        }
+    }
+}
+.volunteer{
+    background-color: $primary-color;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    &:hover{
+        h1{
+            color:$secondary-color;
+        }
+        p{
+            color: $secondary-color;
+        }
+    }
+}
+.index-grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    h2{
+        @include form-h2;
+        font-size: 3rem;
+        span{
+            font-size: 4rem;
+            font-family: $headline-font;
+        }
+    }
+    p{
+        @include form-p;
+        padding: 10px;
+        font-size: 1.7rem;
+    }
+}
+.spay-content{
+    width: 100%;
+}
+.spay-neuter-img{
+    width: 100%;
+    height: 300px;
+    background-image: url('../images/spay.webp');
+    background-position: center 75%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.sanctuary-img{
+    width: 100%;
+    min-height: 500px;
+    background-image: url('../images/index_sanctuary.webp');
+    background-position: center 55%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+.adopt-img{
+    width: 100%;
+    height: 300px;
+    background-image: url('../images/adopt_1.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    scale: .5;
+}

@@ -13,7 +13,7 @@ $card-secondary: blue;
 $headline-font: 'Yanone Kaffeesatz', sans-serif;
 $content-font:  'PT Sans Narrow', sans-serif;
 $drop-shadow: 0px 0px 10px hsl(209,77%,23%);
-$font-size: 16px;
+$base-font-size: 16px;
 
 /* mixins */
 @mixin center {
@@ -40,28 +40,11 @@ $font-size: 16px;
 @import './reset';
 @import './wrappers';
 @import './navgation';
+@import './index';
 @import './contact';
 @import './volunteer';
 @import './images';
 @import './media_queries';
 
-/* page content */
-.headline{
-    font-family: $headline-font;
-    font-size: 3rem;
-    padding: 10px;
-}
-.content {
-    max-width: 1400px;
-    align-self: center;
-    h2{
-        text-align: center;
-
-    } 
-    p{
-        padding: 0px 0px 20px 0px;
-        font-size: 2rem;
-    } 
-}
 
 

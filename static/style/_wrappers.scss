@@ -5,6 +5,7 @@
     height: 100vh;
     margin: 0;
     background-color: black;
+    background: linear-gradient(94deg, rgba(6,4,45,1) 0%, rgba(2,19,27,1) 34%, rgba(4,25,36,1) 64%, rgba(0,0,0,1) 100%);
 }
 .contact-wrapper{
     text-align: center;
@@ -13,4 +14,7 @@
         margin-top: 20px;
         font-size: 3rem;
     }
+}
+.page-wrapper{
+    margin-bottom: 15px;
 }
