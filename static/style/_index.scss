@@ -2,6 +2,7 @@
 .content {
     align-self: center;
     max-width: 2000px;
+    padding: 15px;
     h1{
         font-size: 3.5rem;
     }
@@ -13,6 +14,7 @@
     } 
 }
 
+/* links under hero */
 .quick-links{
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;
@@ -77,9 +79,11 @@
         }
     }
 }
+
 .index-grid{
     display: grid;
     grid-template-columns: 50% 50%;
+    width: 100%;
     h2{
         @include form-h2;
         font-size: 3rem;
@@ -97,30 +101,40 @@
 .spay-content{
     width: 100%;
 }
-.spay-neuter-img{
+
+/* bottom news */
+#section-3{
     width: 100%;
-    height: 300px;
-    background-image: url('../images/spay.webp');
-    background-position: center 75%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+    h1{
+        text-align: center;
+    }
 }
-.sanctuary-img{
+.news-left{
     width: 100%;
-    min-height: 500px;
-    background-image: url('../images/index_sanctuary.webp');
-    background-position: center 55%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
 }
-.adopt-img{
+.news-right{
     width: 100%;
-    height: 300px;
-    background-image: url('../images/adopt_1.webp');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    scale: .5;
+}
+.news-slideshow{
+    width: 50%;
+    position: relative;
+    margin: auto;
+}
+.news-slide{
+    display: None;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+}
+.prev, .next{
+    color: $primary-color;
+    font-size: 30px;
+    position: absolute;
+    top: 50%;
+    cursor: pointer;
+
+}
+.next{
+    left: 100%;
+    transform: translateX(50px);
 }

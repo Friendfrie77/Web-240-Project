@@ -13,12 +13,10 @@
   font-size: 16px;
 }
 
-body {
+html, body {
   min-height: 100vh;
-  width: 100%;
-  background-color: black;
-  background: linear-gradient(94deg, #06042d 0%, #02131b 34%, #041924 64%, black 100%);
-  position: relative;
+  width: 100vw;
+  background-color: red;
 }
 
 h1, h2, h3 {
@@ -35,7 +33,8 @@ h1, h2, h3 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100vh;
+  height: 100%;
+  width: 100vw;
   margin: 0;
   background-color: black;
   background: linear-gradient(94deg, #06042d 0%, #02131b 34%, #041924 64%, black 100%);
@@ -251,6 +250,7 @@ footer {
       -ms-grid-row-align: center;
       align-self: center;
   max-width: 2000px;
+  padding: 15px;
 }
 
 .content h1 {
@@ -269,6 +269,7 @@ footer {
   color: gray;
 }
 
+/* links under hero */
 .quick-links {
   display: -ms-grid;
   display: grid;
@@ -346,6 +347,7 @@ footer {
   display: grid;
   -ms-grid-columns: 50% 50%;
       grid-template-columns: 50% 50%;
+  width: 100%;
 }
 
 .index-grid h2 {
@@ -372,34 +374,48 @@ footer {
   width: 100%;
 }
 
-.spay-neuter-img {
+/* bottom news */
+#section-3 {
   width: 100%;
-  height: 300px;
-  background-image: url("../images/spay.webp");
-  background-position: center 75%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
 }
 
-.sanctuary-img {
-  width: 100%;
-  min-height: 500px;
-  background-image: url("../images/index_sanctuary.webp");
-  background-position: center 55%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+#section-3 h1 {
+  text-align: center;
 }
 
-.adopt-img {
+.news-left {
   width: 100%;
-  height: 300px;
-  background-image: url("../images/adopt_1.webp");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  scale: .5;
+}
+
+.news-right {
+  width: 100%;
+}
+
+.news-slideshow {
+  width: 50%;
+  position: relative;
+  margin: auto;
+}
+
+.news-slide {
+  display: None;
+  text-align: center;
+  width: 100%;
+  margin: auto;
+}
+
+.prev, .next {
+  color: #DA627D;
+  font-size: 30px;
+  position: absolute;
+  top: 50%;
+  cursor: pointer;
+}
+
+.next {
+  left: 100%;
+  -webkit-transform: translateX(50px);
+          transform: translateX(50px);
 }
 
 /* contact page */
@@ -927,22 +943,36 @@ footer {
   background-size: cover;
 }
 
-/* index page gallary */
-.card-holder {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[3];
-      grid-template-columns: repeat(3, 1fr);
-  padding-bottom: 10px;
+/* index page */
+.spay-neuter-img {
+  width: 100%;
+  height: 300px;
+  background-image: url("../images/spay.webp");
+  background-position: center 75%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 15px;
 }
 
-.cat-card {
-  cursor: pointer;
-  font-size: 0;
+.sanctuary-img {
+  width: 100%;
+  min-height: 500px;
+  background-image: url("../images/index_sanctuary.webp");
+  background-position: center 55%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
 }
 
-.detail {
-  position: fixed;
+.adopt-img {
+  width: 100%;
+  height: 300px;
+  background-image: url("../images/adopt_1.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  scale: .5;
 }
 
 /* Media Queries */
@@ -958,7 +988,25 @@ footer {
     height: 150px;
   }
   .quick-links h1 {
-    font-size: 2.4rem;
+    font-size: 1.4rem;
+  }
+  .spay-content h2 {
+    font-size: 2rem;
+  }
+  .spay-content .counter {
+    font-size: 2rem;
+  }
+  .spay-content .p {
+    font-size: 1rem;
+  }
+  .index-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   /* contact page */
   .center {

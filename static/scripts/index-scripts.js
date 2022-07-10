@@ -12,6 +12,25 @@ document.addEventListener('DOMContentLoaded',function counters(){
     };
     updateCounter();
   });
+
+/* News slideshow */
+let currentSlide = 1;
+
+function showSlide(n){
+  let i;
+  let slides = document.getElementsByClassName("news-slide");
+  if (n > slides.length) {currentSlide = 1}
+  if (n < 1) {displaySlide = slides.length}
+  for (i = 0; i < slides.length; i++){
+    slides[i].style.display = "None";
+  }
+  slides[currentSlide - 1].style.display= "Block";
+}
+showSlide(currentSlide);
+
+function changeslide(n){
+  showSlide(currentSlide += n);
+};
 /* gsap index page animations */
 gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.create({

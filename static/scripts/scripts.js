@@ -5,5 +5,3 @@ $    (".nav").toggleClass("mobile-nav");
 $    (this).toggleClass("is-active");
 });
 
-/* volunteer page */
-const day = document.getElementById('selDay')
