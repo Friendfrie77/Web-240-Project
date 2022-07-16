@@ -9,12 +9,17 @@
     box-shadow: 0px 0px 10px #0f0f0f;
     z-index: 1000;
     position: relative;
+    animation: navbarload $navbar-timing ease-in;
 }
 .navbar img{
     height: 55px;
     width: auto;
     justify-self: start;
     margin-left: 20px;
+    transform: translateX(-120%);
+    animation: logoanimate $navbar-timing;
+    animation-delay: $navbar-timing;
+    animation-fill-mode: forwards;
 }
 .navbar .nav{
     display: grid;
@@ -25,6 +30,10 @@
     transition: .7s ease-in-out;
     z-index: 100;
     .nav-item{
+        transform: scale(0);
+        animation: navitemgrow $navbar-timing;
+        animation-delay: $navbar-timing + ($navbar-timing/2);
+        animation-fill-mode: forwards;
         &:nth-child(5){
             padding-right: 15px;
             margin-right: 10px;
@@ -54,6 +63,32 @@
         background-color: #000;
         margin: 5px auto;
         transition: all 0.3s ease-in-out;
+    }
+}
+
+/* nav bar aniamation */
+@keyframes navbarload{
+    0%{
+        transform: translateY(-100%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+@keyframes logoanimate{
+    0%{
+        transform: translateX(-120%);
+    }
+    100%{
+        transform: translateX(0%);
+    }
+}
+@keyframes navitemgrow {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
     }
 }
 /* footer */

@@ -46,6 +46,9 @@
     width: 100%;
     height: 100%;
     padding: 10px;
+    transform: translateY(-100%);
+    opacity: 0;
+    animation: aboutquick $navbar-timing  $navbar-timing forwards;
     &:hover{
         h1{
             color:$button-color;
@@ -59,8 +62,10 @@
     background-color: $primary-color;
     width: 100%;
     height: 100%;
+    transform: translateX(-100%);
     text-align: center;
     padding: 10px;
+    animation: catsquick $navbar-timing  $navbar-timing forwards;
     &:hover{
         h1{
             color:$secondary-color;
@@ -75,6 +80,8 @@
     width: 100%;
     height: 100%;
     padding: 10px;
+    transform: translateX(100%);
+    animation: volunteersquick $navbar-timing  $navbar-timing forwards;
     &:hover{
         h1{
             color:$secondary-color;

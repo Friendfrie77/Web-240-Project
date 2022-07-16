@@ -1,6 +1,7 @@
 /* scss constants */
 /* colors */
 /* fonts */
+/* css animation */
 /* mixins */
 /* scss page imports */
 /* page setup */
@@ -46,6 +47,11 @@ h1, h2, h3 {
   max-width: 1600px;
   padding: 15px;
   position: relative;
+  -webkit-animation: contentanimation 250ms ease-in 300ms forwards;
+          animation: contentanimation 250ms ease-in 300ms forwards;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  opacity: 0;
 }
 
 .content h1 {
@@ -94,6 +100,8 @@ h1, h2, h3 {
           box-shadow: 0px 0px 10px #0f0f0f;
   z-index: 1000;
   position: relative;
+  -webkit-animation: navbarload 250ms ease-in;
+          animation: navbarload 250ms ease-in;
 }
 
 .navbar img {
@@ -102,6 +110,14 @@ h1, h2, h3 {
   -ms-grid-column-align: start;
       justify-self: start;
   margin-left: 20px;
+  -webkit-transform: translateX(-120%);
+          transform: translateX(-120%);
+  -webkit-animation: logoanimate 250ms;
+          animation: logoanimate 250ms;
+  -webkit-animation-delay: 250ms;
+          animation-delay: 250ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .navbar .nav {
@@ -116,6 +132,17 @@ h1, h2, h3 {
   -webkit-transition: .7s ease-in-out;
   transition: .7s ease-in-out;
   z-index: 100;
+}
+
+.navbar .nav .nav-item {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-animation: navitemgrow 250ms;
+          animation: navitemgrow 250ms;
+  -webkit-animation-delay: 375ms;
+          animation-delay: 375ms;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .navbar .nav .nav-item:nth-child(5) {
@@ -153,6 +180,72 @@ h1, h2, h3 {
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+/* nav bar aniamation */
+@-webkit-keyframes navbarload {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+@keyframes navbarload {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@-webkit-keyframes logoanimate {
+  0% {
+    -webkit-transform: translateX(-120%);
+            transform: translateX(-120%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes logoanimate {
+  0% {
+    -webkit-transform: translateX(-120%);
+            transform: translateX(-120%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes navitemgrow {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes navitemgrow {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 
 /* footer */
@@ -331,6 +424,11 @@ footer {
   width: 100%;
   height: 100%;
   padding: 10px;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  opacity: 0;
+  -webkit-animation: aboutquick 250ms 250ms forwards;
+          animation: aboutquick 250ms 250ms forwards;
 }
 
 .about:hover h1 {
@@ -345,8 +443,12 @@ footer {
   background-color: #DA627D;
   width: 100%;
   height: 100%;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
   text-align: center;
   padding: 10px;
+  -webkit-animation: catsquick 250ms 250ms forwards;
+          animation: catsquick 250ms 250ms forwards;
 }
 
 .cats:hover h1 {
@@ -362,6 +464,10 @@ footer {
   width: 100%;
   height: 100%;
   padding: 10px;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+  -webkit-animation: volunteersquick 250ms 250ms forwards;
+          animation: volunteersquick 250ms 250ms forwards;
 }
 
 .volunteer:hover h1 {
@@ -746,9 +852,8 @@ footer {
 /* cats page */
 .cats-hero {
   background-image: url(../images/cats_hero.webp);
-  min-height: 500px;
+  min-height: 800px;
   width: 100%;
-  min-height: 550px;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 38%;
@@ -1018,6 +1123,14 @@ footer {
 }
 
 /* hero image */
+.hero {
+  opacity: 0;
+  -webkit-animation: heroimg 400ms ease-in;
+          animation: heroimg 400ms ease-in;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
 .index-img-1 {
   background-image: url("../images/parallax/index_hero.webp");
   min-height: 800px;
@@ -1095,6 +1208,164 @@ footer {
   background-repeat: no-repeat;
   background-size: cover;
   scale: .5;
+}
+
+/* nav bar aniamation */
+@keyframes navbarload {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+  }
+  100% {
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes logoanimate {
+  0% {
+    -webkit-transform: translateX(-120%);
+            transform: translateX(-120%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes navitemgrow {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+/* hero img animations */
+@-webkit-keyframes heroimg {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes heroimg {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* quick links */
+@-webkit-keyframes catsquick {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+@keyframes catsquick {
+  0% {
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes volunteersquick {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@keyframes volunteersquick {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+}
+
+@-webkit-keyframes aboutquick {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+@keyframes aboutquick {
+  0% {
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0%);
+            transform: translateY(0%);
+  }
+}
+
+/* content animations */
+@-webkit-keyframes contentanimation {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+    opacity: .5;
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes contentanimation {
+  0% {
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+    opacity: 0;
+  }
+  50% {
+    -webkit-transform: translateX(50%);
+            transform: translateX(50%);
+    opacity: .5;
+  }
+  100% {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+    opacity: 1;
+  }
 }
 
 /* Media Queries */

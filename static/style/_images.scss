@@ -1,4 +1,9 @@
 /* hero image */
+.hero{
+    opacity: 0;
+    animation: heroimg 400ms ease-in;
+    animation-fill-mode: forwards;
+}
 .index-img-1{
     background-image: url("../images/parallax/index_hero.webp");
     min-height: 800px;
