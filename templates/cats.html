@@ -1,11 +1,44 @@
 {% extends "layout.html" %}
 {% block title %}
-Home
+Cats
 {% endblock %}
 {% block main %}
-<label for="email">Leave you email so we can get in touch!</label>
-<input class="contact-email" type="email" name="email" placeholder="Email here" required><br>
-<label for="message">Whats on your mind?</label>
-<input class="contact-message" type="text" name="message" placeholder="..." required><br>
-<input class="contact-form-button" type="submit">
+<div class="cats-hero">
+</div>
+<div class="content">
+    <h1>Looking to Adopt a Cat?</h1>
+    <p>Are you looking to adopt a cat? While the majority of our cats are not suitably for adoption, we do have a small selection of cats that are suitable for adoption. The cats on this list are our friendliest cats that get along with others well. All cats that we adopt out come with full medical information and are up to date on all their shots. The process for adopting with us includes a person screening, as we want to make sure the cats are going to a good home, you will also get to spend time with the cat or cats you are looking at in a closed off area to see how well you get along. Below are the cats that are currently up for adoption.</p>
+    <div class="cat-adopt-grid">
+        <div class="item" data-title="Scout" data-secondary="Male" data-text="Scout is a friendly middle age male cat that is looking for a good home. He knows how to use the litter box, and has no major medical issues. While he is friendly he might take a little bit to let his personality shine as he is a little skittish around new people. He will do fine in a single cat household, but will require a little bit more attention in that case. ">
+            <img src="../static/images/adopt/scout.webp" alt="Scout the cat" width="500px" height="auto">
+        </div>
+        <div class="item" data-title="Beanca" data-secondary="Female" data-text="Beanca is a one of our younger cats. She is very friendly and enjoys getting pets and loves being brushed. She has no major medical issues and is healthy and playful. She is the happiest with other cats. She is perfect for a family with young kids or anyone else that can giver her lots of love and play time. She also likes having higher places to sit so she can watch over her new kingdom. ">
+            <img src="../static/images/adopt/Beanca.webp" alt="Beanca the cat" width="500px" height="auto">
+        </div>
+        <div class="item" data-title="Charly" data-secondary="Male" data-text="Charly is a loving cat that will make a great company for any family. He is on the older side, but still has a lot of love left to give. He is perfect if you want a cat that is relatively low energy as while he does play, he is not nearly has hyper as a younger cat. He would really enjoy the company of another cat as he is very social.">
+            <img src="../static/images/adopt/charly.webp" alt="Charly the cat" width="500px" height="auto">
+        </div>
+        <div class="item" data-title>
+            <img src="../static/images/adopt/graycat.webp" alt="Scout the cat" width="500px" height="auto">
+        </div>
+        <div class="item" data-title>
+            <img src="../static/images/adopt/cat2.webp" alt="Scout the cat" width="500px" height="auto">
+        </div>
+        <div class="item" data-title>
+            <img src="../static/images/adopt/cat3.webp" alt="Scout the cat" width="500px" height="auto">
+        </div>
+    </div>
+    <div class="detail">
+        <img />
+      
+        <div class="flip">
+          <div class="title">Placeholder title</div>
+          <div class="secondary">Placeholder secondary</div>
+          <div class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure cum, est amet delectus, blanditiis voluptatem laborum pariatur consequatur quae voluptate, nisi. Laborum adipisci iste earum distinctio, fugit, quas ipsa impedit.</div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="../static/scripts/cat-gsap-flip.js"></script>
 {% endblock %}

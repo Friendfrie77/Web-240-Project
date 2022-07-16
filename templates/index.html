@@ -3,8 +3,7 @@
 Home
 {% endblock %}
 {% block main %}
-    <div class="index-img-1">
-    </div>
+    <div class="index-img-1"> </div>
     <section class="quick-links">
         <div class="cats">
             <a href="/Cats">
@@ -28,7 +27,7 @@ Home
     <section class="content" id="section-1">
         <div class="content-inner" id="index-content-1">
             <h1>Our Mission</h1>
-            <p>We believe that every cat should have a chance to at a good life. Wither that is giving a feral cat a new home with a loving family, or a great life within our sanctuary. We also strive to educate the public on how to properly deal with feral cats via trapping and fixing said cats.</p>
+            <p>We believe that every cat should have a chance to at a good life. Wither that is giving a feral cat a new home with a loving family, or a great life within our sanctuary. On top of giving these cats a great home, we wanted to offer the opportunity to give the public a chance to feel the joy that comes with helping change an animal’s life for the better. We also strive to educate the public on how to properly deal with feral cats via trapping and fixing said cats. </p>
             <div class="index-grid">
                 <div class="spay-neuter-img"></div>
                 <div class="spay-content">
@@ -54,57 +53,54 @@ Home
         <div id="index-content-2">
             <h2 class="headline">The Cats</h2>
             <p>Lorem irure minim dolor consequat proident culpa commodo aliqua cillum consectetur tempor. Et velit deserunt sint consequat aute velit ea esse consequat quis magna esse culpa. Consequat deserunt nulla quis aliqua et ullamco voluptate mollit nulla.Cillum laborum proident pariatur fugiat duis. Laboris incididunt Lorem officia ullamco reprehenderit elit officia nisi quis dolore amet. Id sint ad sunt tempor exercitation officia qui ullamco ad eiusmod fugiat officia commodo consectetur.</p>
-            <div class="card-holder">
-                <div clas="cat-card" data-title="test" data-secondary="meow" data-text="In ipsum aliquip laboris mollit laboris cillum reprehenderit velit officia quis. Enim ea voluptate enim consectetur in sint qui fugiat exercitation magna cupidatat consequat proident labore. Consectetur sint magna Lorem ullamco">
-                    <img src="../static/images/test_card_small.webp">
-                </div>
-                <div clas="card_test">
-                    <img src="../static/images/test_card_small.webp">
-                </div>
-                <div clas="card_test">
-                    <img src="../static/images/test_card_small.webp">
-                </div>
-                <div clas="card_test">
-                    <img src="../static/images/test_card_small.webp">
-                </div>
-            </div>
         </div>
     </section>
     <div class="index-img-3"></div>
     <section class="content" id="section-3">
         <h1>Sanctuary News and Updates</h1>
         <div class="index-grid">
-           <div class="news-left">
-            <h2>A look into the sanctuary</h2>
-            <div class="news-slideshow">
-                <div class="news-slide">
-                    <img src="../static/images/index/slideshow/news_slide1.webp" height="300px" width="300px" alt="two cats laying on a house">
+            <div class="news-left">
+                <h2>A look into the sanctuary</h2>
+                <div class="news-slideshow">
+                    <div class="news-slide">
+                        <img src="../static/images/index/slideshow/news_slide1.webp" height="300px" width="300px" alt="two cats laying on a house">
+                        <span>Two cats laying around on a house</span>
+                    </div>
+                    <div class="news-slide">
+                        <img src="../static/images/index/slideshow/news_slide2.webp" height="300px" widht="300px" alt="Someone helping to build a new addition">
+                        <span>A volunteer building our new addition</span>
+                    </div>
+                    <div class="news-slide">
+                        <img src="../static/images/index/slideshow/news_slide3.webp" height="300px" widht="300px" alt="A cat in a cat tree">
+                        <span>A cat enjoying a cat tree someone donated</span>
+                    </div>
+                    <div class="news-slide">
+                        <img src="../static/images/index/slideshow/news_slide4.webp" height="300px" width="300px"
+                        alt="cat feeding station">
+                        <span>Cats Eating at one of our feeding stations</span>
+                    </div>
+                    <div class="news-slide">
+                        <img src="../static/images/index/slideshow/news_slide5.webp" height="300px" width="300px"
+                        alt="one of many shelters for the cats">
+                        <span>Addition to the sanctuary done.</span>
+                    </div>
+                    <div class="news-slide">
+                        <img src="../static/images/index/slideshow/news_slide6.webp" height="300px" width="300px"
+                        alt="a cat hiding from the heat">
+                        <span>A cat sleeping in one of the new houses.</span>
+                    </div>
+                    <a class="prev" onclick="changeslide(-1)">&#10094</a>
+                    <a class="next" onclick="changeslide(1)">&#10095</a>
                 </div>
-                <div class="news-slide">
-                    <img src="../static/images/index/slideshow/news_slide2.webp" height="300px" widht="300px" alt="Someone helping to build a new addition">
-                </div>
-                <div class="news-slide">
-                    <img src="../static/images/index/slideshow/news_slide3.webp" height="300px" widht="300px" alt="A cat in a cat tree">
-                </div>
-                <div class="news-slide">
-
-                </div>
-                <div class="news-slide">
-
-                </div>
-                <div class="news-slide">
-
-                </div>
-                <a class="prev" onclick="changeslide(-1)">&#10094</a>
-                <a class="next" onclick="changeslide(1)">&#10095</a>
             </div>
-           </div>
-           <div class="news-right">
-            <h1>Test</h1>
-           </div> 
+            <div class="news-right">
+            <h1>News</h1>
+            <div class="news-story"></div>
+            fasdfasdf
+            </div> 
         </div>
     </section>
-    {% block scripts %}
-    <script src="../static/scripts/index-scripts.js"></script>
-    {% endblock %}
+{% endblock %}
+{% block scripts %}
+<script src="../static/scripts/index-scripts.js"></script>
 {% endblock %}

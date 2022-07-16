@@ -16,7 +16,6 @@
 html, body {
   min-height: 100vh;
   width: 100vw;
-  background-color: red;
 }
 
 h1, h2, h3 {
@@ -33,11 +32,36 @@ h1, h2, h3 {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
   width: 100vw;
   margin: 0;
   background-color: black;
   background: linear-gradient(94deg, #06042d 0%, #02131b 34%, #041924 64%, black 100%);
+}
+
+.content {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  max-width: 1600px;
+  padding: 15px;
+  position: relative;
+}
+
+.content h1 {
+  font-size: 3.5rem;
+}
+
+.content h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: #b29597;
+}
+
+.content p {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: gray;
 }
 
 .contact-wrapper {
@@ -96,6 +120,7 @@ h1, h2, h3 {
 
 .navbar .nav .nav-item:nth-child(5) {
   padding-right: 15px;
+  margin-right: 10px;
 }
 
 .navbar .nav a {
@@ -249,7 +274,7 @@ footer {
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
-  max-width: 2000px;
+  max-width: 1600px;
   padding: 15px;
 }
 
@@ -267,6 +292,11 @@ footer {
   font-size: 1.5rem;
   line-height: 1.75;
   color: gray;
+}
+
+#index-content-1 h1 + p {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
 }
 
 /* links under hero */
@@ -392,7 +422,7 @@ footer {
 }
 
 .news-slideshow {
-  width: 50%;
+  width: 300px;
   position: relative;
   margin: auto;
 }
@@ -400,8 +430,14 @@ footer {
 .news-slide {
   display: None;
   text-align: center;
-  width: 100%;
+  width: 300px;
   margin: auto;
+}
+
+.news-slide span {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: gray;
 }
 
 .prev, .next {
@@ -412,8 +448,12 @@ footer {
   cursor: pointer;
 }
 
+.prev {
+  left: 5%;
+}
+
 .next {
-  left: 100%;
+  left: 75%;
   -webkit-transform: translateX(50px);
           transform: translateX(50px);
 }
@@ -701,6 +741,88 @@ footer {
 
 .contact-form-button:hover {
   background-color: #FFAAEA;
+}
+
+/* cats page */
+.cats-hero {
+  background-image: url(../images/cats_hero.webp);
+  min-height: 500px;
+  width: 100%;
+  min-height: 550px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 38%;
+}
+
+.cat-adopt-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  padding: 15px;
+}
+
+.detail {
+  position: fixed;
+  top: 10px;
+  left: 50%;
+  width: 90.1vmin;
+  cursor: pointer;
+  font-size: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  visibility: hidden;
+  max-height: 100%;
+  overflow: auto;
+}
+
+.detail > img {
+  position: relative;
+  z-index: 1;
+}
+
+.detail .flip {
+  background: #232323;
+  padding: 2rem 1.5rem;
+  font-size: 1rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.detail .flip > * {
+  margin-bottom: 1rem;
+}
+
+.detail .title {
+  text-align: center;
+  font-size: 3rem;
+  color: #b29597;
+  font-size: 2rem;
+  text-transform: uppercase;
+}
+
+.detail .secondary {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: gray;
+  color: lightgray;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.detail .description {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: gray;
+  line-height: 1.5;
 }
 
 .job-image {

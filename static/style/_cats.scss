@@ -1,0 +1,62 @@
+/* cats page */
+.cats-hero{
+    background-image: url(../images/cats_hero.webp);
+    min-height: 500px;
+    width: 100%;
+    min-height: 550px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 38%;
+}
+.cat-adopt-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 15px;
+}
+.detail {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    width: 90.1vmin;
+    cursor: pointer;
+    font-size: 0;
+    display: flex;
+    flex-direction: column;
+    visibility: hidden;
+    max-height: 100%;
+    overflow: auto;
+  }
+  
+  .detail > img {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .detail .flip {
+    background: #232323;
+    padding: 2rem 1.5rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    flex-grow: 1;
+  }
+  .detail .flip > * {
+    margin-bottom: 1rem;
+  }
+  
+  .detail .title {
+    @include form-h2;
+    font-size: 2rem;
+    text-transform: uppercase;
+  }
+  
+  .detail .secondary {
+    @include form-p;
+    color: lightgray;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  .detail .description {
+    @include form-p;
+    line-height: 1.5;
+  }

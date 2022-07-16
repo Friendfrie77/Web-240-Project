@@ -36,7 +36,7 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.create({
     trigger:"#section-1",
     start:"top top",
-    end: "bottom 10px",
+    end: "bottom bottom",
     pin: "#index-content-1"
 })
 
