@@ -2,11 +2,12 @@
 .hero{
     opacity: 0;
     animation: heroimg 400ms ease-in;
+    animation-delay: $navbar-timing;
     animation-fill-mode: forwards;
 }
 .index-img-1{
     background-image: url("../images/parallax/index_hero.webp");
-    min-height: 800px;
+    min-height: 600px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -66,5 +67,12 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    scale: .5;
+}
+.cats-img{
+    width: 100%;
+    height: auto;
+    background-image: url('../images/index/cats.webp');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }

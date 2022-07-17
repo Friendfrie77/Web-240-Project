@@ -9,12 +9,21 @@
 }
 .cat-adopt-grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-gap: 15px;
     padding: 15px;
+}
+.item{
+  max-width: 100%;
+  height: auto;
+  img{
+    width: 100%;
+    height: auto;
+  }
 }
 .detail {
     position: fixed;
-    top: 10px;
+    top: 50%;
     left: 50%;
     width: 90.1vmin;
     cursor: pointer;
@@ -32,7 +41,7 @@
   }
   
   .detail .flip {
-    background: #232323;
+    background: rgba(6,4,45,1);
     padding: 2rem 1.5rem;
     font-size: 1rem;
     box-sizing: border-box;

@@ -8,6 +8,10 @@
     clear: left;
     padding: 15px;
     background-color: black;
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: jobsanimation $navbar-timing ease-in ($navbar-timing+50ms);
+    animation-fill-mode: forwards;
     p{
         @include form-p;
         margin-bottom: 15px;

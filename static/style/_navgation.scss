@@ -66,31 +66,6 @@
     }
 }
 
-/* nav bar aniamation */
-@keyframes navbarload{
-    0%{
-        transform: translateY(-100%);
-    }
-    100%{
-        transform: translateY(0%);
-    }
-}
-@keyframes logoanimate{
-    0%{
-        transform: translateX(-120%);
-    }
-    100%{
-        transform: translateX(0%);
-    }
-}
-@keyframes navitemgrow {
-    0%{
-        transform: scale(0);
-    }
-    100%{
-        transform: scale(1);
-    }
-}
 /* footer */
 footer{
     display: grid;
@@ -100,6 +75,8 @@ footer{
     margin-top: auto;
     padding-bottom: 15px;
     min-height: 200px;
+    position: relative;
+    bottom: 0px;
 }
 .email-error{
     font-size: 1.2rem;

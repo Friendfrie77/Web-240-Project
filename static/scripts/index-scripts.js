@@ -32,19 +32,19 @@ function changeslide(n){
   showSlide(currentSlide += n);
 };
 /* gsap index page animations */
-gsap.registerPlugin(ScrollTrigger);
-ScrollTrigger.create({
-    trigger:"#section-1",
-    start:"top top",
-    end: "bottom bottom",
-    pin: "#index-content-1"
-})
+// gsap.registerPlugin(ScrollTrigger);
+// ScrollTrigger.create({
+//     trigger:"#section-1",
+//     start:"top top",
+//     end: "bottom bottom",
+//     pin: "#index-content-1"
+// })
 
-ScrollTrigger.create({
-    trigger:"#section-2",
-    start:"top top",
-    end: "bottom 150ppx",
-    pin:"#index-content-2"
-})
+// ScrollTrigger.create({
+//     trigger:"#section-2",
+//     start:"top top",
+//     end: "bottom 150ppx",
+//     pin:"#index-content-2"
+// })
 
   
