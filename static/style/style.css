@@ -1113,6 +1113,14 @@ footer {
   }
 }
 
+.fc .fc-daygrid-day-number {
+  color: #fff;
+}
+
+.fc .fc-col-header-cell-cushion {
+  color: #fff;
+}
+
 .donation-wrapper {
   max-width: 1400px;
   margin: 0 auto;
@@ -1220,16 +1228,34 @@ footer {
 
 .jobs .volunteer-form label {
   font-size: 1.4rem;
-  padding-bottom: .5rem;
+  padding-bottom: 10px;
   font-size: 1.5rem;
   line-height: 1.75;
   color: #9b9797;
+}
+
+@media (max-width: 425px) {
+  .jobs .volunteer-form label {
+    font-size: 1rem;
+  }
 }
 
 .jobs .txtVol {
   height: 3rem;
   width: 10rem;
   font-size: 1.4rem;
+  border-radius: 10px;
+  padding: 5px;
+  background-color: #DA627D;
+  color: #fff;
+  border: solid 1px #000;
+}
+
+@media (max-width: 425px) {
+  .jobs .txtVol {
+    font-size: 1rem;
+    height: 35px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1312,6 +1338,17 @@ footer {
   display: inline-block;
   position: absolute;
   z-index: 1;
+}
+
+.volunteer-button {
+  width: 100px;
+  height: 35px;
+  font-size: 1.55rem;
+  border: solid 0.5px #DA627D;
+  border-radius: 10px;
+  background-color: #DA627D;
+  color: #fff;
+  margin-top: 10px;
 }
 
 /* Images */
