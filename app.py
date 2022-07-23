@@ -64,6 +64,12 @@ class JobContact(db.Model):
     txtEmail= db.Column(db.String(200))
     txtName = db.Column(db.String(200), nullable = False)
 
+class Cats(db.Model):
+    CatsID = db.Column(db.Integer, primary_key=True, nullable=False)
+    txtCatName = db.Column(db.String(200), nullable=False)
+    txtCatGender = db.Column(db.String(200), nullable=False)
+    txtCatAbout = db.Column(db.String(6000), nullable=False)
+    txtCatImg = db.Column(db.String(200), nullable=False)
 # for sending contact page messages #
 def SendContactForm(result):
     msg=Message('Contact Form', recipients=[email]) 

@@ -1,15 +1,28 @@
 /* contact page */
+.button-wrapper{
+    @include for-size(tablet-only){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
 .social-button{
     width: 20%;
     margin: 20px;
     font-size: 1.5rem;
+    border-radius: 10px;
+    border: solid $primary-color 1px;
     box-shadow: $drop-shadow;
     background-color: $secondary-color;
+    color: #fff;
     .fa-brands{
         font-size: 2rem;
     }
     &:hover{
         background-color: blue;
+    }
+    @include for-size(tablet-only){
+        width: 40%;
     }
 }
 
@@ -75,6 +88,12 @@
             transition: all 0.3s ease;
         }
     }
+    @include for-size(tablet-only){
+        width: 70%;
+    }
+    @include for-size(phone-only){
+        width: 100%;
+    }
 }
 .text-form{
     width: 50%;
@@ -118,6 +137,12 @@
             transform: translateX(-100%);
             transition: all 0.3s ease;
         }
+    }
+    @include for-size(tablet-only){
+        width: 70%;
+    }
+    @include for-size(phone-only){
+        width: 100%;
     }
 }
 .email-form, .subject-form{ 
@@ -205,7 +230,14 @@
     font-size: 2rem;
     box-shadow: $drop-shadow;
     background-color: $button-color;
+    color: #fff;
+    border-radius: 10px;
+    border: solid .5px $primary-color;
     &:hover{
         background-color: #FFAAEA;
     }
+    @include for-size(tablet-only){
+        width: 20%
+    }
+
 }

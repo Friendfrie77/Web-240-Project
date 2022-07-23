@@ -40,6 +40,27 @@
             margin-right: 10px;
         }
     }
+    @include for-size(tablet-only){
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        justify-content: start;
+        top: 75px;
+        width: 100%;
+        height: calc(100vh - 75px);
+        transform: translate(-101%);
+        text-align: center;
+        overflow: hidden;
+        .nav-item{
+            padding: 15px;
+            &:first-child{
+                margin-top: 50px;
+            }
+            a{
+                font-size: 1.5rem;
+            }
+        }
+    }
 }
 .navbar .nav a{
     color: $headline-colors;
@@ -61,12 +82,25 @@
     .bar{
         width:25px;
         height: 3px;
-        background-color: #000;
+        background-color: $primary-color;
         margin: 5px auto;
         transition: all 0.3s ease-in-out;
     }
-}
 
+}
+.hamburger, .bar{
+    @include for-size(tablet-only){
+        display: block;
+        cursor: pointer;
+    }
+}
+.mobile-nav{
+    @include for-size(tablet-only){
+        transform: translate(0%)!important;
+        background-color: hsl(209, 78%, 23%);
+        z-index: 100;
+    }
+}
 /* footer */
 footer{
     display: grid;
@@ -78,6 +112,14 @@ footer{
     min-height: 200px;
     position: relative;
     bottom: 0px;
+    @include for-size(tablet-only){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: auto;
+        padding-top: 15px;
+    }
 }
 .email-error{
     font-size: 1.2rem;
@@ -103,6 +145,9 @@ footer{
     font-size: 3.4rem;
     padding: 10px 10px 10px 10px;
     text-align: center;
+    @include for-size(tablet-only){
+        font-size: 2rem;
+    }
 }
 .newletter-wrapper{
     justify-self: center;
@@ -126,6 +171,11 @@ footer{
 .newsletter-button{
     height: 25px;
     width: 80px;
+}
+.newsletter-box, .newsletter-button{
+    @include for-size(tablet-only){
+        width: 100%;
+    }
 }
 .site-map{
     justify-self: center;

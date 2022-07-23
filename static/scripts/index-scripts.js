@@ -13,6 +13,19 @@ document.addEventListener('DOMContentLoaded',function counters(){
     updateCounter();
   });
 
+  document.addEventListener('DOMContentLoaded',function counter2(){
+    var counter2 = document.getElementById('adoptcounter');
+    counter2.innerText = '0';
+    const updateCounter = () => {
+      const target = +counter2.getAttribute('data-target');
+      const c = +counter2.innerText
+      const increment = target/1000;
+      if(c < target){
+        counter2.innerText= `${Math.ceil(c+increment)}`};
+        setTimeout(updateCounter, 1);
+    };
+    updateCounter();
+  });
 /* News slideshow */
 let currentSlide = 1;
 

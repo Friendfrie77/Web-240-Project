@@ -14,12 +14,28 @@
     p{
         @include form-p;
         margin-bottom: 15px;
-        color: hsl(0, 0%, 50%)
+        color: $text-color
     }
     h2{
         @include form-h2;
         margin-top: 15px;
-        color: hsl(354,16%,64%)
+        color: $headline-colors
+    }
+    @include for-size(tablet-only){
+        h2{
+            font-size: 2.5rem;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+    }
+    @include for-size(phone-only){
+        h2{
+            font-size: 2rem;
+        }
+        p{
+            font-size: 1rem;
+        }
     }
 }
 .donation-wrapper{
@@ -38,7 +54,7 @@
     .counter{
         font-family: $headline-font;
         font-size: 5rem;
-        color: $primary-color;
+        color: $headline-colors;
         span{
             font-family: inherit;
             font-size: inherit;
@@ -53,11 +69,29 @@
     transform: translateX(-50%);
     top: 600px;
     color: $primary-color;
+    @include for-size(tablet-only){
+        top: 500px;
+        .counter{
+            font-size: 3rem;
+            span{
+                font-size: inherit;
+            }
+        }
+    }
+    @include for-size(phone-only){
+        top: 350px;
+        .counter{
+            font-size:2.5rem;
+            span{
+                font-size: 2.5rem;
+            }
+        }
+    }
 }
 .jobs{
     clear:right;
     margin-bottom: 20px;
-    border: 10px solid transparent;
+    border: 15px solid transparent;
     border-image: url("../images/tiles/boarder-test.png") round 65; 
     border-radius: 10px;
     width: 100%;
@@ -89,6 +123,24 @@
         width: 10rem;
         font-size: 1.4rem;
     
+    }
+    @include for-size(tablet-only){
+        p{
+            font-size: 1.25rem;
+        }
+        img{
+            width: 150px;
+            height: 150px;
+        }
+    }
+    @include for-size(phone-only){
+        p{
+            font-size: 1rem;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+        }
     }
 }
 

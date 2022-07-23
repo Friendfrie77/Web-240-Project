@@ -1,7 +1,9 @@
 /* scss constants */
     /* colors */
-$headline-colors:hsl(354,16%,64%);
-$text-color:hsl(0,0%,50%);
+// $headline-colors:hsl(354,16%,64%);
+$headline-colors:#fff;
+// $text-color:hsl(0,0%,50%);
+$text-color:hsl(0,2%,60%);
 $primary-color: #DA627D;
 $secondary-color: #0d3b66;
 $button-color: #DA627D;
@@ -47,6 +49,9 @@ $navbar-timing: 250ms;
     @if $size == phone-only{
         @media (max-width: 425px){ @content;}
     }
+    @if $size == small-desktop{
+        @media (max-width: 1200px){@content;}
+    }
 }
 /* scss page imports */
 @import './reset';
@@ -58,7 +63,7 @@ $navbar-timing: 250ms;
 @import './volunteer';
 @import './images';
 @import './animations';
-@import './media_queries';
+
 
 
 

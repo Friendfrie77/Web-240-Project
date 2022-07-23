@@ -39,11 +39,30 @@
     h1{
         font-size: 3rem;
     }
+    @include for-size(small-desktop){
+        min-height: 500px;
+        background-position: 40%;
+    }
+    @include for-size(tablet-only){
+        background-position: 50%;
+    }
+    @include for-size(phone-only){
+        min-height: 500px;
+        background-position: 65.5%;
+    }
 }
 .index-img-3{
     background-image: url("../images/parallax/sanctuary_index.webp");
     min-height: 600px;
     @include parallax;
+    @include for-size(small-desktop){
+        min-height: 500px;
+        background-position: 50%;
+    }
+    @include for-size(tablet-only){
+        min-height: 400px;
+        background-position: 50%;
+    }
 }
 
 /* index page */
@@ -56,6 +75,12 @@
     background-size: cover;
     position: relative;
     margin-bottom: 15px;
+    @include for-size(small-desktop){
+        margin-top:15%;
+    }
+    @include for-size(tablet-only){
+        margin-top: 0px;
+    }
 }
 .sanctuary-img{
     width: 100%;
@@ -124,6 +149,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     @include hero-img;
+    @include for-size(small-desktop){
+        background-position: right;
+    }
     @include for-size(tablet-only){
         min-height: 650px;
     }

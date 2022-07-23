@@ -1,10 +1,4 @@
-/*index page */
-// #index-content-1{
-//     h1 + p{
-//         font-size: 2.2rem;
-//         margin-bottom: 10px;
-//     }
-// }
+/* index page */
 /* links under hero */
 .quick-links{
     display: grid;
@@ -20,10 +14,10 @@
     }
     h1{
         font-size: 2.9rem;
-        color: #000;
+        color: $headline-colors;
     }
     p{
-        color: #000;
+        color: $headline-colors;
     }
     @include for-size(tablet-only){
         height: 50px;
@@ -97,7 +91,7 @@
         @include form-h2;
         font-size: 3rem;
         span{
-            font-size: 4rem;
+            font-size: 3rem;
             font-family: $headline-font;
         }
     }
@@ -106,12 +100,39 @@
         padding: 10px;
         font-size: 1.7rem;
     }
-}
-.spay-content, .adopt-content{
-    width: 100%;
     a{
         @include form-p;
         color: $headline-colors
+    }
+    @include for-size(tablet-only){
+        display: flex;
+        flex-direction: column;
+        .counter{
+            font-size: 2.25rem;
+        }
+        h2{
+            font-size: 2.25rem;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+        a{
+            font-size: inherit;
+        }
+    }
+    @include for-size(phone-only){
+        .counter{
+            font-size: 1.75rem;
+        }
+        h2{
+            font-size: 1.75rem;
+        }
+        p{
+            font-size: 1rem;
+        }
+        a{
+            font-size: in
+        }
     }
 }
 
