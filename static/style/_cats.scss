@@ -20,9 +20,8 @@
     width: 90.1vmin;
     cursor: pointer;
     font-size: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
-    visibility: hidden;
     max-height: 100%;
     overflow: auto;
   }

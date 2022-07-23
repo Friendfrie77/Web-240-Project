@@ -12,6 +12,14 @@
     background-repeat: no-repeat;
     background-size: cover;
     @include hero-img;
+    @include for-size(tablet-only){
+        bottom: 8.5%;
+        background-position: 75% 30%;
+        min-height: 650px;
+    }
+    @include for-size(phone-only){
+        min-height: 450px;
+    }
 }
 .index-img-2{
     background-image: url("../images/parallax/Boo_large.webp");
@@ -83,6 +91,14 @@
     background-size: cover;
     background-position: center 28%;
     @include hero-img;
+    @include for-size(tablet-only){
+        bottom: 8.5%;
+        background-position: 75% 30%;
+        min-height: 650px;
+    }
+    @include for-size(phone-only){
+        min-height: 450px;
+    }
 }
 
 /* cats page */
@@ -93,6 +109,12 @@
     background-size: cover;
     background-position: 38%;
     @include hero-img;
+    @include for-size(tablet-only){
+        min-height: 650px;
+    }
+    @include for-size(phone-only){
+        min-height: 450px;
+    }
 }
 /* volunteer page */
 .volunteer-header{
@@ -102,6 +124,12 @@
     background-repeat: no-repeat;
     background-size: cover;
     @include hero-img;
+    @include for-size(tablet-only){
+        min-height: 650px;
+    }
+    @include for-size(phone-only){
+        min-height: 450px;
+    }
 }
 
 .chewy-logo{

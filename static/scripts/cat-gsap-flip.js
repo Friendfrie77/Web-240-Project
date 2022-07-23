@@ -29,7 +29,7 @@ function showDetails(item) {
 
 		// set the final state
 		gsap.set(details, {clearProps: true}); // wipe out all inline stuff so it's in the native state (not scaled)
-		gsap.set(details, {xPercent: -50, top: "50%", yPercent: -50, visibility: "visible", overflow: "hidden"});
+		gsap.set(details, {xPercent: -50, top: "50%", yPercent: -50, display: "flex", overflow: "hidden"});
 
 		Flip.from(state, {
 			duration: 0.5,

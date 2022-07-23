@@ -81,6 +81,24 @@ h1, h2, h3 {
   color: gray;
 }
 
+@media (max-width: 720px) {
+  .content h1 {
+    font-size: 2.5rem;
+  }
+  .content p {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .content h1 {
+    font-size: 2rem;
+  }
+  .content p {
+    font-size: 1rem;
+  }
+}
+
 .contact-wrapper {
   text-align: center;
   margin: 15px;
@@ -310,35 +328,6 @@ footer {
 }
 
 /*index page */
-.content {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  max-width: 1600px;
-  padding: 15px;
-}
-
-.content h1 {
-  font-size: 3.5rem;
-}
-
-.content h2 {
-  text-align: center;
-  font-size: 3rem;
-  color: #b29597;
-}
-
-.content p {
-  font-size: 1.5rem;
-  line-height: 1.75;
-  color: gray;
-}
-
-#index-content-1 h1 + p {
-  font-size: 2.2rem;
-  margin-bottom: 10px;
-}
-
 /* links under hero */
 .quick-links {
   display: -ms-grid;
@@ -364,6 +353,21 @@ footer {
 
 .quick-links p {
   color: #000;
+}
+
+@media (max-width: 720px) {
+  .quick-links {
+    height: 50px;
+  }
+  .quick-links h1 {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 425px) {
+  .quick-links h1 {
+    font-size: 1rem;
+  }
 }
 
 .volunteer {
@@ -820,14 +824,11 @@ footer {
   width: 90.1vmin;
   cursor: pointer;
   font-size: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  visibility: hidden;
   max-height: 100%;
   overflow: auto;
 }
@@ -1089,6 +1090,20 @@ footer {
   min-height: 750px;
 }
 
+@media (max-width: 720px) {
+  .index-img-1 {
+    bottom: 8.5%;
+    background-position: 75% 30%;
+    min-height: 650px;
+  }
+}
+
+@media (max-width: 425px) {
+  .index-img-1 {
+    min-height: 450px;
+  }
+}
+
 .index-img-2 {
   background-image: url("../images/parallax/Boo_large.webp");
   min-height: 600px;
@@ -1175,6 +1190,20 @@ footer {
   min-height: 750px;
 }
 
+@media (max-width: 720px) {
+  .contact-header {
+    bottom: 8.5%;
+    background-position: 75% 30%;
+    min-height: 650px;
+  }
+}
+
+@media (max-width: 425px) {
+  .contact-header {
+    min-height: 450px;
+  }
+}
+
 /* cats page */
 .cats-hero {
   background-image: url(../images/cats_hero.webp);
@@ -1187,6 +1216,18 @@ footer {
   min-height: 750px;
 }
 
+@media (max-width: 720px) {
+  .cats-hero {
+    min-height: 650px;
+  }
+}
+
+@media (max-width: 425px) {
+  .cats-hero {
+    min-height: 450px;
+  }
+}
+
 /* volunteer page */
 .volunteer-header {
   width: 100%;
@@ -1197,6 +1238,18 @@ footer {
   position: relative;
   bottom: 75px;
   min-height: 750px;
+}
+
+@media (max-width: 720px) {
+  .volunteer-header {
+    min-height: 650px;
+  }
+}
+
+@media (max-width: 425px) {
+  .volunteer-header {
+    min-height: 450px;
+  }
 }
 
 .chewy-logo {
@@ -1433,17 +1486,6 @@ footer {
 /* Mobile Devices */
 @media only screen and (max-width: 720px) {
   /* index page */
-  .index-img-1 {
-    bottom: 8.5%;
-    background-position: 75% 30%;
-  }
-  .quick-links {
-    bottom: 9%;
-    height: 150px;
-  }
-  .quick-links h1 {
-    font-size: 1.4rem;
-  }
   .spay-content h2 {
     font-size: 2rem;
   }

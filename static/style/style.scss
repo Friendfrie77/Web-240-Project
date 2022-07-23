@@ -39,6 +39,15 @@ $navbar-timing: 250ms;
     font-size: 3rem;
     color:$headline-colors
 }
+
+@mixin for-size($size){
+    @if $size == tablet-only{
+        @media (max-width: 720px){ @content;}
+    }
+    @if $size == phone-only{
+        @media (max-width: 425px){ @content;}
+    }
+}
 /* scss page imports */
 @import './reset';
 @import './wrappers';
