@@ -180,9 +180,14 @@ def cal_6_info():
 def index():
     return render_template("index.html")
 
-@app.route("/Cats", methods=["GET", "POST"])
-def Cats():
-    return render_template("cats.html")
+@app.route("/Cat", methods=["GET", "POST"])
+def Cat():
+    Adopt= []
+    query = sqlalchemy.select(Cats)
+    result = engine.execute(query).fetchall()
+    for results in result:
+        Adopt.append(results)
+    return render_template("cats.html", adopt=Adopt)
 
 @app.route("/Volunteer", methods=["Get", "POST"])
 def Volunteer():
