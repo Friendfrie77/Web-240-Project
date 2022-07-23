@@ -5,7 +5,7 @@ Volunteer
 {% block main %}
 <div class="volunteer-header hero">
     <div class="volunteer-header-text">
-        <h1>Total Volunteers this year: <span class="counter" id="counter" data-target="{{target}}"></span>!</h1>
+        <h1 class="counter">Total Volunteers this year: <span id="counter" data-target="{{target}}"></span>!</h1>
     </div>
 </div>
 <div class="volunteer-wrapper">
@@ -57,7 +57,8 @@ Volunteer
     <h2>Want to help fund world purrnation?</h2>
     <p>Short on time or do you want to help fund our every growing army of cats? You can donate directly to us below! We also have both an Amazon wish list and a Chewy wish list of our most needed supplies. Be sure to enter in your email so we can send you a thank you, and some personalized pictures of your donation in use!</p>
     <div class="logo-grid">
-        <i class="fa-brands fa-amazon"></i>
+        <a href="https://www.amazon.com/hz/wishlist/ls/25ALJHY34RLSK?ref_=wl_share" target="_blank"><i class="fa-brands fa-amazon"></i></a>
+        <img clsss="chewy-logo" src="../static/images/volunteer_pictures/chewy-inc-seeklogo.com.svg" width="200px" height="200px">
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>

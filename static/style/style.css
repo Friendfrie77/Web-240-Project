@@ -162,7 +162,7 @@ h1, h2, h3 {
 }
 
 .navbar .nav a {
-  color: #000;
+  color: #b29597;
   font-size: 1.8rem;
   text-decoration: none;
   -webkit-transition: color 0.3s ease-out;
@@ -170,7 +170,7 @@ h1, h2, h3 {
 }
 
 .navbar .nav a:hover {
-  color: pink;
+  color: #DA627D;
 }
 
 .hamburger {
@@ -349,7 +349,7 @@ footer {
   width: 100%;
   height: 100px;
   position: relative;
-  bottom: 7%;
+  bottom: 75px;
   text-align: center;
 }
 
@@ -453,8 +453,15 @@ footer {
   font-size: 1.7rem;
 }
 
-.spay-content {
+.spay-content, .adopt-content {
   width: 100%;
+}
+
+.spay-content a, .adopt-content a {
+  font-size: 1.5rem;
+  line-height: 1.75;
+  color: gray;
+  color: #b29597;
 }
 
 /* bottom news */
@@ -512,16 +519,6 @@ footer {
 }
 
 /* contact page */
-.contact-header {
-  background-image: url(../images/contact_page.webp);
-  width: 100%;
-  min-height: 550px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  background-position: center 28%;
-}
-
 .social-button {
   width: 20%;
   margin: 20px;
@@ -797,15 +794,6 @@ footer {
 }
 
 /* cats page */
-.cats-hero {
-  background-image: url(../images/cats_hero.webp);
-  min-height: 800px;
-  width: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: 38%;
-}
-
 .cat-adopt-grid {
   display: -ms-grid;
   display: grid;
@@ -897,7 +885,6 @@ footer {
   margin: 0 auto;
   clear: left;
   padding: 15px;
-  background-color: black;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
   opacity: 0;
@@ -941,35 +928,28 @@ footer {
   color: #b29597;
 }
 
-.volunteer-header {
-  width: 100%;
-  min-height: 700px;
-  background-image: url("../images/volunteer_pictures/hero_test.webp");
-  background-position: left 25%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  bottom: 6%;
-}
-
 .volunteer-header-text {
+  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-size: 5rem;
   text-align: center;
   position: relative;
-  top: 80%;
+  padding-top: 20px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
-  color: #b29597;
+  top: 600px;
+  color: #DA627D;
 }
 
-.volunteer-header-text h1 {
+.volunteer-header-text .counter {
   font-family: "Yanone Kaffeesatz", sans-serif;
   font-size: 5rem;
+  color: #DA627D;
 }
 
-.volunteer-header-text span {
-  font-family: "Yanone Kaffeesatz", sans-serif;
-  font-size: 5rem;
+.volunteer-header-text .counter span {
+  font-family: inherit;
+  font-size: inherit;
 }
 
 .jobs {
@@ -1087,6 +1067,7 @@ footer {
   z-index: 1;
 }
 
+/* Images */
 /* hero image */
 .hero {
   opacity: 0;
@@ -1100,20 +1081,18 @@ footer {
 
 .index-img-1 {
   background-image: url("../images/parallax/index_hero.webp");
-  min-height: 600px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  bottom: 7%;
-  background-position: bottom 30%;
+  bottom: 75px;
+  min-height: 750px;
 }
 
 .index-img-2 {
   background-image: url("../images/parallax/Boo_large.webp");
   min-height: 600px;
   background-attachment: fixed;
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -1140,7 +1119,6 @@ footer {
   background-image: url("../images/parallax/sanctuary_index.webp");
   min-height: 600px;
   background-attachment: fixed;
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -1183,6 +1161,46 @@ footer {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+/* contact page */
+.contact-header {
+  background-image: url(../images/contact_page.webp);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 28%;
+  position: relative;
+  bottom: 75px;
+  min-height: 750px;
+}
+
+/* cats page */
+.cats-hero {
+  background-image: url(../images/cats_hero.webp);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 38%;
+  position: relative;
+  bottom: 75px;
+  min-height: 750px;
+}
+
+/* volunteer page */
+.volunteer-header {
+  width: 100%;
+  background-image: url("../images/volunteer_pictures/hero_test.webp");
+  background-position: left 25%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  bottom: 75px;
+  min-height: 750px;
+}
+
+.chewy-logo {
+  width: 100px;
 }
 
 /* nav bar aniamation */
@@ -1495,6 +1513,7 @@ footer {
         -ms-flex-pack: center;
             justify-content: center;
     min-height: auto;
+    padding-top: 15px;
   }
   .fa-brands {
     font-size: 2rem;
@@ -1542,7 +1561,7 @@ footer {
   .mobile-nav {
     -webkit-transform: translate(0%) !important;
             transform: translate(0%) !important;
-    background-color: #ffbeef;
+    background-color: #0d3c68;
     z-index: 100;
   }
   /* volunteer page */

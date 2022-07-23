@@ -58,6 +58,7 @@
             align-items: center;
             justify-content: center;
             min-height: auto;
+            padding-top: 15px;
         }
         .fa-brands{
             font-size: 2rem;
@@ -97,7 +98,7 @@
     
         .mobile-nav{
             transform: translate(0%)!important;
-            background-color: #ffbeef;
+            background-color: hsl(209, 78%, 23%);
             z-index: 100;
         }
         /* volunteer page */

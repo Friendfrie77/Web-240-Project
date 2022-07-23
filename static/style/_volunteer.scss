@@ -7,7 +7,6 @@
     margin: 0 auto;
     clear: left;
     padding: 15px;
-    background-color: black;
     transform: translateX(-100%);
     opacity: 0;
     animation: jobsanimation $navbar-timing ease-in ($navbar-timing+50ms);
@@ -34,31 +33,26 @@
         @include form-h2;
     }
 }
-.volunteer-header{
-    width: 100%;
-    min-height: 700px;
-    background-image: url('../images/volunteer_pictures/hero_test.webp');
-    background-position: left 25%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    bottom: 6%
-}
+
 .volunteer-header-text{
+    .counter{
+        font-family: $headline-font;
+        font-size: 5rem;
+        color: $primary-color;
+        span{
+            font-family: inherit;
+            font-size: inherit;
+        }
+    }
+    font-family: $headline-font;
+    font-size: 5rem;
     text-align: center;
     position: relative;
-    top: 80%;
+    padding-top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    color: $headline-colors;
-    h1{
-        font-family: $headline-font;
-        font-size: 5rem;
-    }
-    span{
-        font-family: $headline-font;
-        font-size: 5rem;
-    }
+    top: 600px;
+    color: $primary-color;
 }
 .jobs{
     clear:right;
@@ -152,57 +146,3 @@
         z-index: 1;
     }
 }
-// .date-wrapper{
-//     width: 20%;
-//     position: relative;
-//     height: 40px;
-//     overflow: hidden;
-//     input{
-//         width: 100%;
-//         height: 100%;
-//         padding-top: 20px;
-//         padding-left: 3px;
-//         border: none;
-//         outline: none;
-//         font-size: 1.3rem;
-//     }
-//     label{
-//         position: absolute;
-//         bottom: 0px;
-//         left: 0%;
-//         width: 100%;
-//         height: 100%;
-//         pointer-events: none;
-//         border-bottom: 1px solid $headline-colors;
-//         color: $headline-colors;
-//         transform: all 0.2s ease;
-//         &:after{
-//             content:"";
-//             position: absolute;
-//             height: 100%;
-//             width: 100%;
-//             border-bottom: 3px solid $contact-animation;
-//             left: 0px;
-//             bottom: -1px;
-//             transform: translateX(-100%);
-//             transition: all 0.3s ease;
-//         }
-//     }
-// }
-
-// .label-span{
-//     position: absolute;
-//     bottom: 100;
-//     padding-left: 10px;
-//     transform: all 0.3s ease;
-// }
-// /* animations */
-// .date-wrapper input:focus + .label-name .label-span, .date-wrapper input:valid + .label-name .label-span{
-//     transform: translateY(-75%);
-//     padding-left: 0px;
-//     color: rgba(127, 127, 127, .5);
-// }
-// .date-wrapper input:focus + .label-name::after, .date-wrapper input:valid + .label-name::after{
-//     transform: translateX(0%);
-// }
-

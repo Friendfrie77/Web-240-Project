@@ -1,12 +1,4 @@
 /* cats page */
-.cats-hero{
-    background-image: url(../images/cats_hero.webp);
-    min-height: 800px;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 38%;
-}
 .cat-adopt-grid{
     display: grid;
     grid-template-columns: 33.33% 33.33% 33.33%;

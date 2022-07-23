@@ -9,6 +9,7 @@
     box-shadow: 0px 0px 10px #0f0f0f;
     z-index: 1000;
     position: relative;
+    // visibility: hidden;
     animation: navbarload $navbar-timing ease-in;
 }
 .navbar img{
@@ -41,12 +42,12 @@
     }
 }
 .navbar .nav a{
-    color:#000;
+    color: $headline-colors;
     font-size: 1.8rem;
     text-decoration: none;
     transition: color 0.3s ease-out;
     &:hover{
-        color:pink;
+        color:$primary-color;
     }
 }
 

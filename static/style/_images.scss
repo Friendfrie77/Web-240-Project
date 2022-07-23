@@ -1,3 +1,4 @@
+/* Images */
 /* hero image */
 .hero{
     opacity: 0;
@@ -7,13 +8,10 @@
 }
 .index-img-1{
     background-image: url("../images/parallax/index_hero.webp");
-    min-height: 600px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-    bottom: 7%;
-    background-position: bottom 30%;
+    @include hero-img;
 }
 .index-img-2{
     background-image: url("../images/parallax/Boo_large.webp");
@@ -75,4 +73,37 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/* contact page */
+.contact-header{
+    background-image: url(../images/contact_page.webp);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center 28%;
+    @include hero-img;
+}
+
+/* cats page */
+.cats-hero{
+    background-image: url(../images/cats_hero.webp);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 38%;
+    @include hero-img;
+}
+/* volunteer page */
+.volunteer-header{
+    width: 100%;
+    background-image: url('../images/volunteer_pictures/hero_test.webp');
+    background-position: left 25%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    @include hero-img;
+}
+
+.chewy-logo{
+    width: 100px;
 }
