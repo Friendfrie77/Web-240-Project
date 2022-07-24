@@ -162,7 +162,6 @@
         }
     }
 }
-
 .calendar-wrapper{
     display: none;
     position: relative;
@@ -186,6 +185,13 @@
 .email{
     display: none;
     margin: auto;
+    .txtVol{
+       width: 250px;
+       padding: 5px;
+       background-color: $primary-color;
+       color: $headline-colors;
+       border: solid 1px #000;
+    }
 }
 .checkbox-wrapper{
     position: relative;

@@ -8,6 +8,24 @@
     background-color: black;
     background: linear-gradient(94deg, rgba(6,4,45,1) 0%, rgba(2,19,27,1) 34%, rgba(4,25,36,1) 64%, rgba(0,0,0,1) 100%);
 }
+.footer-wrapper{
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr 1fr;
+    align-items: center;
+    background-color: $secondary-color;
+    margin-top: auto;
+    min-height: 200px;
+    position: relative;
+    bottom: 0px;
+    @include for-size(tablet-only){
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: auto;
+        padding-top: 15px;
+    }
+}
 
 .content {
     align-self: center;
@@ -27,12 +45,19 @@
     p{
         @include form-p;
     } 
+    a{
+        @include form-p;
+        color: $headline-colors;
+    }
     @include for-size(tablet-only){
         h1{
             font-size: 2.5rem;
         }
         p{
             font-size: 1.5rem;
+        }
+        a{
+            font-size: inherit;
         }
     }
     @include for-size(phone-only){
@@ -41,6 +66,9 @@
         }
         p{
             font-size: 1rem;
+        }
+        a{
+            font-size: inherit;
         }
     }
 }

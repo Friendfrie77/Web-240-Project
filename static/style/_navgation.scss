@@ -9,7 +9,6 @@
     box-shadow: 0px 0px 10px #0f0f0f;
     z-index: 1000;
     position: relative;
-    // visibility: hidden;
     animation: navbarload $navbar-timing ease-in;
 }
 .navbar img{
@@ -103,22 +102,14 @@
 }
 /* footer */
 footer{
-    display: grid;
-    grid-template-columns: 2fr 3fr 1fr 1fr;
-    align-items: center;
+    min-height: 220px;
     background-color: $secondary-color;
-    margin-top: auto;
-    padding-bottom: 15px;
-    min-height: 200px;
-    position: relative;
-    bottom: 0px;
-    @include for-size(tablet-only){
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: auto;
-        padding-top: 15px;
+    .copy{
+        text-align: center;
+        color: $headline-colors;
+        font-family: $content-font;
+        font-size: 1.25rem;
+        padding-bottom: 10px;
     }
 }
 .email-error{
@@ -149,6 +140,15 @@ footer{
         font-size: 2rem;
     }
 }
+.fa-phone, .fa-map{
+    font-size: 1.4rem;
+    padding-top: 15px;
+    span{
+        font-family: $headline-font;
+        padding-left: 5px;
+        font-size: inherit;
+    }
+}
 .newletter-wrapper{
     justify-self: center;
     width: 40%;
@@ -167,10 +167,17 @@ footer{
 .newsletter-box{
     width: 65%;
     height: 25px;
+    border-radius: 10px;
+    padding: 5px;
 }
 .newsletter-button{
     height: 25px;
     width: 80px;
+    background-color: $button-color;
+    color: $headline-colors;
+    border: solid 1px #000;
+    border-radius: 10px;
+
 }
 .newsletter-box, .newsletter-button{
     @include for-size(tablet-only){
