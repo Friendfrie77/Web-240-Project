@@ -1,0 +1,14 @@
+/* about page */
+.about-img-grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-column-gap: 1fr;
+    img{
+        width: 95%;
+        height: auto;
+    }
+    @include for-size(tablet-only){
+        display: flex;
+        flex-direction: column;
+    }
+}

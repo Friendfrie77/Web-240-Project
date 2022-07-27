@@ -96,7 +96,7 @@
 .mobile-nav{
     @include for-size(tablet-only){
         transform: translate(0%)!important;
-        background-color: hsl(209, 78%, 23%);
+        background-color: hsla(209, 78%, 23%, .7);
         z-index: 100;
     }
 }
@@ -130,6 +130,9 @@ footer{
         padding-left: 10px;
         font-size: 1.3rem;
     }
+    @include for-size(tablet-only){
+        padding-bottom: 15px;
+    }
 }
 .fa-brands{
     color: $button-color;
@@ -144,9 +147,15 @@ footer{
     font-size: 1.4rem;
     padding-top: 15px;
     span{
-        font-family: $headline-font;
+        font-family: $content-font;
         padding-left: 5px;
         font-size: inherit;
+    }
+    @include for-size(tablet-only){
+        font-size: 1.15rem;
+        span{
+            font-size: inherit;
+        }
     }
 }
 .newletter-wrapper{
@@ -169,6 +178,9 @@ footer{
     height: 25px;
     border-radius: 10px;
     padding: 5px;
+    @include for-size(tablet-only){
+        margin-bottom: 5px;
+    }
 }
 .newsletter-button{
     height: 25px;
@@ -177,6 +189,9 @@ footer{
     color: $headline-colors;
     border: solid 1px #000;
     border-radius: 10px;
+    @include for-size(tablet-only){
+        margin-top: 5px;
+    }
 
 }
 .newsletter-box, .newsletter-button{
@@ -186,6 +201,12 @@ footer{
 }
 .site-map{
     justify-self: center;
+    h3{
+        font-size: 1.5rem;
+    }
+    @include for-size(tablet-only){
+        padding-top: 10px;
+    }
 }
 .bottom-nav-item{
     list-style:none;
@@ -199,10 +220,18 @@ footer{
             color: $button-color;
         }
     }
+    @include for-size(tablet-only){
+        a{
+            text-decoration: underline;
+        }
+    }
 }
 .contact{
     h3{
         font-size: 1.3rem;
+    }
+    @include for-size(tablet-only){
+        padding-top: 10px;
     }
 }
 /* Navbar Mobile Animation */

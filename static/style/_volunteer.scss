@@ -233,3 +233,10 @@
     color: $headline-colors;
     margin-top: 10px;
 }
+
+.logo-grid{
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    justify-self: center;
+    align-self: center;
+}

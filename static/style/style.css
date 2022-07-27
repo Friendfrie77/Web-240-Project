@@ -1,8 +1,29 @@
 /* scss constants */
 /* colors */
-/* fonts */
 /* css animation */
 /* mixins */
+/* yanone-kaffeesatz-600 - latin */
+@font-face {
+  font-family: 'Yanone Kaffeesatz';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../fonts/yanone-kaffeesatz-v23-latin-600.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/yanone-kaffeesatz-v23-latin-600.eot?#iefix") format("embedded-opentype"), url("../fonts/yanone-kaffeesatz-v23-latin-600.woff2") format("woff2"), url("../fonts/yanone-kaffeesatz-v23-latin-600.woff") format("woff"), url("../fonts/yanone-kaffeesatz-v23-latin-600.ttf") format("truetype"), url("../fonts/yanone-kaffeesatz-v23-latin-600.svg#YanoneKaffeesatz") format("svg");
+  /* Legacy iOS */
+}
+
+/* pt-sans-narrow-regular - latin */
+@font-face {
+  font-family: 'PT Sans Narrow';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/pt-sans-narrow-v17-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local(""), url("../fonts/pt-sans-narrow-v17-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/pt-sans-narrow-v17-latin-regular.woff2") format("woff2"), url("../fonts/pt-sans-narrow-v17-latin-regular.woff") format("woff"), url("../fonts/pt-sans-narrow-v17-latin-regular.ttf") format("truetype"), url("../fonts/pt-sans-narrow-v17-latin-regular.svg#PTSansNarrow") format("svg");
+  /* Legacy iOS */
+}
+
 /* scss page imports */
 /* page setup */
 * {
@@ -97,6 +118,10 @@ h1, h2, h3, i {
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
   opacity: 0;
+}
+
+.content div {
+  padding-bottom: 20px;
 }
 
 .content h1 {
@@ -302,7 +327,7 @@ h1, h2, h3, i {
   .mobile-nav {
     -webkit-transform: translate(0%) !important;
             transform: translate(0%) !important;
-    background-color: #0d3c68;
+    background-color: rgba(13, 60, 104, 0.7);
     z-index: 100;
   }
 }
@@ -343,6 +368,12 @@ footer .copy {
   font-size: 1.3rem;
 }
 
+@media (max-width: 720px) {
+  .social-links {
+    padding-bottom: 15px;
+  }
+}
+
 .fa-brands {
   color: #DA627D;
   font-size: 3.4rem;
@@ -362,9 +393,18 @@ footer .copy {
 }
 
 .fa-phone span, .fa-map span {
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "PT Sans Narrow", sans-serif;
   padding-left: 5px;
   font-size: inherit;
+}
+
+@media (max-width: 720px) {
+  .fa-phone, .fa-map {
+    font-size: 1.15rem;
+  }
+  .fa-phone span, .fa-map span {
+    font-size: inherit;
+  }
 }
 
 .newletter-wrapper {
@@ -393,6 +433,12 @@ footer .copy {
   padding: 5px;
 }
 
+@media (max-width: 720px) {
+  .newsletter-box {
+    margin-bottom: 5px;
+  }
+}
+
 .newsletter-button {
   height: 25px;
   width: 80px;
@@ -400,6 +446,12 @@ footer .copy {
   color: #fff;
   border: solid 1px #000;
   border-radius: 10px;
+}
+
+@media (max-width: 720px) {
+  .newsletter-button {
+    margin-top: 5px;
+  }
 }
 
 @media (max-width: 720px) {
@@ -411,6 +463,16 @@ footer .copy {
 .site-map {
   -ms-grid-column-align: center;
       justify-self: center;
+}
+
+.site-map h3 {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .site-map {
+    padding-top: 10px;
+  }
 }
 
 .bottom-nav-item {
@@ -430,8 +492,20 @@ footer .copy {
   color: #DA627D;
 }
 
+@media (max-width: 720px) {
+  .bottom-nav-item a {
+    text-decoration: underline;
+  }
+}
+
 .contact h3 {
   font-size: 1.3rem;
+}
+
+@media (max-width: 720px) {
+  .contact {
+    padding-top: 10px;
+  }
 }
 
 /* Navbar Mobile Animation */
@@ -490,6 +564,11 @@ footer .copy {
   .quick-links h1 {
     font-size: 1rem;
   }
+}
+
+#index-content-1 .index-grid {
+  margin-top: 15px;
+  padding-top: 10px;
 }
 
 .volunteer {
@@ -1033,6 +1112,37 @@ footer .copy {
   }
 }
 
+.trap {
+  padding-top: 20px;
+}
+
+@media (min-width: 1200px) {
+  .trapping-links {
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .trapping-links {
+    padding-left: 10px;
+  }
+}
+
+.trapping-links ul {
+  list-style: none;
+  text-align: center;
+}
+
+.trapping-links ul li {
+  font-size: 1.75rem;
+}
+
+@media (max-width: 425px) {
+  .trapping-links ul li {
+    font-size: 1.5rem;
+  }
+}
+
 .item {
   max-width: 100%;
   height: auto;
@@ -1401,6 +1511,43 @@ footer .copy {
   margin-top: 10px;
 }
 
+.logo-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 33.3% 33.3% 33.3%;
+      grid-template-columns: 33.3% 33.3% 33.3%;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  -ms-grid-row-align: center;
+      align-self: center;
+}
+
+/* about page */
+.about-img-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  grid-column-gap: 1fr;
+}
+
+.about-img-grid img {
+  width: 95%;
+  height: auto;
+}
+
+@media (max-width: 720px) {
+  .about-img-grid {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
 /* Images */
 /* hero image */
 .hero {
@@ -1414,7 +1561,7 @@ footer .copy {
 }
 
 .index-img-1 {
-  background-image: url("../images/parallax/index_hero.webp");
+  background-image: url("../images/index/index_hero_large.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -1425,7 +1572,7 @@ footer .copy {
 
 @media (max-width: 720px) {
   .index-img-1 {
-    bottom: 8.5%;
+    background-image: url("../images/index/index_hero_tablet.webp");
     background-position: 75% 30%;
     min-height: 650px;
   }
@@ -1433,12 +1580,13 @@ footer .copy {
 
 @media (max-width: 425px) {
   .index-img-1 {
+    background-image: url("../images/index/index_hero_phone.webp");
     min-height: 450px;
   }
 }
 
 .index-img-2 {
-  background-image: url("../images/parallax/Boo_large.webp");
+  background-image: url("../images/index/Boo_large.webp");
   min-height: 600px;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -1465,6 +1613,7 @@ footer .copy {
 
 @media (max-width: 1200px) {
   .index-img-2 {
+    background-image: url("../images/index/Boo_large.webp");
     min-height: 500px;
     background-position: 40%;
   }
@@ -1472,19 +1621,21 @@ footer .copy {
 
 @media (max-width: 720px) {
   .index-img-2 {
+    background-image: url("../images/index/Boo_tablet.webp");
     background-position: 50%;
   }
 }
 
 @media (max-width: 425px) {
   .index-img-2 {
+    background-image: url("../images/index/Boo_phone.webp");
     min-height: 500px;
     background-position: 65.5%;
   }
 }
 
 .index-img-3 {
-  background-image: url("../images/parallax/sanctuary_index.webp");
+  background-image: url("../images/index/sanctuary_index_large.webp");
   min-height: 600px;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -1495,6 +1646,7 @@ footer .copy {
   .index-img-3 {
     min-height: 500px;
     background-position: 50%;
+    background-image: url("../images/index/sanctuary_index_tablet.webp");
   }
 }
 
@@ -1502,6 +1654,7 @@ footer .copy {
   .index-img-3 {
     min-height: 400px;
     background-position: 50%;
+    background-image: url("../images/index/sanctuary_index_phone/webp");
   }
 }
 
@@ -1509,8 +1662,8 @@ footer .copy {
 .spay-neuter-img {
   width: 100%;
   height: 300px;
-  background-image: url("../images/spay.webp");
-  background-position: center 75%;
+  background-image: url("../images/index/spay.webp");
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
@@ -1607,6 +1760,42 @@ footer .copy {
   }
 }
 
+.trap-img {
+  width: 100%;
+  height: 300px;
+  background-image: url("../images/about/trap.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+/* about page */
+.about-hero {
+  background-image: url(../images/about/about_hero.webp);
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 45%;
+  position: relative;
+  bottom: 75px;
+  min-height: 750px;
+}
+
+@media (max-width: 720px) {
+  .about-hero {
+    min-height: 650px;
+    background-position: 40% 45%;
+  }
+}
+
+@media (max-width: 425px) {
+  .about-hero {
+    min-height: 450px;
+  }
+}
+
 /* volunteer page */
 .volunteer-header {
   width: 100%;
@@ -1635,6 +1824,15 @@ footer .copy {
   .volunteer-header {
     min-height: 450px;
   }
+}
+
+.about-img-1 {
+  width: 100%;
+  background-image: url("../images/about/big-move-large.webp");
+  min-height: 600px;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .chewy-logo {

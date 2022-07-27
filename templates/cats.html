@@ -2,6 +2,9 @@
 {% block title %}
 Cats
 {% endblock %}
+{% block head %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/Flip.min.js"></script>
+{% endblock %}
 {% block main %}
 <div class="cats-hero hero">
 </div>
@@ -24,8 +27,35 @@ Cats
         </div>
     </div>
 </div>
-<div class="content" id="about_cats">
-    <h1>Want to learn more about the life of our cats?</h1>
+<div class="content">
+    <h1>Interested in trapping a cat?</h1>
+    <p>Do you have a cat that you are interested in trying to catch and fix? We can provide some help with that task. Depending on where you live, there might be free services that will provide you with a trap and cover the cost of the surgery. If you live in Hamilton County, or the surrounding area <a href="http://www.ohioalleycat.org/" target="_blank">Ohio Alley Cat</a> offers a great service. They provide free spay and neutering and vaccines. You many need to investigate a similar service in your area.</p>
+    <div class="trap index-grid">
+        <div class="trap-img"></div>
+        <div class="trap-content">
+            <h2>We have traps for rent!</h2>
+            <p>Thanks to donations we are now offering a trap rental service. The cost to rent a trap is $5, but when renting we as for a payment of $55 to cover the price of the trap if you fall to return it. When you pick up the trap, we will show you how to set it, and good ways to bait the trap. They are perfect for taking the cat to the vet to get a checkup, or to get fixed. Please contact us if you would like to rent a trap.</p>
+        </div>
+    </div>
+    <div class="helpful-links">
+        <h1>Here are some helpful links if you want to learn more about trapping neutering and releasing</h1>
+        <div class="index-grid">
+            <div class="trapping-video">
+                <p>Here is a video that explains the trapping process by AlleyCatAllies</p>
+                <iframe width="100%" height="315" src="https://www.youtube-nocookie.com/embed/IarsSTLUdTw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="trapping-links">
+                <p>Here are some helpful pdfs that we have collected in our time in operation</p>
+                <ul>
+                    <li><a href="../static/pdfs/trapping instructions .pdf" target="_blank">Instructions on how to trap a cat.</a></li>
+                    <li><a href="../static/pdfs/trapping shy cats.pdf" target="_blank">How to trap a shy cat.</a></li>
+                    <li><a href="../static/pdfs/Cat-Shelter_317P.pdf" target="_blank">How to build cat shelters</a></li>
+                    <li><a href="../static/pdfs/Feeding Station.pdf" target="_blank">How to build a feeding station</a></li>
+                    <li><a href="../static/pdfs/Flyer TNR.pdf" target="_blank">Example Flyers if you want to try to get more to help.</a></li>
+                </ul>
+            </div>
+    </div>
+    </div>
 </div>
 {% endblock %}
 {% block scripts %}

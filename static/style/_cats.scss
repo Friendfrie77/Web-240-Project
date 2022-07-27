@@ -9,6 +9,27 @@
       flex-direction: column;
     }
 }
+.trap{
+  padding-top: 20px;
+}
+.trapping-links{
+  @include for-size(Desktop){
+    padding-left: 15px;
+  }
+  @include for-size(small-desktop){
+    padding-left: 10px;
+  }
+  ul{
+    list-style: none;
+    text-align: center;
+    li{
+      font-size: 1.75rem;
+      @include for-size(phone-only){
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
 .item{
   max-width: 100%;
   height: auto;

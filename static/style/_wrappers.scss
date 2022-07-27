@@ -35,6 +35,9 @@
     animation: contentanimation $navbar-timing ease-in ($navbar-timing+ 50ms) forwards;
     transform: translateX(100%);
     opacity: 0;
+    div{
+        padding-bottom: 20px;
+    }
     h1{
         font-size: 3.5rem;
         text-align: center;
