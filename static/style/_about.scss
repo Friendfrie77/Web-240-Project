@@ -1,14 +1,31 @@
 /* about page */
+.about-img-wrapper{
+    text-align: center;
+    h1{
+        font-size: 3rem;
+    }
+}
 .about-img-grid{
-    display: grid;
-    grid-template-columns: auto auto auto;
-    grid-column-gap: 1fr;
+    display: flex;
+    flex-direction: row;
     img{
         width: 95%;
         height: auto;
     }
-    @include for-size(tablet-only){
-        display: flex;
+    @include for-size(small-tablet-only){
         flex-direction: column;
+    }
+}
+
+.about-img-text{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    @include form-h2;
+    font-size: 6rem;
+    @include for-size(tablet-only){
+        font-size: 3rem;
     }
 }

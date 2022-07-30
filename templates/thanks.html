@@ -3,5 +3,14 @@
 Thank you!
 {% endblock %}
 {% block main %}
-<img src="../static/images/thankyou.webp" width="1000px" height="auto">
+<div class="thanks-page-wrapper">
+    <h1>Thanks for the help!</h1>
+    <figure class="thanks-img-wrapper">
+        <img class="thanks-img" src="../static/images/thank_you_page.webp" width="1400px" height="auto" alt="A thank you picture">
+    </figure>
+    <p>You will be redirected in <span id="countdown"></span> seconds</p>
+</div>
+{% endblock %}
+{% block scripts %}
+<script src="../static/scripts/thanks.js"></script>
 {% endblock %}

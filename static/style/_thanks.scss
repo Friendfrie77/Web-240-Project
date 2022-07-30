@@ -1,0 +1,27 @@
+.thanks-page-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1{
+        margin-top: 100px;
+        font-size: 6rem;
+    }
+    p{
+        @include form-p;
+        color: #fff;
+        font-size: 4rem
+    }
+    span{
+        @include form-p;
+        color: inherit;
+        font-size: inherit;
+    }
+}
+.thanks-img-wrapper{
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+    max-height: auto;
+    justify-content: center;
+}

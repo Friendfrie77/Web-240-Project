@@ -29,7 +29,7 @@ $navbar-timing: 250ms;
     min-height: 750px;
 }
 @mixin form-p{
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     line-height: 1.75;
     color:$text-color
 }
@@ -41,6 +41,9 @@ $navbar-timing: 250ms;
 
 @mixin for-size($size){
     @if $size == tablet-only{
+        @media (max-width: 768px){ @content;}
+    }
+    @if $size == small-tablet-only{
         @media (max-width: 720px){ @content;}
     }
     @if $size == phone-only{
@@ -93,3 +96,4 @@ $navbar-timing: 250ms;
 @import './about';
 @import './images';
 @import './animations';
+@import './thanks'

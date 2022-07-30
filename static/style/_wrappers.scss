@@ -2,6 +2,7 @@
 .wrapper{
     display: flex;
     flex-direction: column;
+    flex: 1;
     min-height: 100vh;
     min-width: 100%;
     margin: 0;
@@ -15,8 +16,8 @@
     background-color: $secondary-color;
     margin-top: auto;
     min-height: 200px;
-    position: relative;
-    bottom: 0px;
+    // position: relative;
+    // bottom: 0px;
     @include for-size(tablet-only){
         display: flex;
         flex-direction: column;
