@@ -752,7 +752,6 @@ footer .copy {
 
 .news-slide {
   display: None;
-  text-align: center;
   width: 300px;
   margin: auto;
 }
@@ -783,6 +782,30 @@ footer .copy {
 
 .next {
   left: 90%;
+}
+
+.news-story ul {
+  position: relative;
+}
+
+.news-story li {
+  list-style: none;
+}
+
+.news-story li:before {
+  content: '';
+  height: 40px;
+  width: 40px;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-image: url(../images/checkboxs/checked.svg);
+  background-position: 0rem .6rem;
+}
+
+.news-story li a {
+  padding-left: 1rem;
+  margin-bottom: 5px;
+  text-align: center;
 }
 
 /* contact page */
@@ -1263,6 +1286,13 @@ footer .copy {
 }
 
 .donation-wrapper h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: #fff;
+}
+
+.donation-wrapper h1 {
+  text-align: center;
   text-align: center;
   font-size: 3rem;
   color: #fff;

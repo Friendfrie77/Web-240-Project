@@ -198,6 +198,7 @@ def Cat():
 def Volunteer():
     job = []
     jobs_ID=[]
+    donoimg = []
     query= sqlalchemy.select(Jobs)
     result = engine.execute(query).fetchall()
     target = 0
@@ -209,6 +210,11 @@ def Volunteer():
     for results in result:
         target = results[0]
         break
+    query =sqlalchemy.select(Donationsimg)
+    result = engine.execute(query).fetchall()
+    for results in result:
+        donoimg.append(results)
+    print(donoimg)
     #when users signs up for a job
     if request.method == "POST":
         count = 0
@@ -298,7 +304,7 @@ def Volunteer():
                     json.dump(jobinfo, jsonsave)
                     jsonsave.close()
                     return redirect(url_for('Thanks'))
-    return render_template("volunteer.html", job=job, target=target)
+    return render_template("volunteer.html", job=job, target=target, donoimg = donoimg)
 
 @app.route("/Contact", methods=["GET", "POST"])
 def Contact():

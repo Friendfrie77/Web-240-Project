@@ -161,7 +161,6 @@
 }
 .news-slide{
     display: None;
-    text-align: center;
     width: 300px;
     margin: auto;
     span{
@@ -185,4 +184,26 @@
 }
 .next{
     left: 90%;
+}
+.news-story{
+    ul{
+        position: relative;
+    }
+    li{
+        list-style: none;
+        &:before{
+            content: '';
+            height: 40px;
+            width: 40px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-image:url(../images/checkboxs/checked.svg);
+            background-position: 0rem .6rem;
+        }
+        a{
+            padding-left: 1rem;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+    }
 }

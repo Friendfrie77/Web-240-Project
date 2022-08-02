@@ -66,7 +66,11 @@ Volunteer
     </div>
     <h1>A showcase of some of our recent donations</h1>
     <div class="about-img-grid"> 
-        
+        {% for img in donoimg %}
+        <figure>
+            <img src="{{img[1]}}" alt="{{img[2]}}" width="600px" height="381">
+        </figure>
+        {% endfor %}
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>

@@ -55,6 +55,10 @@
     h2{
         @include form-h2;
     }
+    h1{
+        text-align: center;
+        @include form-h2;
+    }
 }
 
 .volunteer-header-text{
