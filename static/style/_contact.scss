@@ -1,14 +1,15 @@
 /* contact page */
 .button-wrapper{
-    @include for-size(tablet-only){
+    @include for-size(small-desktop){
         display: flex;
         flex-direction: column;
         align-items: center;
     }
 }
 .social-button{
-    width: 20%;
+    width: 30%;
     margin: 20px;
+    height: auto;
     font-size: 1.5rem;
     border-radius: 10px;
     border: solid $primary-color 1px;
@@ -19,10 +20,25 @@
         font-size: 2rem;
     }
     &:hover{
-        background-color: blue;
+        background-color: $button-color;
+        .fa-brands{
+            color: white;
+        }
+
     }
     @include for-size(tablet-only){
-        width: 40%;
+        width: 100%;
+        font-size: 1.2rem;
+        .fa-brands{
+            font-size: 1.5rem;
+        }
+    }
+    @include for-size(phone-only){
+        width: 100%;
+        font-size: 1rem;
+        .fa-brands{
+            font-size: 1.25rem;
+        }
     }
 }
 
@@ -192,52 +208,4 @@
 }
 .info-text{
     @include form-p;
-}
-/* contact page animation */
-.name-form input:focus + .label-name .content-name, .name-form input:valid + .label-name .content-name{
-    transform: translateY(-75%);
-    padding-left: 0px;
-    color: rgba(127, 127, 127, .5);
-}
-.name-form input:focus + .label-name::after, .name-form input:valid + .label-name::after{
-    transform: translateX(0%);
-}
-.email-form input:focus + .label-name .content-name, .email-form input:not(:placeholder-shown) + .label-name .content-name{
-    transform: translateY(-55%);
-    padding-left: 0px;
-    color: rgba(127, 127, 127, .5);
-}
-.email-form input:focus + .label-name::after, .email-form input:not(:placeholder-shown) + .label-name::after{
-    transform: translateX(0%);
-}
-.subject-form input:focus + .label-name .content-name, .subject-form input:valid + .label-name .content-name{
-    transform: translateY(-55%);
-    padding-left: 0px;
-    color: rgba(127, 127, 127, .5);
-}
-.subject-form input:focus + .label-name::after, .subject-form input:valid + .label-name::after{
-    transform: translateX(0%);
-}
-.text-form textarea:focus + .label-name .content-name, .text-form textarea:valid + .label-name .content-name{
-    transform: translateY(1100%);
-    color: rgba(127, 127, 127, .2);
-}
-.text-form textarea:focus + .label-name::after, .text-form textarea:valid + .label-name::after{
-    transform: translateX(0%);
-}
-.contact-form-button{
-    width: 20%;
-    font-size: 2rem;
-    box-shadow: $drop-shadow;
-    background-color: $button-color;
-    color: #fff;
-    border-radius: 10px;
-    border: solid .5px $primary-color;
-    &:hover{
-        background-color: #FFAAEA;
-    }
-    @include for-size(tablet-only){
-        width: 20%
-    }
-
 }

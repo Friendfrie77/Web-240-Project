@@ -68,6 +68,7 @@
     transition: color 0.3s ease-out;
     &:hover{
         color:$primary-color;
+        font-size: 2rem;
     }
 }
 
@@ -115,9 +116,9 @@ footer{
 .email-error{
     font-size: 1.2rem;
     background-color: $button-color;
-    position: relative;
-    bottom: 10px;
-    left: 80px;
+    position: absolute;
+    bottom: 90%;
+    left: 10%;
     padding: 3px 4px 4px 3px;
     border-radius: 10px 10px 0px 10px;
     color: #fff;
@@ -160,7 +161,7 @@ footer{
 }
 .newletter-wrapper{
     justify-self: center;
-    width: 40%;
+    width: 50%;
     h3{
         font-size: 1.4rem;
         color: $headline-colors;
@@ -173,13 +174,23 @@ footer{
         font-size: 1.4rem;
     }
 }
+.newsletter-form{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    @include for-size(small-desktop){
+        flex-direction: column;
+    }
+    
+}
 .newsletter-box{
     width: 65%;
     height: 25px;
     border-radius: 10px;
     padding: 5px;
-    @include for-size(tablet-only){
+    @include for-size(small-desktop){
         margin-bottom: 5px;
+        width: 100%;
     }
 }
 .newsletter-button{
@@ -189,15 +200,13 @@ footer{
     color: $headline-colors;
     border: solid 1px #000;
     border-radius: 10px;
+    @include for-size(small-desktop){
+        width: 100%;
+    }
     @include for-size(tablet-only){
         margin-top: 5px;
     }
 
-}
-.newsletter-box, .newsletter-button{
-    @include for-size(tablet-only){
-        width: 100%;
-    }
 }
 .site-map{
     justify-self: center;

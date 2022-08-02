@@ -70,6 +70,11 @@ class Cats(db.Model):
     txtCatGender = db.Column(db.String(200), nullable=False)
     txtCatAbout = db.Column(db.String(6000), nullable=False)
     txtCatImg = db.Column(db.String(200), nullable=False)
+
+class Donationsimg(db.Model):
+    DonationimgID = db.Column(db.Integer, primary_key=True, nullable=False)
+    txtDontionimg = db.Column(db.String(200), nullable=False)
+    txtAlt = db.Column(db.String(200), nullable=False)
 # for sending contact page messages #
 def SendContactForm(result):
     msg=Message('Contact Form', recipients=[email]) 

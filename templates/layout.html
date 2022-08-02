@@ -51,8 +51,8 @@
                     <i class="fa-brands fa-instagram"></i>
                 </div>
                 <div class="newletter-wrapper">
-                    <form action="/Newsletter" method="POST" novalidate>
-                        <h3>Sign up for our monthly newsletter below!</h3>
+                    <h3>Sign up for our monthly newsletter below!</h3>
+                    <form action="/Newsletter" method="POST" class="newsletter-form" novalidate>
                         {% with messages = get_flashed_messages(category_filter=["category1"]) %}
                             {% if messages %}
                                 {% for message in messages %} 

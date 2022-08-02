@@ -234,9 +234,15 @@
     margin-top: 10px;
 }
 
-.logo-grid{
-    display: grid;
-    grid-template-columns: 33.3% 33.3% 33.3%;
+.logo-flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
     justify-self: center;
-    align-self: center;
+    @include for-size (tablet-only){
+        flex-direction:column;
+    }
+    a{
+        text-align: center;
+    }
 }

@@ -173,14 +173,16 @@
     color: $primary-color;
     font-size: 30px;
     position: absolute;
-    top: 50%;
+    top: 35%;
     cursor: pointer;
-
+    &:hover{
+        color: $button-color;
+        transform: scale(1.5);
+    }
 }
 .prev{
     left:5%;
 }
 .next{
-    left: 75%;
-    transform: translateX(50px);
+    left: 90%;
 }
