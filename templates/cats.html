@@ -12,12 +12,15 @@ Cats
     <h1>Looking to Adopt a Cat?</h1>
     <p>Are you looking to adopt a cat? While the majority of our cats are not suitably for adoption, we do have a small selection of cats that are suitable for adoption. The cats on this list are our friendliest cats that get along with others well. All cats that we adopt out come with full medical information and are up to date on all their shots. The process for adopting with us includes an in-person screening, as we want to make sure the cats are going to a good home, you will also get to spend time with the cat or cats you are looking at in a closed off area to see how well you get along. Below are the cats that are currently up for adoption. If you are interested in any of our current cats, please visit our contact page and send us a message and we will set up a meeting.</p>
 </div>
-<div class="adopt-img-wrapper">    
+<div class="adopt-img-wrapper">
     <div class="cat-adopt-grid">
+    <div class="anchor" id="detail"></div>  
     {% for cats in adopt %}
-    <div class="item" data-title="{{cats[1]}}" data-secondary="{{cats[2]}}" data-text="{{cats[3]}}">
-        <img src="{{cats[4]}}" alt="{{cats[1]}}" width="500px" height="auto">
-    </div>
+    <a href="#detail">
+        <div class="item" data-title="{{cats[1]}}" data-secondary="{{cats[2]}}" data-text="{{cats[3]}}">
+            <img src="{{cats[4]}}" alt="{{cats[1]}}" width="500px" height="auto">
+        </div>
+    </a>
     {% endfor %}
     </div>
     <div class="detail">
@@ -43,11 +46,11 @@ Cats
         <h1>Here are some helpful links if you want to learn more about trapping neutering and releasing</h1>
         <div class="index-grid">
             <div class="trapping-video">
-                <p>Here is a video that explains the trapping process by AlleyCatAllies</p>
+                <h3>Here is a video that explains the trapping process by AlleyCatAllies</h3>
                 <iframe width="100%" height="315" src="https://www.youtube.com/embed/IarsSTLUdTw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="trapping-links">
-                <p>Here are some helpful pdfs that we have collected in our time in operation</p>
+                <h3>Here are some helpful pdfs that we have collected in our time in operation</h3>
                 <ul>
                     <li><a href="../static/pdfs/trapping instructions .pdf" target="_blank">Instructions on how to trap a cat.</a></li>
                     <li><a href="../static/pdfs/trapping shy cats.pdf" target="_blank">How to trap a shy cat.</a></li>

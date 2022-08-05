@@ -47,6 +47,9 @@ $navbar-timing: 250ms;
     @if $size == small-tablet-only{
         @media (max-width: 720px){ @content;}
     }
+    @if $size == large-phone-only{
+        @media (max-width: 535px) {@content;}
+    }
     @if $size == phone-only{
         @media (max-width: 425px){ @content;}
     }

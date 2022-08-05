@@ -36,7 +36,7 @@
 }
 
 html {
-  overflow: hidden;
+  background-color: black;
 }
 
 html, body {
@@ -244,7 +244,7 @@ h1, h2, h3, i {
       justify-self: end;
   -webkit-transition: .7s ease-in-out;
   transition: .7s ease-in-out;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .navbar .nav .nav-item {
@@ -310,6 +310,22 @@ h1, h2, h3, i {
 
 .navbar .nav .active {
   color: #DA627D;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  z-index: 1000;
+}
+
+.sticky .navbar {
+  background-color: #0d3c68;
+}
+
+.sticky .mobile-nav {
+  background-color: #0d3c68;
 }
 
 .hamburger {
@@ -1110,6 +1126,7 @@ footer .copy {
 .adopt-img-wrapper {
   max-width: 1700px;
   margin: auto;
+  position: relative;
 }
 
 .cat-adopt-grid {
@@ -1137,7 +1154,21 @@ footer .copy {
 }
 
 .trap {
-  padding-top: 20px;
+  padding: 15px;
+}
+
+.trapping-video h3 {
+  font-size: 2rem;
+  padding: 1.2rem;
+}
+
+.trapping-links {
+  margin-left: 10px;
+}
+
+.trapping-links h3 {
+  font-size: 2rem;
+  padding: 1.2rem;
 }
 
 @media (min-width: 1300px) {
@@ -1184,9 +1215,15 @@ footer .copy {
   opacity: .7;
 }
 
+@media (max-width: 535px) {
+  .item img {
+    margin: 1.2rem 0px;
+  }
+}
+
 .detail {
-  position: relative;
-  top: 50vh;
+  position: absolute;
+  top: 50%;
   left: 50%;
   width: 90.1vmin;
   cursor: pointer;
@@ -1196,8 +1233,9 @@ footer .copy {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-height: 100%;
+  max-height: auto;
   overflow: auto;
+  z-index: 1000;
 }
 
 .detail > img {
@@ -1243,6 +1281,10 @@ footer .copy {
   line-height: 1.75;
   color: #9b9797;
   line-height: 1.5;
+}
+
+.anchor {
+  display: none;
 }
 
 .job-image {
@@ -1383,7 +1425,7 @@ footer .copy {
 
 .jobs {
   clear: right;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   border: 15px solid transparent;
   -o-border-image: url("../images/tiles/boarder-test.png") 40 round;
      border-image: url("../images/tiles/boarder-test.png") 40 round;
@@ -1667,6 +1709,12 @@ footer .copy {
 .about-img-grid figure {
   padding: 5px;
   margin-left: 15px;
+}
+
+@media (max-width: 535px) {
+  .about-img-grid figure {
+    margin-left: 0px;
+  }
 }
 
 .about-img-grid img {

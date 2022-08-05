@@ -18,18 +18,19 @@
         <meta name="author" content="Albert Friend">
         {% block head %}
         {% endblock %}
+        <script src="../static/scripts/scripts.js" async defer></script>
     </head>
     <body>
         <div class="wrapper">
-            <div class-="nav-wrapper">
-                <nav class="navbar">
+            <div class="nav-wrapper" id="navbar">
+                <nav class="navbar" id="nav">
                     <a href="{{ url_for('index') }}"><img class="logo" src="static/images/logo.svg" alt="Toebeans Sanctuary logo"></a>
                     <div class="hamburger" id="hamburger-menu">
                         <span class="bar"></span>
                         <span class="bar"></span>
                         <span class="bar"></span>
                     </div>
-                    <ul class="nav">
+                    <ul class="nav" id="navlist">
                         <li class="nav-item" id="Index"><a id="IndexPage" href="{{ url_for('index') }}" dis>Home</a></li>
                         <li class="nav-item" id="Cats"><a id="CatsPage" href="{{ url_for('Cat') }}">Cats</a></li>
                         <li class="nav-item" id="About"><a id="AboutPage" href="{{ url_for('About') }}">About</a></li>
@@ -81,7 +82,7 @@
             </div>
             <h4 class="copy">&copy; Toebeans Sanctuary 2022</h4>
         </footer>
-        <script src="../static/scripts/scripts.js" async defer></script>
+        <!-- <script src="../static/scripts/scripts.js" async defer></script> -->
     {% block scripts %}
     {% endblock %}
     </body>

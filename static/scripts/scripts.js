@@ -5,18 +5,18 @@ $    (".nav").toggleClass("mobile-nav");
 $    (this).toggleClass("is-active");
 });
 
-gsap.registerPlugin(ScrollTrigger);
-
-gsap.utils.toArray(".panel").forEach((panel, i) => {
-  ScrollTrigger.create({
-    trigger: panel,
-    start: "top top", 
-    pin: true, 
-    pinSpacing: false 
-  });
+/* stick navbar */
+let navbar = document.getElementById("navbar");
+let navPos = navbar.getBoundingClientRect().top;
+let nav = document.getElementById("nav");
+let mobilenav = document.getElementById("navlist")
+console.log(mobilenav)
+window.addEventListener("scroll", function(e) {
+  let scrollPos = window.scrollY;
+  if (scrollPos > navPos) {
+    navbar.classList.add('sticky');
+  } else {
+    navbar.classList.remove('sticky');
+  }
 });
 
-
-ScrollTrigger.create({
-  snap: 1 / 4 // snap whole page to the closest section!
-});

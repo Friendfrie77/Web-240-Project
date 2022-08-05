@@ -2,11 +2,9 @@
 .adopt-img-wrapper{
   max-width: 1700px;
   margin: auto;
+  position: relative;
 }
 .cat-adopt-grid{
-    // display: grid;
-    // grid-template-columns: 33.33% 33.33% 33.33%;
-    // grid-gap: 15px;
     display: flex;
     flex-wrap: wrap;
     padding: 15px;
@@ -17,9 +15,20 @@
     }
 }
 .trap{
-  padding-top: 20px;
+  padding: 15px;
+}
+.trapping-video{
+  h3{
+    font-size: 2rem;
+    padding: 1.2rem;
+  }
 }
 .trapping-links{
+  margin-left: 10px;
+  h3{
+    font-size: 2rem;
+    padding: 1.2rem;
+  }
   @include for-size(Desktop){
     padding-left: 15px;
   }
@@ -49,20 +58,24 @@
     &:hover{
       opacity: .7;
     }
+    @include for-size(large-phone-only){
+      margin: 1.2rem 0px;
+    }
   }
 }
 
 .detail {
-    position: relative;
-    top: 50vh;
+    position: absolute;
+    top: 50%;
     left: 50%;
     width: 90.1vmin;
     cursor: pointer;
     font-size: 0;
     display: none;
     flex-direction: column;
-    max-height: 100%;
+    max-height: auto;
     overflow: auto;
+    z-index: 1000;
   }
   
   .detail > img {
@@ -97,4 +110,8 @@
   .detail .description {
     @include form-p;
     line-height: 1.5;
+  }
+
+  .anchor{
+    display: none;
   }

@@ -54,6 +54,9 @@
     figure{
         padding: 5px;
         margin-left:15px;
+        @include for-size(large-phone-only){
+            margin-left: 0px;
+        }
     }
     img{
         width: 100%;

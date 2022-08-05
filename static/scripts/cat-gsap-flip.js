@@ -95,3 +95,19 @@ window.addEventListener('load', () => {
 	gsap.to('.app', { autoAlpha: 1, duration: 0.2 });
 	gsap.from('.item', {autoAlpha: 0, yPercent: 30, stagger: 0.04});
 });
+
+
+//checking for resize
+function flipcardanchor(){
+	let width = screen.width;
+	let anchor = document.getElementById("detail")
+	if (width < 1150){
+		anchor.style.display = "block";
+		console.log(width)
+	} else{
+		anchor.style.display = "none";
+	}
+};
+window.addEventListener("resize",  ()=>{flipcardanchor()});
+
+windows.addEventListener("load", ()=>{flipcardanchor()});
