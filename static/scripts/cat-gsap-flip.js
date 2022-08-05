@@ -103,7 +103,6 @@ function flipcardanchor(){
 	let anchor = document.getElementById("detail")
 	if (width < 1150){
 		anchor.style.display = "block";
-		console.log(width)
 	} else{
 		anchor.style.display = "none";
 	}

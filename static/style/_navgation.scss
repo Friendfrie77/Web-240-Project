@@ -150,10 +150,13 @@ footer{
     }
 }
 .fa-brands{
-    color: $button-color;
+    color: #fff;
     font-size: 3.4rem;
     padding: 10px 10px 10px 10px;
     text-align: center;
+    &:hover{
+        color: $button-color;
+    }
     @include for-size(tablet-only){
         font-size: 2rem;
     }

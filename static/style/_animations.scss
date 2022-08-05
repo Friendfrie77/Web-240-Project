@@ -124,19 +124,4 @@
 .text-form textarea:focus + .label-name::after, .text-form textarea:valid + .label-name::after{
     transform: translateX(0%);
 }
-.contact-form-button{
-    width: 20%;
-    font-size: 2rem;
-    box-shadow: $drop-shadow;
-    background-color: $button-color;
-    color: #fff;
-    border-radius: 10px;
-    border: solid .5px $primary-color;
-    &:hover{
-        background-color: #FFAAEA;
-    }
-    @include for-size(tablet-only){
-        width: 20%
-    }
 
-}

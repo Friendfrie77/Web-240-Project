@@ -10,7 +10,6 @@ let navbar = document.getElementById("navbar");
 let navPos = navbar.getBoundingClientRect().top;
 let nav = document.getElementById("nav");
 let mobilenav = document.getElementById("navlist")
-console.log(mobilenav)
 window.addEventListener("scroll", function(e) {
   let scrollPos = window.scrollY;
   if (scrollPos > navPos) {

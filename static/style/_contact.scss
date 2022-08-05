@@ -16,6 +16,11 @@
     box-shadow: $drop-shadow;
     background-color: $secondary-color;
     color: #fff;
+    a{
+        font-size: inherit;
+        color: inherit;
+        text-decoration: none;
+    }
     .fa-brands{
         font-size: 2rem;
     }
@@ -24,7 +29,6 @@
         .fa-brands{
             color: white;
         }
-
     }
     @include for-size(tablet-only){
         width: 100%;
@@ -46,6 +50,9 @@
     margin: 0 auto 20px auto;
     height: 100%;
     width: 100%;
+    @include for-size(phone-only){
+        padding: 15px;
+    }
 }
 .contact-form{
     display: flex;
@@ -208,4 +215,20 @@
 }
 .info-text{
     @include form-p;
+}
+.contact-form-button{
+    width: 20%;
+    font-size: 2rem;
+    box-shadow: $drop-shadow;
+    background-color: $button-color;
+    color: #fff;
+    border-radius: 10px;
+    border: solid .5px $primary-color;
+    &:hover{
+        background-color: #FFAAEA;
+    }
+    @include for-size(tablet-only){
+        width: 25%;
+    }
+
 }

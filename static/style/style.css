@@ -407,10 +407,14 @@ footer .copy {
 }
 
 .fa-brands {
-  color: #DA627D;
+  color: #fff;
   font-size: 3.4rem;
   padding: 10px 10px 10px 10px;
   text-align: center;
+}
+
+.fa-brands:hover {
+  color: #DA627D;
 }
 
 @media (max-width: 768px) {
@@ -868,6 +872,12 @@ footer .copy {
   color: #fff;
 }
 
+.social-button a {
+  font-size: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
 .social-button .fa-brands {
   font-size: 2rem;
 }
@@ -904,6 +914,12 @@ footer .copy {
   margin: 0 auto 20px auto;
   height: 100%;
   width: 100%;
+}
+
+@media (max-width: 425px) {
+  .form-wrapper {
+    padding: 15px;
+  }
 }
 
 .contact-form {
@@ -1120,6 +1136,27 @@ footer .copy {
   font-size: 1.75rem;
   line-height: 1.75;
   color: #9b9797;
+}
+
+.contact-form-button {
+  width: 20%;
+  font-size: 2rem;
+  -webkit-box-shadow: 0px 0px 10px #0d3c68;
+          box-shadow: 0px 0px 10px #0d3c68;
+  background-color: #DA627D;
+  color: #fff;
+  border-radius: 10px;
+  border: solid 0.5px #DA627D;
+}
+
+.contact-form-button:hover {
+  background-color: #FFAAEA;
+}
+
+@media (max-width: 768px) {
+  .contact-form-button {
+    width: 25%;
+  }
 }
 
 /* cats page */
@@ -1713,7 +1750,7 @@ footer .copy {
 
 @media (max-width: 535px) {
   .about-img-grid figure {
-    margin-left: 0px;
+    margin: 0px 15px;
   }
 }
 
@@ -2358,27 +2395,6 @@ footer .copy {
 .text-form textarea:focus + .label-name::after, .text-form textarea:valid + .label-name::after {
   -webkit-transform: translateX(0%);
           transform: translateX(0%);
-}
-
-.contact-form-button {
-  width: 20%;
-  font-size: 2rem;
-  -webkit-box-shadow: 0px 0px 10px #0d3c68;
-          box-shadow: 0px 0px 10px #0d3c68;
-  background-color: #DA627D;
-  color: #fff;
-  border-radius: 10px;
-  border: solid 0.5px #DA627D;
-}
-
-.contact-form-button:hover {
-  background-color: #FFAAEA;
-}
-
-@media (max-width: 768px) {
-  .contact-form-button {
-    width: 20%;
-  }
 }
 
 .thanks-page-wrapper {
