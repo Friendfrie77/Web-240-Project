@@ -110,8 +110,12 @@
     background-color:$secondary-color;
     box-shadow: $drop-shadow;
     img{
-        padding: 5px;
+        padding: 15px;
         cursor: pointer;
+        &:hover{
+            transition: ease .5s;
+            opacity: .5;
+        }
     }
     .fc-view{
         background-color: $primary-color;

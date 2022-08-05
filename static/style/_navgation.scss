@@ -71,7 +71,9 @@
         font-size: 2rem;
     }
 }
-
+.navbar .nav .active{
+    color: $button-color;
+}
 .hamburger{
     justify-self: end;
     margin-right: 25px;

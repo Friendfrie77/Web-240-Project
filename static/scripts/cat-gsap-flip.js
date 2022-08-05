@@ -54,7 +54,7 @@ function showDetails(item) {
 
 	// stagger-fade the items out from the one that was selected in a staggered way (and kill the tween of the selected item)
 	gsap.to(items, {opacity: 0.3, stagger: { amount: 0.7, from: items.indexOf(item), grid: "auto"}}).kill(item);
-	gsap.to(".app", {backgroundColor: "#888", duration: 1, delay: 0.3}); // fade out the background
+	gsap.to(".app", {backgroundColor: "#888", duration: .2, delay: 0.1}); // fade out the background
 	activeItem = item;
 }
 
@@ -82,7 +82,7 @@ function hideDetails() {
 		delay: 0.2, // 0.2 seconds because we want the details to slide up first, then flip.
 		onInterrupt: () => tl.kill()
 	})
-	  .set(details, {visibility: "hidden"});
+	  .set(details, {visibility: "hidden", display: "None"});
 
 	activeItem = null;
 }

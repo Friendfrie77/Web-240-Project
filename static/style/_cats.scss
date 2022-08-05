@@ -1,9 +1,16 @@
 /* cats page */
+.adopt-img-wrapper{
+  max-width: 1700px;
+  margin: auto;
+}
 .cat-adopt-grid{
-    display: grid;
-    grid-template-columns: 33.33% 33.33% 33.33%;
-    grid-gap: 15px;
+    // display: grid;
+    // grid-template-columns: 33.33% 33.33% 33.33%;
+    // grid-gap: 15px;
+    display: flex;
+    flex-wrap: wrap;
     padding: 15px;
+    justify-content: center;
     @include for-size(tablet-only){
       display: flex;
       flex-direction: column;
@@ -33,14 +40,21 @@
 .item{
   max-width: 100%;
   height: auto;
+  cursor: pointer;
   img{
+    max-width: 500px;
     width: 100%;
     height: auto;
+    margin: 1.2rem;
+    &:hover{
+      opacity: .7;
+    }
   }
 }
+
 .detail {
-    position: fixed;
-    top: 50%;
+    position: relative;
+    top: 50vh;
     left: 50%;
     width: 90.1vmin;
     cursor: pointer;

@@ -1,15 +1,62 @@
 /* about page */
 .about-img-wrapper{
-    text-align: center;
+    position: relative;
+    animation: contentanimation $navbar-timing ease-in ($navbar-timing+ 50ms) forwards;
+    transform: translateX(100%);
+    opacity: 0;
+    max-width: 1600px;
+    margin: 25px auto;
     h1{
-        font-size: 3rem;
+        font-size: 3.5rem;
+        text-align: center;
+        padding-bottom: 10px
     }
+    h2{
+        @include form-h2;
+    } 
+    p{
+        @include form-p;
+        padding-bottom: 1.5rem;
+    } 
+    a{
+        @include form-p;
+        color: $headline-colors;
+    }
+    @include for-size(tablet-only){
+        h1{
+            font-size: 2.5rem;
+        }
+        p{
+            font-size: 1.5rem;
+        }
+        a{
+            font-size: inherit;
+        }
+    }
+    @include for-size(phone-only){
+        h1{
+            font-size: 2rem;
+        }
+        p{
+            font-size: 1rem;
+        }
+        a{
+            font-size: inherit;
+        }
+    }
+    max-width: 1600px;
 }
 .about-img-grid{
     display: flex;
     flex-direction: row;
+    justify-self: center;
+    justify-content: space-evenly;
+    figure{
+        padding: 5px;
+        margin-left:15px;
+    }
     img{
-        width: 95%;
+        width: 100%;
         height: auto;
     }
     @include for-size(small-tablet-only){

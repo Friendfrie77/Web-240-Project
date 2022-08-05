@@ -14,7 +14,6 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <!-- gsap -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
         <meta name="keywords" content="Cats, TNR, Adopt">
         <meta name="author" content="Albert Friend">
         {% block head %}
@@ -31,11 +30,11 @@
                         <span class="bar"></span>
                     </div>
                     <ul class="nav">
-                        <li class="nav-item" id="Index"><a href="{{ url_for('index') }}" dis>Home</a></li>
-                        <li class="nav-item" id="Cats"><a href="{{ url_for('Cat') }}">Cats</a></li>
-                        <li class="nav-item" id="About"><a href="{{ url_for('About') }}">About</a></li>
-                        <li class="nav-item" id="Contact"><a href="{{ url_for('Contact') }}">Contact</a></li>
-                        <li class="nav-item" id="Volunteer"><a href="{{ url_for('Volunteer') }}">Volunteer</a></li>
+                        <li class="nav-item" id="Index"><a id="IndexPage" href="{{ url_for('index') }}" dis>Home</a></li>
+                        <li class="nav-item" id="Cats"><a id="CatsPage" href="{{ url_for('Cat') }}">Cats</a></li>
+                        <li class="nav-item" id="About"><a id="AboutPage" href="{{ url_for('About') }}">About</a></li>
+                        <li class="nav-item" id="Contact"><a id="ContactPage" href="{{ url_for('Contact') }}">Contact</a></li>
+                        <li class="nav-item" id="Volunteer"><a id="VolunteerPage" href="{{ url_for('Volunteer') }}">Volunteer</a></li>
                     </ul>
                 </nav>
             </div>

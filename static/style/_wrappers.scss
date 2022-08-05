@@ -16,8 +16,6 @@
     background-color: $secondary-color;
     margin-top: auto;
     min-height: 200px;
-    // position: relative;
-    // bottom: 0px;
     @include for-size(tablet-only){
         display: flex;
         flex-direction: column;
@@ -30,7 +28,7 @@
 
 .content {
     align-self: center;
-    max-width: 1600px;
+    max-width: 1400px;
     padding: 15px;
     position: relative;
     animation: contentanimation $navbar-timing ease-in ($navbar-timing+ 50ms) forwards;
@@ -45,9 +43,11 @@
     }
     h2{
         @include form-h2;
+        padding-top: 20px;
     } 
     p{
         @include form-p;
+        padding-bottom: 1.5rem;
     } 
     a{
         @include form-p;
@@ -74,6 +74,10 @@
         a{
             font-size: inherit;
         }
+    }
+    @include for-size(small-desktop){
+        margin: 0px 20px;
+        paddding: 15px;
     }
 }
 

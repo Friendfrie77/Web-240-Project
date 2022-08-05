@@ -36,7 +36,8 @@ $navbar-timing: 250ms;
 @mixin  form-h2 {
     text-align: center;
     font-size: 3rem;
-    color:$headline-colors
+    color:$headline-colors;
+    padding-bottom: 15px;
 }
 
 @mixin for-size($size){
