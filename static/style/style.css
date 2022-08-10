@@ -305,7 +305,6 @@ h1, h2, h3, i {
 
 .navbar .nav a:hover {
   color: #DA627D;
-  font-size: 2rem;
 }
 
 .navbar .nav .active {
@@ -1463,9 +1462,9 @@ footer .copy {
 .jobs {
   clear: right;
   margin-bottom: 40px;
-  border: 15px solid transparent;
-  -o-border-image: url("../images/tiles/boarder-test.png") 40 round;
-     border-image: url("../images/tiles/boarder-test.png") 40 round;
+  border: 20px solid transparent;
+  -o-border-image: url("../images/tiles/boarder-test.png") 33% repeat;
+     border-image: url("../images/tiles/boarder-test.png") 33% repeat;
   border-radius: 10px;
   width: 100%;
   padding: 20px;
