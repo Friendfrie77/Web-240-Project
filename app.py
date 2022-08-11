@@ -228,15 +228,14 @@ def Volunteer():
         # checks if user wants wavier *
         if check == 'on':
             txtEmail = request.form.get('txtEmail')
-            print(txtEmail)
             status=is_email_valid(txtEmail)
             if (status == "error") or (status == "invalid"):
                     flash('Please enter a vaild email adress!', 'category2')
                     return render_template('volunteer.html', job=job, target=target)
             else:
                 with app.open_resource("static/newsletters/newsletter.pdf") as fp:
-                    msg=Message("Monthly News Letter", recipients=[txtEmail])
-                    msg.body="Here is this months newsletter"
+                    msg=Message("Waiver", recipients=[txtEmail])
+                    msg.body="Hello, this would be your wavier, but I did not feel comfortable sending a old wavier, or a fake one."
                     msg.attach("newsletter.pdf", "application/pdf", fp.read())
                 mail.send(msg)
         #parses user data
