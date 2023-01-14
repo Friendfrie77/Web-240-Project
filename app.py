@@ -1,6 +1,5 @@
 from enum import unique
 import os
-import sqlite3
 from telnetlib import STATUS
 from unittest import result
 from dotenv import load_dotenv
@@ -22,7 +21,7 @@ email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
 email_api=os.environ.get('email_api')
 #setting up db connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://agsqboai:O50ijvglbkYsPvqfGBBZm0CqKjjqSG8o@ziggy.db.elephantsql.com/agsqboai'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #setting up flask mail
 app.config.update(dict(
@@ -37,8 +36,8 @@ app.config.update(dict(
 mail = Mail(app)
 db= SQLAlchemy(app)
 #connecting to the db
-engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
-con = engine.connect()
+# engine = create_engine('postgresql://tddtipbsqhqrsr:b87452c7133c28fd4d34f433691dab174143cb898d245e451302dd6b19ca0b07@ec2-34-239-241-121.compute-1.amazonaws.com:5432/df1miji61o7lht')
+# con = engine.connect()
 #db model
 class Useremail(db.Model):
     NewletterID = db.Column(db.Integer, primary_key=True)
