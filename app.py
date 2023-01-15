@@ -1,11 +1,8 @@
 import os
-from telnetlib import STATUS
-from unittest import result
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, flash, json, url_for, jsonify
 from flask_mail import Mail, Message
-from requests import session
-from sqlalchemy import ForeignKey, create_engine
+from sqlalchemy import create_engine
 import sqlalchemy
 from flask_migrate import Migrate
 app = Flask(__name__, static_url_path='/static')
