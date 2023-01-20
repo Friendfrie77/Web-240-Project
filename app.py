@@ -17,8 +17,9 @@ app.secret_key = 'key'
 email= os.environ.get('email')
 email_pass= os.environ.get('email_pass')
 email_api=os.environ.get('email_api')
+db_link = os.environ.get('db')
 #setting up db connection
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://agsqboai:O50ijvglbkYsPvqfGBBZm0CqKjjqSG8o@ziggy.db.elephantsql.com/agsqboai'
+app.config['SQLALCHEMY_DATABASE_URI'] = db_link
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 #setting up flask mail
 app.config.update(dict(
@@ -34,7 +35,7 @@ mail = Mail(app)
 db= SQLAlchemy(app)
 migrate = Migrate(app, db)
 #connecting to the db
-engine = create_engine('postgresql://agsqboai:O50ijvglbkYsPvqfGBBZm0CqKjjqSG8o@ziggy.db.elephantsql.com/agsqboai')
+engine = create_engine(db_link)  
 # con = engine.connect()
 #db model
 class Useremail(db.Model):
@@ -189,6 +190,7 @@ def Cat():
     result = engine.execute(query).fetchall()
     for results in result:
         Adopt.append(results)
+    print(Adopt)
     return render_template("cats.html", adopt=Adopt)
 
 @app.route("/Volunteer", methods=["Get", "POST"])
