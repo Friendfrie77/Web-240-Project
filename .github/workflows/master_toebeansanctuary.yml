@@ -15,15 +15,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
 
       - name: Set up Python version
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v1
         with:
           python-version: '3.10'
 
       - name: Create and start virtual environment
-        run: python app.py
+        run: |
+          python -m venv venv
+          source venv/bin/activate
       
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -31,7 +33,7 @@ jobs:
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
       - name: Upload artifact for deployment jobs
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v2
         with:
           name: python-app
           path: |
@@ -58,4 +60,4 @@ jobs:
         with:
           app-name: 'ToebeanSanctuary'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BF3F9D4919A24B46A2514C0D00380391 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DB6320A530FD4447A7BB50CF7487E447 }}
