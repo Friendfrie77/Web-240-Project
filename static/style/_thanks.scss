@@ -10,7 +10,11 @@
     p{
         @include form-p;
         color: #fff;
-        font-size: 4rem
+        font-size: 4rem;
+        @include for-size (tablet-only){
+            font-size: 3rem;
+            padding: 20px;
+        };
     }
     span{
         @include form-p;

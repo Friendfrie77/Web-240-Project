@@ -372,6 +372,11 @@ footer .copy {
   color: #fff;
   padding-bottom: 15px;
 }
+@media (max-width: 768px) {
+  .newletter-wrapper h3 {
+    text-align: center;
+  }
+}
 .newletter-wrapper h4 {
   color: #fff;
   padding-top: 20px;
@@ -458,6 +463,7 @@ footer .copy {
 }
 @media (max-width: 768px) {
   .contact {
+    text-align: center;
     padding-top: 10px;
   }
 }
@@ -2055,6 +2061,12 @@ footer .copy {
   color: hsl(0deg, 2%, 60%);
   color: #fff;
   font-size: 4rem;
+}
+@media (max-width: 768px) {
+  .thanks-page-wrapper p {
+    font-size: 3rem;
+    padding: 20px;
+  }
 }
 .thanks-page-wrapper span {
   font-size: 1.75rem;

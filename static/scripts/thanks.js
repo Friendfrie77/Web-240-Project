@@ -5,7 +5,7 @@ function redirect(){
 
      setInterval(function(){
         if (countdown <= 0){
-        window.location.replace("https://web-240-final.herokuapp.com/");
+        window.location.replace("https://toebeansanctuary.azurewebsites.net/");
         } else {
             span.innerText = countdown;
         }
