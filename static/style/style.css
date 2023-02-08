@@ -36,8 +36,7 @@ html, body {
   min-height: 100vh;
   height: 100%;
   width: 100vw;
-  -ms-scroll-chaining: chained;
-      overscroll-behavior: auto;
+  overscroll-behavior: auto;
 }
 
 body {
@@ -85,8 +84,7 @@ h1, h2, h3, i {
   max-width: 1400px;
   padding: 15px;
   position: relative;
-  -webkit-animation: contentanimation 250ms ease-in 300ms forwards;
-          animation: contentanimation 250ms ease-in 300ms forwards;
+  animation: contentanimation 250ms ease-in 300ms forwards;
   transform: translateX(100%);
   opacity: 0;
 }
@@ -169,8 +167,7 @@ h1, h2, h3, i {
   box-shadow: 0px 0px 10px #0f0f0f;
   z-index: 1000;
   position: relative;
-  -webkit-animation: navbarload 250ms ease-in;
-          animation: navbarload 250ms ease-in;
+  animation: navbarload 250ms ease-in;
 }
 
 .navbar img {
@@ -179,12 +176,9 @@ h1, h2, h3, i {
   justify-self: start;
   margin-left: 20px;
   transform: translateX(-120%);
-  -webkit-animation: logoanimate 250ms;
-          animation: logoanimate 250ms;
-  -webkit-animation-delay: 250ms;
-          animation-delay: 250ms;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: logoanimate 250ms;
+  animation-delay: 250ms;
+  animation-fill-mode: forwards;
 }
 
 .navbar .nav {
@@ -198,12 +192,9 @@ h1, h2, h3, i {
 }
 .navbar .nav .nav-item {
   transform: scale(0);
-  -webkit-animation: navitemgrow 250ms;
-          animation: navitemgrow 250ms;
-  -webkit-animation-delay: 375ms;
-          animation-delay: 375ms;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: navitemgrow 250ms;
+  animation-delay: 375ms;
+  animation-fill-mode: forwards;
 }
 .navbar .nav .nav-item:nth-child(5) {
   padding-right: 15px;
@@ -248,7 +239,6 @@ h1, h2, h3, i {
 }
 
 .sticky {
-  position: -webkit-sticky;
   position: sticky;
   top: 0px;
   width: 100%;
@@ -527,8 +517,7 @@ footer .copy {
   padding: 10px;
   transform: translateY(-100%);
   opacity: 0;
-  -webkit-animation: aboutquick 250ms 250ms forwards;
-          animation: aboutquick 250ms 250ms forwards;
+  animation: aboutquick 250ms 250ms forwards;
 }
 .volunteer:hover h1 {
   color: #DA627D;
@@ -544,8 +533,7 @@ footer .copy {
   transform: translateX(-100%);
   text-align: center;
   padding: 10px;
-  -webkit-animation: catsquick 250ms 250ms forwards;
-          animation: catsquick 250ms 250ms forwards;
+  animation: catsquick 250ms 250ms forwards;
 }
 .cats:hover h1 {
   color: #0d3b66;
@@ -560,8 +548,7 @@ footer .copy {
   height: 100%;
   padding: 10px;
   transform: translateX(100%);
-  -webkit-animation: volunteersquick 250ms 250ms forwards;
-          animation: volunteersquick 250ms 250ms forwards;
+  animation: volunteersquick 250ms 250ms forwards;
 }
 .about:hover h1 {
   color: #0d3b66;
@@ -573,6 +560,7 @@ footer .copy {
 .index-grid {
   display: grid;
   grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
   width: 100%;
 }
 .index-grid h2 {
@@ -1034,6 +1022,7 @@ footer .copy {
   max-width: 100%;
   height: auto;
   cursor: pointer;
+  position: relative;
 }
 .item img {
   max-width: 500px;
@@ -1050,8 +1039,17 @@ footer .copy {
   }
 }
 
-.detail {
+.cat-name {
+  color: white;
+  font-size: 2rem;
+  text-decoration: none;
   position: absolute;
+  left: 43%;
+  top: 80%;
+}
+
+.detail {
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 90.1vmin;
@@ -1121,10 +1119,8 @@ footer .copy {
   padding: 15px;
   transform: translateX(-100%);
   opacity: 0;
-  -webkit-animation: jobsanimation 250ms ease-in 300ms;
-          animation: jobsanimation 250ms ease-in 300ms;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: jobsanimation 250ms ease-in 300ms;
+  animation-fill-mode: forwards;
 }
 .volunteer-wrapper p {
   font-size: 1.75rem;
@@ -1405,8 +1401,7 @@ footer .copy {
 /* about page */
 .about-img-wrapper {
   position: relative;
-  -webkit-animation: contentanimation 250ms ease-in 300ms forwards;
-          animation: contentanimation 250ms ease-in 300ms forwards;
+  animation: contentanimation 250ms ease-in 300ms forwards;
   transform: translateX(100%);
   opacity: 0;
   max-width: 1600px;
@@ -1506,12 +1501,9 @@ footer .copy {
 /* hero image */
 .hero {
   opacity: 0;
-  -webkit-animation: heroimg 400ms ease-in;
-          animation: heroimg 400ms ease-in;
-  -webkit-animation-delay: 250ms;
-          animation-delay: 250ms;
-  -webkit-animation-fill-mode: forwards;
-          animation-fill-mode: forwards;
+  animation: heroimg 400ms ease-in;
+  animation-delay: 250ms;
+  animation-fill-mode: forwards;
 }
 
 .index-img-1 {
@@ -1604,7 +1596,7 @@ footer .copy {
 /* index page */
 .spay-neuter-img {
   width: 100%;
-  height: 300px;
+  height: 500px;
   background-image: url("../images/index/spay.webp");
   background-position: center;
   background-repeat: no-repeat;
@@ -1635,7 +1627,7 @@ footer .copy {
 
 .adopt-img {
   width: 100%;
-  height: 300px;
+  height: 500px;
   background-image: url("../images/index/adopt_1.webp");
   background-position: center;
   background-repeat: no-repeat;
@@ -1644,7 +1636,7 @@ footer .copy {
 
 .cats-img {
   width: auto;
-  height: 300px;
+  height: 500px;
   background-image: url("../images/index/cats.webp");
   background-position: center;
   background-repeat: no-repeat;
@@ -1701,13 +1693,13 @@ footer .copy {
 
 .trap-img {
   width: 100%;
-  height: 300px;
+  height: 350px;
   background-image: url("../images/about/trap.webp");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  margin-bottom: 15px;
+  margin-top: 40px;
 }
 
 /* about page */
@@ -1809,14 +1801,6 @@ footer .copy {
 }
 
 /* nav bar aniamation */
-@-webkit-keyframes navbarload {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(0%);
-  }
-}
 @keyframes navbarload {
   0% {
     transform: translateY(-100%);
@@ -1825,28 +1809,12 @@ footer .copy {
     transform: translateY(0%);
   }
 }
-@-webkit-keyframes logoanimate {
-  0% {
-    transform: translateX(-120%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
 @keyframes logoanimate {
   0% {
     transform: translateX(-120%);
   }
   100% {
     transform: translateX(0%);
-  }
-}
-@-webkit-keyframes navitemgrow {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
   }
 }
 @keyframes navitemgrow {
@@ -1858,14 +1826,6 @@ footer .copy {
   }
 }
 /* hero img animations */
-@-webkit-keyframes heroimg {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
 @keyframes heroimg {
   0% {
     opacity: 0;
@@ -1875,25 +1835,9 @@ footer .copy {
   }
 }
 /* quick links */
-@-webkit-keyframes catsquick {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
 @keyframes catsquick {
   0% {
     transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-@-webkit-keyframes volunteersquick {
-  0% {
-    transform: translateX(100%);
   }
   100% {
     transform: translateX(0%);
@@ -1907,16 +1851,6 @@ footer .copy {
     transform: translateX(0%);
   }
 }
-@-webkit-keyframes aboutquick {
-  0% {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
 @keyframes aboutquick {
   0% {
     transform: translateY(-100%);
@@ -1928,20 +1862,6 @@ footer .copy {
   }
 }
 /* content animations */
-@-webkit-keyframes contentanimation {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  50% {
-    transform: translateX(50%);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
 @keyframes contentanimation {
   0% {
     transform: translateX(100%);
@@ -1957,20 +1877,6 @@ footer .copy {
   }
 }
 /* jobs page */
-@-webkit-keyframes jobsanimation {
-  0% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  50% {
-    transform: translateX(50%);
-    opacity: 0.5;
-  }
-  100% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
 @keyframes jobsanimation {
   0% {
     transform: translateX(100%);
@@ -2002,12 +1908,6 @@ footer .copy {
   color: rgba(127, 127, 127, 0.5);
 }
 
-.email-form input:not(:-ms-input-placeholder) + .label-name .content-name {
-  transform: translateY(-55%);
-  padding-left: 0px;
-  color: rgba(127, 127, 127, 0.5);
-}
-
 .email-form input:focus + .label-name .content-name, .email-form input:not(:placeholder-shown) + .label-name .content-name {
   transform: translateY(-55%);
   padding-left: 0px;
@@ -2015,10 +1915,6 @@ footer .copy {
 }
 
 .email-form input:not(:-moz-placeholder-shown) + .label-name::after {
-  transform: translateX(0%);
-}
-
-.email-form input:not(:-ms-input-placeholder) + .label-name::after {
   transform: translateX(0%);
 }
 
