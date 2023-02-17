@@ -2,12 +2,10 @@ import os
 from dotenv import load_dotenv
 from flask import Flask, redirect, render_template, request, flash, json, url_for, jsonify
 from flask_mail import Mail, Message
-from sqlalchemy import create_engine
-import sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 app = Flask(__name__, static_url_path='/static')
 from helpers import is_email_valid
-from flask_sqlalchemy import SQLAlchemy
 #env vars
 load_dotenv() 
 email= os.environ.get('email')
@@ -21,6 +19,9 @@ db_link = os.environ.get('db')
 #setting up db connection
 app.config['SQLALCHEMY_DATABASE_URI'] = db_link
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy()
+db.init_app(app)
+migrate = Migrate(app, db)
 #setting up flask mail
 app.config.update(dict(
     MAIL_SERVER = 'smtp.googlemail.com',
@@ -32,11 +33,8 @@ app.config.update(dict(
     MAIL_DEFAULT_SENDER= email
     ))
 mail = Mail(app)
-db= SQLAlchemy(app)
 migrate = Migrate(app, db)
-#connecting to the db
-engine = create_engine(db_link)  
-# con = engine.connect()
+
 #db model
 class Useremail(db.Model):
     NewletterID = db.Column(db.Integer, primary_key=True)
@@ -55,7 +53,7 @@ class Jobopen(db.Model):
     txtDate = db.Column(db.String(200), nullable=False)
     txtTime = db.Column(db.String(200), nullable=False)
     intPartySize = db.Column(db.Integer, nullable=False)
-    jobocontact = db.relationship('JobContact', backref= 'jobopen')
+    jobopencontact = db.relationship('JobContact', backref= 'jobopen')
 class JobContact(db.Model):
     JobopenContactID = JobopenID = db.Column(db.Integer, primary_key=True, nullable=False)
     JobopenID = db.Column(db.Integer, db.ForeignKey('jobopen.JobopenID'), nullable=False)
@@ -73,6 +71,7 @@ class Donationsimg(db.Model):
     DonationimgID = db.Column(db.Integer, primary_key=True, nullable=False)
     txtDontionimg = db.Column(db.String(200), nullable=False)
     txtAlt = db.Column(db.String(200), nullable=False)
+
 # for sending contact page messages #
 def SendContactForm(result):
     msg=Message('Contact Form', recipients=[email]) 
@@ -186,11 +185,9 @@ def index():
 @app.route("/Cat", methods=["GET", "POST"])
 def Cat():
     Adopt= []
-    query = sqlalchemy.select(Cats)
-    result = engine.execute(query).fetchall()
+    result = db.session.execute(db.select(Cats.txtCatName, Cats.txtCatGender, Cats.txtCatAbout, Cats.txtCatImg)).fetchall()
     for results in result:
         Adopt.append(results)
-    print(Adopt)
     return render_template("cats.html", adopt=Adopt)
 
 @app.route("/Volunteer", methods=["Get", "POST"])
@@ -198,22 +195,17 @@ def Volunteer():
     job = []
     jobs_ID=[]
     donoimg = []
-    query= sqlalchemy.select(Jobs)
-    result = engine.execute(query).fetchall()
+    result = db.session.execute(db.select(Jobs.JobsID, Jobs.txtJobName, Jobs.txtJobdes, Jobs.txtJobpic, Jobs.txtImgalt))
     target = 0
     for results in result:
         jobs_ID.append(results[0])
         job.append(results)
-    query = sqlalchemy.select(Jobopen).order_by(Jobopen.JobopenID.desc())
-    result = engine.execute(query).fetchall()
+    result = db.session.execute(db.select(Jobopen.intPartySize))
     for results in result:
-        target = results[0]
-        break
-    query =sqlalchemy.select(Donationsimg)
-    result = engine.execute(query).fetchall()
+        target += results[0]
+    result = db.session.execute(db.select(Donationsimg.DonationimgID, Donationsimg.txtDontionimg, Donationsimg.txtAlt))
     for results in result:
         donoimg.append(results)
-    print(donoimg)
     #when users signs up for a job
     if request.method == "POST":
         count = 0
@@ -240,8 +232,7 @@ def Volunteer():
         #parses user data
         for number in jobs_ID:
             if int(jobID) == number:
-                query = sqlalchemy.select(Jobopen).filter_by(JobID=jobID)
-                result = engine.execute(query).fetchall() 
+                result = db.session.execute(db.select(Jobopen.JobopenID, Jobopen.JobID, Jobopen.txtDate, Jobopen.txtTime, Jobopen.intPartySize))
                 if (jobID != "2") or (jobID != "3"):
                     for results in result:
                             if results[2] == txtCal:
@@ -265,8 +256,7 @@ def Volunteer():
                         flash('Sorry there are too many volunteers that day', 'category2')
                         return render_template('volunteer.html', job=job,target=target)
                 #adding user contact info to db
-                query = sqlalchemy.select(Jobopen).filter_by(JobID=jobID).order_by(Jobopen.JobopenID.desc())
-                result = engine.execute(query).fetchall()
+                result = db.session.execute(db.select(Jobopen.JobopenID).filter_by(JobID=jobID).order_by(Jobopen.JobopenID.desc()))
                 JobopenID = 0
                 for results in result:
                     JobopenID=results[0]
@@ -321,6 +311,9 @@ def Contact():
             result['message'] = request.form.get('message')
             if check == "yes":
                 UserContactForm(result)
+                SendContactForm(result)
+                return render_template("contact.html")
+            else:
                 SendContactForm(result)
                 return render_template("contact.html")
     else:
