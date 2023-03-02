@@ -1,7 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
-
 name: Build and deploy Python app to Azure Web App - ToebeanSanctuary
 
 on:
@@ -39,7 +35,6 @@ jobs:
           path: |
             . 
             !venv/
-
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -60,4 +55,4 @@ jobs:
         with:
           app-name: 'ToebeanSanctuary'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DB6320A530FD4447A7BB50CF7487E447 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AD29BC83208B411C90C82E1629C3C781 }}
