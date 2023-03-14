@@ -1,6 +1,6 @@
 /* show and hide calander */
 jQuery(function() {
-    jQuery('.job-image').click(function() {
+    jQuery('.job-description').click(function() {
       jQuery('#job'+$(this).attr('target')).slideToggle();
     });
 });
@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded',function counters(){
 });
 
 /* calander renders */
-function ShowCalendar1() {
+function showCalendar1() {
   var calendarEl = document.getElementById('calendar1');
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
@@ -42,9 +42,10 @@ function ShowCalendar1() {
       }
     ]
   });
+  console.log(calendar)
   calendar.render();
 };
-function ShowCalendar2() {
+function showCalendar2() {
   var calendarEl = document.getElementById('calendar2');
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
@@ -59,7 +60,7 @@ function ShowCalendar2() {
   });
   calendar.render();
 };
-function ShowCalendar3() {
+function showCalendar3() {
   var calendarEl = document.getElementById('calendar3');
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
@@ -74,7 +75,7 @@ function ShowCalendar3() {
   });
   calendar.render();
 };
-function ShowCalendar4() {
+function showCalendar4() {
   var calendarEl = document.getElementById('calendar4');
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
@@ -89,7 +90,7 @@ function ShowCalendar4() {
   });
   calendar.render();
 };
-function ShowCalendar5() {
+function showCalendar5() {
   var calendarEl = document.getElementById('calendar5');
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
@@ -103,7 +104,7 @@ function ShowCalendar5() {
   });
   calendar.render();
 };
-function ShowCalendar6() {
+function showCalendar6() {
   var calendarEl = document.getElementById('calendar6');
   var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',

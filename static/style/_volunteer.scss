@@ -1,7 +1,4 @@
 // Volunteer page //
-.job-image{
-    float: left;
-}
 .volunteer-wrapper{
     max-width: 1400px;
     margin: 0 auto;
@@ -103,19 +100,14 @@
     clear:right;
     margin-bottom: 40px;
     border: 20px solid transparent;
-    border-image: url("../images/tiles/boarder-test.png") 33% repeat; 
+    // border-image: url("../images/tiles/boarder-test.png") 33% repeat; 
     border-radius: 10px;
     width: 100%;
     padding: 20px;
-    background-color:$secondary-color;
+    background-color:hsla(209, 77.4, 22.5, .3);
     box-shadow: $drop-shadow;
-    img{
-        padding: 15px;
-        cursor: pointer;
-        &:hover{
-            transition: ease .5s;
-            opacity: .5;
-        }
+    p{
+        color: $headline-colors
     }
     .fc-view{
         background-color: $primary-color;
@@ -170,6 +162,39 @@
         }
     }
 }
+.job-description{
+    display: grid;
+    grid-template-columns: auto auto;
+    position: relative;
+    min-height: auto;
+    // min-height: 100px;
+    // padding-left: 40%;
+    cursor: pointer;
+    &:hover{
+        transition: ease .5s;
+        opacity: .5;
+    }
+    p{
+        color: $headline-colors;
+    }
+    @include for-size(tablet-only){
+        display: flex;
+        flex-direction: column;
+    }
+}
+.job-image{
+    min-height: 100%;
+    margin: auto;
+    padding: 1rem;
+    padding-top: 0;
+    @include for-size(tablet-only){
+        img{
+            height: 500px;
+            width: auto;
+        }
+    }
+}
+
 .calendar-wrapper{
     display: none;
     position: relative;

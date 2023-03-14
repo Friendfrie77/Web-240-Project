@@ -24,7 +24,14 @@ Volunteer
         {% for jobs in job %}
         <div class="jobs">
             <h2>{{jobs[1]}}</h2>
-            <p><img onclick="ShowCalendar{{jobs[0]}}()" class="job-image" src={{jobs[3]}} alt="{{jobs[4]}}" width="200" height="200" target="{{jobs[0]}}">{{jobs[2]}}</p>
+                <div class="job-description" onclick="showCalendar{{jobs[0]}}()" target="{{jobs[0]}}">
+                    <div class="job-image">
+                        <img onclick="showCalendar{{jobs[0]}}()" class="job-image" src={{jobs[3]}} alt="{{jobs[4]}}" width="auto" height="auto">
+                    </div>
+                    <div class="job-text">
+                        <p>{{jobs[2]}}</p>
+                    </div>
+                </div>
             <div class="calendar-wrapper" id="job{{jobs[0]}}">
                 <div id="calendar{{jobs[0]}}" class="calendar"></div>
                 <form action="/Volunteer" class="volunteer-form" method="POST">
