@@ -65,12 +65,12 @@
   }
 }
 .cat-name{
+  @include h2;
   color: white;
-  font-size: 2rem;
   text-decoration: none;
   position: absolute;
   left: 43%;
-  top: 80%;
+  top: 70%;
 }
 .detail {
     position: fixed;
@@ -103,20 +103,20 @@
   }
   
   .detail .title {
-    @include form-h2;
+    @include h2;
     font-size: 2rem;
     text-transform: uppercase;
   }
   
   .detail .secondary {
-    @include form-p;
+    @include p;
     color: lightgray;
     text-align: center;
     text-transform: uppercase;
   }
   
   .detail .description {
-    @include form-p;
+    @include p;
     line-height: 1.5;
   }
 

@@ -94,51 +94,23 @@
     grid-template-rows: 50% 50%;
     width: 100%;
     h2{
-        @include form-h2;
-        font-size: 3rem;
+        @include h2;
         span{
-            font-size: 3rem;
+            @include h2;
             font-family: $headline-font;
         }
     }
     p{
-        @include form-p;
+        @include p;
         padding: 10px;
-        font-size: 1.7rem;
     }
     a{
-        @include form-p;
+        @include p;
         color: $headline-colors
     }
     @include for-size(tablet-only){
         display: flex;
         flex-direction: column;
-        .counter{
-            font-size: 2.25rem;
-        }
-        h2{
-            font-size: 2.25rem;
-        }
-        p{
-            font-size: 1.5rem;
-        }
-        a{
-            font-size: inherit;
-        }
-    }
-    @include for-size(phone-only){
-        .counter{
-            font-size: 1.75rem;
-        }
-        h2{
-            font-size: 1.75rem;
-        }
-        p{
-            font-size: 1rem;
-        }
-        a{
-            font-size: in
-        }
     }
 }
 
@@ -146,7 +118,12 @@
 #section-3{
     width: 100%;
     h1{
+        padding-bottom: $padding;
+    }
+    h3{
         text-align: center;
+        font-size: var(--fs-h3);
+        padding-bottom: $padding;
     }
 }
 .news-left{
@@ -161,11 +138,11 @@
     margin: auto;
 }
 .news-slide{
-    display: None;
+    display: none;
     width: 300px;
     margin: auto;
     span{
-        @include form-p;
+        @include p;
     }
     
 }
@@ -187,6 +164,9 @@
     left: 90%;
 }
 .news-story{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     ul{
         position: relative;
     }

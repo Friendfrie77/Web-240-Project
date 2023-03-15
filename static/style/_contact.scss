@@ -67,10 +67,10 @@
     margin: 15px auto;
     margin-bottom: 15px;
     h2{
-        @include form-h2;
+        @include h2;
     }
     p{
-        @include form-p;
+        @include p;
     }
 }
 .name-form,.email-form, .subject-form{
@@ -214,7 +214,7 @@
     }
 }
 .info-text{
-    @include form-p;
+    @include p;
 }
 .contact-form-button{
     width: 20%;

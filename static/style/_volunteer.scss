@@ -9,30 +9,14 @@
     animation: jobsanimation $navbar-timing ease-in ($navbar-timing+50ms);
     animation-fill-mode: forwards;
     p{
-        @include form-p;
+        @include p;
         margin-bottom: 15px;
         color: $text-color
     }
     h2{
-        @include form-h2;
+        @include h2;
         margin-top: 15px;
         color: $headline-colors
-    }
-    @include for-size(tablet-only){
-        h2{
-            font-size: 2.5rem;
-        }
-        p{
-            font-size: 1.5rem;
-        }
-    }
-    @include for-size(phone-only){
-        h2{
-            font-size: 2rem;
-        }
-        p{
-            font-size: 1rem;
-        }
     }
 }
 .fc .fc-daygrid-day-number{
@@ -47,21 +31,21 @@
     margin: 0 auto;
     padding: 15px;
     p{
-        @include form-p;
+        @include p;
     }
     h2{
-        @include form-h2;
+        @include h2;
     }
     h1{
         text-align: center;
-        @include form-h2;
+        @include h1;
     }
 }
 
 .volunteer-header-text{
     .counter{
         font-family: $headline-font;
-        font-size: 5rem;
+        font-size: var(--fs-header);
         color: $headline-colors;
         span{
             font-family: inherit;
@@ -69,7 +53,7 @@
         }
     }
     font-family: $headline-font;
-    font-size: 5rem;
+    font-size: var(--fs-header);
     text-align: center;
     position: relative;
     padding-top: 20px;
@@ -79,28 +63,14 @@
     color: $primary-color;
     @include for-size(tablet-only){
         top: 500px;
-        .counter{
-            font-size: 3rem;
-            span{
-                font-size: inherit;
-            }
-        }
     }
     @include for-size(phone-only){
         top: 350px;
-        .counter{
-            font-size:2.5rem;
-            span{
-                font-size: 2.5rem;
-            }
-        }
     }
 }
 .jobs{
     clear:right;
     margin-bottom: 40px;
-    border: 20px solid transparent;
-    // border-image: url("../images/tiles/boarder-test.png") 33% repeat; 
     border-radius: 10px;
     width: 100%;
     padding: 20px;
@@ -120,12 +90,8 @@
         max-width: 100%;
         margin: auto;
         label{
-            font-size: 1.4rem;
             padding-bottom: 10px;
-            @include form-p;
-            @include for-size(phone-only){
-                font-size: 1rem;
-            }
+            @include p;
         }
     }
     .txtVol{
@@ -166,9 +132,6 @@
     display: grid;
     grid-template-columns: auto auto;
     position: relative;
-    min-height: auto;
-    // min-height: 100px;
-    // padding-left: 40%;
     cursor: pointer;
     &:hover{
         transition: ease .5s;
@@ -183,14 +146,13 @@
     }
 }
 .job-image{
-    min-height: 100%;
     margin: auto;
     padding: 1rem;
     padding-top: 0;
     @include for-size(tablet-only){
         img{
-            height: 500px;
-            width: auto;
+            height: 100%;
+            width: 100%;
         }
     }
 }
@@ -202,6 +164,9 @@
     height: 100%;
     padding: 25px;
     margin-top: 15px;
+    @include for-size(phone-only){
+        padding: 0px;
+    }
     .calendar{
         height: 500px;
         width: 100%;

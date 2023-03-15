@@ -2,6 +2,23 @@
 /* colors */
 /* css animation */
 /* mixins */
+:root {
+  --fs-header: clamp(2.5rem, calc(5vw + .9rem), 4.5rem);
+  --fs-h2: clamp(2rem, calc(5vw + .5rem), 3rem);
+  --fs-h3: clamp(1.56rem, calc(5vw + .2rem), 2.5rem);
+  --fs-p: 1.75rem;
+}
+@media (max-width: 768px) {
+  :root {
+    --fs-p:1.5rem;
+  }
+}
+@media (max-width: 425px) {
+  :root {
+    --fs-p:1rem;
+  }
+}
+
 /* yanone-kaffeesatz-600 - latin */
 @font-face {
   font-family: "Yanone Kaffeesatz";
@@ -92,54 +109,33 @@ h1, h2, h3, i {
   padding-bottom: 20px;
 }
 .content h1 {
-  font-size: 3.5rem;
+  font-size: var(--fs-header);
+  color: #fff;
   text-align: center;
 }
 .content h2 {
   text-align: center;
-  font-size: 3rem;
+  font-size: var(--fs-h2);
   color: #fff;
   padding-bottom: 15px;
   padding-top: 20px;
 }
 .content p {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   padding-bottom: 1.5rem;
 }
 .content a {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   color: #fff;
 }
-@media (max-width: 768px) {
-  .content h1 {
-    font-size: 2.5rem;
-  }
-  .content p {
-    font-size: 1.5rem;
-  }
-  .content a {
-    font-size: inherit;
-  }
-}
-@media (max-width: 425px) {
-  .content h1 {
-    font-size: 2rem;
-  }
-  .content p {
-    font-size: 1rem;
-  }
-  .content a {
-    font-size: inherit;
-  }
-}
 @media (max-width: 1300px) {
   .content {
     margin: 0px 20px;
-    paddding: 15px;
+    padding: 15px;
   }
 }
 
@@ -149,7 +145,14 @@ h1, h2, h3, i {
 }
 .contact-wrapper h1 {
   margin-top: 20px;
-  font-size: 3rem;
+  font-size: var(--fs-header);
+  color: #fff;
+}
+.contact-wrapper h2 {
+  text-align: center;
+  font-size: var(--fs-h2);
+  color: #fff;
+  padding-bottom: 15px;
 }
 
 .page-wrapper {
@@ -565,24 +568,25 @@ footer .copy {
 }
 .index-grid h2 {
   text-align: center;
-  font-size: 3rem;
+  font-size: var(--fs-h2);
   color: #fff;
   padding-bottom: 15px;
-  font-size: 3rem;
 }
 .index-grid h2 span {
-  font-size: 3rem;
+  text-align: center;
+  font-size: var(--fs-h2);
+  color: #fff;
+  padding-bottom: 15px;
   font-family: "Yanone Kaffeesatz", sans-serif;
 }
 .index-grid p {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   padding: 10px;
-  font-size: 1.7rem;
 }
 .index-grid a {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   color: #fff;
@@ -592,32 +596,6 @@ footer .copy {
     display: flex;
     flex-direction: column;
   }
-  .index-grid .counter {
-    font-size: 2.25rem;
-  }
-  .index-grid h2 {
-    font-size: 2.25rem;
-  }
-  .index-grid p {
-    font-size: 1.5rem;
-  }
-  .index-grid a {
-    font-size: inherit;
-  }
-}
-@media (max-width: 425px) {
-  .index-grid .counter {
-    font-size: 1.75rem;
-  }
-  .index-grid h2 {
-    font-size: 1.75rem;
-  }
-  .index-grid p {
-    font-size: 1rem;
-  }
-  .index-grid a {
-    font-size: in;
-  }
 }
 
 /* bottom news */
@@ -625,7 +603,12 @@ footer .copy {
   width: 100%;
 }
 #section-3 h1 {
+  padding-bottom: 1rem;
+}
+#section-3 h3 {
   text-align: center;
+  font-size: var(--fs-h3);
+  padding-bottom: 1rem;
 }
 
 .news-left {
@@ -643,12 +626,12 @@ footer .copy {
 }
 
 .news-slide {
-  display: None;
+  display: none;
   width: 300px;
   margin: auto;
 }
 .news-slide span {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
 }
@@ -673,6 +656,11 @@ footer .copy {
   left: 90%;
 }
 
+.news-story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .news-story ul {
   position: relative;
 }
@@ -773,12 +761,12 @@ footer .copy {
 }
 .contact-form h2 {
   text-align: center;
-  font-size: 3rem;
+  font-size: var(--fs-h2);
   color: #fff;
   padding-bottom: 15px;
 }
 .contact-form p {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
 }
@@ -936,7 +924,7 @@ footer .copy {
 }
 
 .info-text {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
 }
@@ -1040,12 +1028,15 @@ footer .copy {
 }
 
 .cat-name {
+  text-align: center;
+  font-size: var(--fs-h2);
+  color: #fff;
+  padding-bottom: 15px;
   color: white;
-  font-size: 2rem;
   text-decoration: none;
   position: absolute;
   left: 43%;
-  top: 80%;
+  top: 70%;
 }
 
 .detail {
@@ -1081,7 +1072,7 @@ footer .copy {
 
 .detail .title {
   text-align: center;
-  font-size: 3rem;
+  font-size: var(--fs-h2);
   color: #fff;
   padding-bottom: 15px;
   font-size: 2rem;
@@ -1089,7 +1080,7 @@ footer .copy {
 }
 
 .detail .secondary {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   color: lightgray;
@@ -1098,7 +1089,7 @@ footer .copy {
 }
 
 .detail .description {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   line-height: 1.5;
@@ -1119,7 +1110,7 @@ footer .copy {
   animation-fill-mode: forwards;
 }
 .volunteer-wrapper p {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   margin-bottom: 15px;
@@ -1127,27 +1118,11 @@ footer .copy {
 }
 .volunteer-wrapper h2 {
   text-align: center;
-  font-size: 3rem;
+  font-size: var(--fs-h2);
   color: #fff;
   padding-bottom: 15px;
   margin-top: 15px;
   color: #fff;
-}
-@media (max-width: 768px) {
-  .volunteer-wrapper h2 {
-    font-size: 2.5rem;
-  }
-  .volunteer-wrapper p {
-    font-size: 1.5rem;
-  }
-}
-@media (max-width: 425px) {
-  .volunteer-wrapper h2 {
-    font-size: 2rem;
-  }
-  .volunteer-wrapper p {
-    font-size: 1rem;
-  }
 }
 
 .fc .fc-daygrid-day-number {
@@ -1164,27 +1139,25 @@ footer .copy {
   padding: 15px;
 }
 .donation-wrapper p {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
 }
 .donation-wrapper h2 {
   text-align: center;
-  font-size: 3rem;
+  font-size: var(--fs-h2);
   color: #fff;
   padding-bottom: 15px;
 }
 .donation-wrapper h1 {
   text-align: center;
-  text-align: center;
-  font-size: 3rem;
+  font-size: var(--fs-header);
   color: #fff;
-  padding-bottom: 15px;
 }
 
 .volunteer-header-text {
   font-family: "Yanone Kaffeesatz", sans-serif;
-  font-size: 5rem;
+  font-size: var(--fs-header);
   text-align: center;
   position: relative;
   padding-top: 20px;
@@ -1195,7 +1168,7 @@ footer .copy {
 }
 .volunteer-header-text .counter {
   font-family: "Yanone Kaffeesatz", sans-serif;
-  font-size: 5rem;
+  font-size: var(--fs-header);
   color: #fff;
 }
 .volunteer-header-text .counter span {
@@ -1206,29 +1179,16 @@ footer .copy {
   .volunteer-header-text {
     top: 500px;
   }
-  .volunteer-header-text .counter {
-    font-size: 3rem;
-  }
-  .volunteer-header-text .counter span {
-    font-size: inherit;
-  }
 }
 @media (max-width: 425px) {
   .volunteer-header-text {
     top: 350px;
-  }
-  .volunteer-header-text .counter {
-    font-size: 2.5rem;
-  }
-  .volunteer-header-text .counter span {
-    font-size: 2.5rem;
   }
 }
 
 .jobs {
   clear: right;
   margin-bottom: 40px;
-  border: 20px solid transparent;
   border-radius: 10px;
   width: 100%;
   padding: 20px;
@@ -1250,16 +1210,10 @@ footer .copy {
   margin: auto;
 }
 .jobs .volunteer-form label {
-  font-size: 1.4rem;
   padding-bottom: 10px;
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
-}
-@media (max-width: 425px) {
-  .jobs .volunteer-form label {
-    font-size: 1rem;
-  }
 }
 .jobs .txtVol {
   height: 3rem;
@@ -1300,7 +1254,6 @@ footer .copy {
   display: grid;
   grid-template-columns: auto auto;
   position: relative;
-  min-height: auto;
   cursor: pointer;
 }
 .job-description:hover {
@@ -1318,15 +1271,14 @@ footer .copy {
 }
 
 .job-image {
-  min-height: 100%;
   margin: auto;
   padding: 1rem;
   padding-top: 0;
 }
 @media (max-width: 768px) {
   .job-image img {
-    height: 500px;
-    width: auto;
+    height: 100%;
+    width: 100%;
   }
 }
 
@@ -1337,6 +1289,11 @@ footer .copy {
   height: 100%;
   padding: 25px;
   margin-top: 15px;
+}
+@media (max-width: 425px) {
+  .calendar-wrapper {
+    padding: 0px;
+  }
 }
 .calendar-wrapper .calendar {
   height: 500px;
@@ -1432,49 +1389,28 @@ footer .copy {
   max-width: 1600px;
 }
 .about-img-wrapper h1 {
-  font-size: 3.5rem;
+  font-size: var(--fs-header);
+  color: #fff;
   text-align: center;
   padding-bottom: 10px;
 }
 .about-img-wrapper h2 {
   text-align: center;
-  font-size: 3rem;
+  font-size: var(--fs-h2);
   color: #fff;
   padding-bottom: 15px;
 }
 .about-img-wrapper p {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   padding-bottom: 1.5rem;
 }
 .about-img-wrapper a {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   color: #fff;
-}
-@media (max-width: 768px) {
-  .about-img-wrapper h1 {
-    font-size: 2.5rem;
-  }
-  .about-img-wrapper p {
-    font-size: 1.5rem;
-  }
-  .about-img-wrapper a {
-    font-size: inherit;
-  }
-}
-@media (max-width: 425px) {
-  .about-img-wrapper h1 {
-    font-size: 2rem;
-  }
-  .about-img-wrapper p {
-    font-size: 1rem;
-  }
-  .about-img-wrapper a {
-    font-size: inherit;
-  }
 }
 
 .about-img-grid {
@@ -1508,16 +1444,8 @@ footer .copy {
   top: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  text-align: center;
-  font-size: 3rem;
+  font-size: var(--fs-header);
   color: #fff;
-  padding-bottom: 15px;
-  font-size: 6rem;
-}
-@media (max-width: 768px) {
-  .about-img-text {
-    font-size: 3rem;
-  }
 }
 
 /* Images */
@@ -1975,7 +1903,7 @@ footer .copy {
   font-size: 6rem;
 }
 .thanks-page-wrapper p {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   color: #fff;
@@ -1988,7 +1916,7 @@ footer .copy {
   }
 }
 .thanks-page-wrapper span {
-  font-size: 1.75rem;
+  font-size: var(--fs-p);
   line-height: 1.75;
   color: hsl(0, 2%, 60%);
   color: inherit;

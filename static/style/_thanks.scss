@@ -8,7 +8,7 @@
         font-size: 6rem;
     }
     p{
-        @include form-p;
+        @include p;
         color: #fff;
         font-size: 4rem;
         @include for-size (tablet-only){
@@ -17,7 +17,7 @@
         };
     }
     span{
-        @include form-p;
+        @include p;
         color: inherit;
         font-size: inherit;
     }

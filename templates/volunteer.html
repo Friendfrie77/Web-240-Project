@@ -24,9 +24,9 @@ Volunteer
         {% for jobs in job %}
         <div class="jobs">
             <h2>{{jobs[1]}}</h2>
-                <div class="job-description" onclick="showCalendar{{jobs[0]}}()" target="{{jobs[0]}}">
+                <div class="job-description" onclick="3{{jobs[0]}}()" target="{{jobs[0]}}">
                     <div class="job-image">
-                        <img onclick="showCalendar{{jobs[0]}}()" class="job-image" src={{jobs[3]}} alt="{{jobs[4]}}" width="auto" height="auto">
+                        <img src={{jobs[3]}} alt="{{jobs[4]}}" width="auto" height="auto">
                     </div>
                     <div class="job-text">
                         <p>{{jobs[2]}}</p>
@@ -75,13 +75,16 @@ Volunteer
     <div class="about-img-grid"> 
         {% for img in donoimg %}
         <figure>
-            <img src="{{img[1]}}" alt="{{img[2]}}" width="600px" height="381">
+            <a href="{{img[1]}}" data-lightbox="donations" data-title="{{img[2]}}">
+                <img src="{{img[1]}}" alt="{{img[2]}}" width="100%" height="auto">
+            </a>
         </figure>
         {% endfor %}
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
 <script src="../static/scripts/volunteer.js"></script>
+<script src="../static/scripts/lightbox.js"></script>
 {% endblock %}
 {% block scripts %}
 <script>

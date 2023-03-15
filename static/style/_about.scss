@@ -7,42 +7,20 @@
     max-width: 1600px;
     margin: 25px auto;
     h1{
-        font-size: 3.5rem;
+        @include h1;
         text-align: center;
         padding-bottom: 10px
     }
     h2{
-        @include form-h2;
+        @include h2;
     } 
     p{
-        @include form-p;
+        @include p;
         padding-bottom: 1.5rem;
     } 
     a{
-        @include form-p;
+        @include p;
         color: $headline-colors;
-    }
-    @include for-size(tablet-only){
-        h1{
-            font-size: 2.5rem;
-        }
-        p{
-            font-size: 1.5rem;
-        }
-        a{
-            font-size: inherit;
-        }
-    }
-    @include for-size(phone-only){
-        h1{
-            font-size: 2rem;
-        }
-        p{
-            font-size: 1rem;
-        }
-        a{
-            font-size: inherit;
-        }
     }
     max-width: 1600px;
 }
@@ -73,9 +51,5 @@
     top: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    @include form-h2;
-    font-size: 6rem;
-    @include for-size(tablet-only){
-        font-size: 3rem;
-    }
+    @include h1;
 }
