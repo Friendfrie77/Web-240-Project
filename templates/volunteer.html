@@ -67,15 +67,15 @@ Volunteer
     <h2>Want to help fund world purrnation?</h2>
     <p>Short on time or do you want to help fund our every growing army of cats? You can donate directly to us below! We also have both an Amazon wish list and a Chewy wish list of our most needed supplies. Be sure to enter in your email so we can send you a thank you, and some personalized pictures of your donation in use!</p>
     <div class="logo-flex">
-        <a href="https://www.amazon.com/hz/wishlist/ls/25ALJHY34RLSK?ref_=wl_share" target="_blank"><img class="amazon-logo" src="../static/images/volunteer_pictures/PngItem_12080.svg" width="200px" height="200px"></a>
-        <a href="https://www.chewy.com/" target="_blank"><img clsss="chewy-logo" src="../static/images/volunteer_pictures/chewy-inc-seeklogo.com.svg" width="200px" height="200px"></a>
-        <a href="https://www.petco.com/shop/en/petcostore" target="_blank"><img class="petco-logo" src="../static/images/volunteer_pictures/petco.svg" width="200px" height="200px"></a>
+        <a href="https://www.amazon.com/hz/wishlist/ls/25ALJHY34RLSK?ref_=wl_share" target="_blank"><img class="amazon-logo" src="../static/images/volunteer_pictures/logo-svgs/amazon.svg" width="200px" height="200px"></a>
+        <a href="https://www.chewy.com/" target="_blank"><img clsss="chewy-logo" src="../static/images/volunteer_pictures/logo-svgs/chewy.svg" width="200px" height="200px"></a>
+        <a href="https://www.petco.com/shop/en/petcostore" target="_blank"><img class="petco-logo" src="../static/images/volunteer_pictures/logo-svgs/petco.svg" width="200px" height="200px"></a>
     </div>
     <h1>A showcase of some of our recent donations</h1>
     <div class="about-img-grid"> 
         {% for img in donoimg %}
         <figure>
-            <a href="{{img[1]}}" data-lightbox="donations" data-title="{{img[2]}}">
+            <a href="{{img[3]}}" data-lightbox="donations" data-title="{{img[2]}}">
                 <img src="{{img[1]}}" alt="{{img[2]}}" width="100%" height="auto">
             </a>
         </figure>

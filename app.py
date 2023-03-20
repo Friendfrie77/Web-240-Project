@@ -71,6 +71,7 @@ class Donationsimg(db.Model):
     DonationimgID = db.Column(db.Integer, primary_key=True, nullable=False)
     txtDontionimg = db.Column(db.String(200), nullable=False)
     txtAlt = db.Column(db.String(200), nullable=False)
+    txtLightboxImg = db.Column(db.String(200), nullable=False)
 
 # for sending contact page messages #
 def SendContactForm(result):
@@ -203,10 +204,10 @@ def Volunteer():
     result = db.session.execute(db.select(Jobopen.intPartySize))
     for results in result:
         target += results[0]
-    result = db.session.execute(db.select(Donationsimg.DonationimgID, Donationsimg.txtDontionimg, Donationsimg.txtAlt))
+    result = db.session.execute(db.select(Donationsimg.DonationimgID, Donationsimg.txtDontionimg, Donationsimg.txtAlt, Donationsimg.txtLightboxImg))
     for results in result:
         donoimg.append(results)
-    print(job)
+    print(donoimg)
     #when users signs up for a job
     if request.method == "POST":
         count = 0
