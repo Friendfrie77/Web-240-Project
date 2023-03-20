@@ -207,7 +207,6 @@ def Volunteer():
     result = db.session.execute(db.select(Donationsimg.DonationimgID, Donationsimg.txtDontionimg, Donationsimg.txtAlt, Donationsimg.txtLightboxImg))
     for results in result:
         donoimg.append(results)
-    print(donoimg)
     #when users signs up for a job
     if request.method == "POST":
         count = 0
