@@ -14,10 +14,9 @@ html ,body{
     min-height: 100vh;
     height: 100%;
     width: 100vw;
-    overscroll-behavior: auto;
 }
 body{
-    overflow: auto;
+    overflow-x: hidden;
 }
 h1, h2, h3, i{
     font-family: $headline-font;
