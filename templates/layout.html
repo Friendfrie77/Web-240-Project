@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="EN">
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta lang="EN">
+        <meta charset="utf-8" http-equiv="X-UA-Compatible" content="IE=edge">
         <title>{% block title %}{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
@@ -31,7 +29,7 @@
                         <span class="bar"></span>
                     </div>
                     <ul class="nav" id="navlist">
-                        <li class="nav-item" id="Index"><a id="IndexPage" href="{{ url_for('index') }}" dis>Home</a></li>
+                        <li class="nav-item" id="Index"><a id="IndexPage" href="{{ url_for('index') }}">Home</a></li>
                         <li class="nav-item" id="Cats"><a id="CatsPage" href="{{ url_for('Cat') }}">Cats</a></li>
                         <li class="nav-item" id="About"><a id="AboutPage" href="{{ url_for('About') }}">About</a></li>
                         <li class="nav-item" id="Contact"><a id="ContactPage" href="{{ url_for('Contact') }}">Contact</a></li>
