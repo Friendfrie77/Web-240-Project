@@ -46,10 +46,11 @@
         justify-content: start;
         top: 75px;
         width: 100vw;
-        height: calc(100vh - 105px);
+        // height: calc(100% - 105px);
+        height: 100%;
         transform: translate(-100%);
         text-align: center;
-        overflow: hidden;
+        overflow-x: scroll;
         .nav-item{
             padding: 15px;
             &:first-child{

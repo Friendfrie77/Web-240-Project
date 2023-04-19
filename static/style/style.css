@@ -210,10 +210,10 @@ h1, h2, h3, i {
     justify-content: start;
     top: 75px;
     width: 100vw;
-    height: calc(100vh - 105px);
+    height: 100%;
     transform: translate(-100%);
     text-align: center;
-    overflow: hidden;
+    overflow-x: scroll;
   }
   .navbar .nav .nav-item {
     padding: 15px;
@@ -942,7 +942,7 @@ footer .copy {
 }
 @media (max-width: 768px) {
   .contact-form-button {
-    width: 25%;
+    width: 35%;
   }
 }
 

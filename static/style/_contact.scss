@@ -224,11 +224,12 @@
     color: #fff;
     border-radius: 10px;
     border: solid .5px $primary-color;
+
     &:hover{
         background-color: #FFAAEA;
     }
     @include for-size(tablet-only){
-        width: 25%;
+        width: 35%;
     }
 
 }
