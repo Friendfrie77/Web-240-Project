@@ -14,6 +14,9 @@ $padding: 1rem;
 $navbar-timing: 250ms;
 /* mixins */
 @mixin for-size($size){
+    @if $size == large-tablet{
+        @media (max-width: 1050px){ @content;}
+    }
     @if $size == tablet-only{
         @media (max-width: 768px){ @content;}
     }
@@ -25,6 +28,9 @@ $navbar-timing: 250ms;
     }
     @if $size == phone-only{
         @media (max-width: 425px){ @content;}
+    }
+    @if $size == small-phone{
+        @media (max-width: 320px){ @content;}
     }
     @if $size == small-desktop{
         @media (max-width: 1300px){@content;}
@@ -106,6 +112,10 @@ $navbar-timing: 250ms;
 
   $headline-font: 'Yanone Kaffeesatz', sans-serif;
   $content-font:  'PT Sans Narrow', sans-serif;
+
+  .noScroll{
+    overflow-y: hidden !important;
+  }
 /* scss page imports */
 @import './reset';
 @import './wrappers';

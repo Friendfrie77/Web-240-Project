@@ -1,8 +1,18 @@
 
 /* mobile hambuger menu */
+function noScroll() {
+  const hambuger = document.getElementById('hamburger-menu')
+  const body = document.getElementById('body')
+  if(hambuger.classList.contains('is-active')){
+    body.classList.add('noScroll')
+  }else{
+    body.classList.remove('noScroll')
+  }
+}
 $('.hamburger').click(function(){
 $    (".nav").toggleClass("mobile-nav");
 $    (this).toggleClass("is-active");
+     noScroll()
 });
 
 /* stick navbar */

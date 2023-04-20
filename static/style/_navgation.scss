@@ -10,6 +10,9 @@
     z-index: 1000;
     position: relative;
     animation: navbarload $navbar-timing ease-in;
+    @include for-size(tablet-only){
+        background-color: hsla(209, 78%, 23%, 1);
+    }
 }
 .navbar img{
     height: 55px;
@@ -32,7 +35,7 @@
     .nav-item{
         transform: scale(0);
         animation: navitemgrow $navbar-timing;
-        animation-delay: $navbar-timing + ($navbar-timing/2);
+        animation-delay: $navbar-timing + calc($navbar-timing/2);
         animation-fill-mode: forwards;
         &:nth-child(5){
             padding-right: 15px;
@@ -46,19 +49,29 @@
         justify-content: start;
         top: 75px;
         width: 100vw;
-        // height: calc(100% - 105px);
         height: 100%;
         transform: translate(-100%);
         text-align: center;
-        overflow-x: scroll;
+        overflow-y: auto !important;
         .nav-item{
-            padding: 15px;
+            padding: 10px;
             &:first-child{
-                margin-top: 50px;
+                margin-top: 15px;
             }
             a{
                 font-size: 1.5rem;
             }
+        }
+    }
+    @include for-size(small-phone){
+        .nav-item{
+            padding: 10px;
+        }
+        &:first-child{
+            margin-top: 10px;
+        }
+        a{
+            font-size: 1.25rem;
         }
     }
 }
@@ -111,7 +124,7 @@
 .mobile-nav{
     @include for-size(tablet-only){
         transform: translate(-0%)!important;
-        background-color: hsla(209, 78%, 23%, .7);
+        background-color: hsla(209, 78%, 23%, 1);
         z-index: 100;
     }
 }

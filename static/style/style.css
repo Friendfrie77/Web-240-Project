@@ -35,6 +35,10 @@
   src: url("../fonts/pt-sans-narrow-v17-latin-regular.eot"); /* IE9 Compat Modes */
   src: local(""), url("../fonts/pt-sans-narrow-v17-latin-regular.eot?#iefix") format("embedded-opentype"), url("../fonts/pt-sans-narrow-v17-latin-regular.woff2") format("woff2"), url("../fonts/pt-sans-narrow-v17-latin-regular.woff") format("woff"), url("../fonts/pt-sans-narrow-v17-latin-regular.ttf") format("truetype"), url("../fonts/pt-sans-narrow-v17-latin-regular.svg#PTSansNarrow") format("svg"); /* Legacy iOS */
 }
+.noScroll {
+  overflow-y: hidden !important;
+}
+
 /* scss page imports */
 /* page setup */
 * {
@@ -69,11 +73,18 @@ h1, h2, h3, i {
   display: flex;
   flex-direction: column;
   flex: 1;
-  min-height: 100vh;
+  min-height: 100%;
   min-width: 100%;
   margin: 0;
   background-color: black;
   background: linear-gradient(94deg, rgb(6, 4, 45) 0%, rgb(2, 19, 27) 34%, rgb(4, 25, 36) 64%, rgb(0, 0, 0) 100%);
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .footer-wrapper {
@@ -171,6 +182,11 @@ h1, h2, h3, i {
   position: relative;
   animation: navbarload 250ms ease-in;
 }
+@media (max-width: 768px) {
+  .navbar {
+    background-color: hsl(209, 78%, 23%);
+  }
+}
 
 .navbar img {
   height: 55px;
@@ -213,16 +229,27 @@ h1, h2, h3, i {
     height: 100%;
     transform: translate(-100%);
     text-align: center;
-    overflow-x: scroll;
+    overflow-y: auto !important;
   }
   .navbar .nav .nav-item {
-    padding: 15px;
+    padding: 10px;
   }
   .navbar .nav .nav-item:first-child {
-    margin-top: 50px;
+    margin-top: 15px;
   }
   .navbar .nav .nav-item a {
     font-size: 1.5rem;
+  }
+}
+@media (max-width: 320px) {
+  .navbar .nav .nav-item {
+    padding: 10px;
+  }
+  .navbar .nav:first-child {
+    margin-top: 10px;
+  }
+  .navbar .nav a {
+    font-size: 1.25rem;
   }
 }
 
@@ -279,7 +306,7 @@ h1, h2, h3, i {
 @media (max-width: 768px) {
   .mobile-nav {
     transform: translate(0%) !important;
-    background-color: hsla(209, 78%, 23%, 0.7);
+    background-color: hsl(209, 78%, 23%);
     z-index: 100;
   }
 }
@@ -1262,7 +1289,7 @@ footer .copy {
 .job-description p {
   color: #fff;
 }
-@media (max-width: 768px) {
+@media (max-width: 1050px) {
   .job-description {
     display: flex;
     flex-direction: column;

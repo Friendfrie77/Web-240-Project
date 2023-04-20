@@ -74,7 +74,7 @@
     border-radius: 10px;
     width: 100%;
     padding: 20px;
-    background-color:hsla(209, 77.4, 22.5, .3);
+    background-color:hsla(209, 77.4%, 22.5%, .3);
     box-shadow: $drop-shadow;
     p{
         color: $headline-colors
@@ -140,7 +140,7 @@
     p{
         color: $headline-colors;
     }
-    @include for-size(tablet-only){
+    @include for-size(large-tablet){
         display: flex;
         flex-direction: column;
     }
