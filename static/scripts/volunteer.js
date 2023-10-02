@@ -42,7 +42,6 @@ function showCalendar1() {
       }
     ]
   });
-  console.log(calendar)
   calendar.render();
 };
 function showCalendar2() {

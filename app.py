@@ -1,11 +1,11 @@
 import os
 from dotenv import load_dotenv
-from flask import Flask, redirect, render_template, request, flash, json, url_for, jsonify
+from flask import Flask, redirect, render_template, request, flash, json, url_for, jsonify, Response
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 app = Flask(__name__, static_url_path='/static')
-from helpers import is_email_valid
+# from helpers import is_email_valid
 #env vars
 load_dotenv() 
 email= os.environ.get('email')
@@ -99,6 +99,11 @@ def UserContactForm(result):
     """.format(result['subject'],result['message'])
     mail.send(msg)
 
+#test for bls internship xml hosting
+@app.route('/test1')
+def test1():
+    xml = open('static/xml/test-data1.xml')
+    return Response(xml, mimetype='xml')
 #json apis
 @app.route("/cal1")
 def cal_1_info():

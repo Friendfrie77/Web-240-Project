@@ -1,0 +1,249 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<source>
+    <lastBuildDate>2023-09-26</lastBuildDate>
+    <publisherUrl>https://www.example6.com</publisherUrl>
+    <publisher>TechJobsHub</publisher>
+    <expectedJobCount>5</expectedJobCount>
+    
+    <!-- Job Posting 1 -->
+    <job>
+        <partnerJobId>11111</partnerJobId>
+        <company>CloudTech Solutions</company>
+        <title>Cloud Engineer</title>
+        <description>We are looking for a Cloud Engineer to manage and optimize our cloud infrastructure.</description>
+        <industry>Cloud Computing</industry>
+        <applyUrl>https://www.example6.com/apply/11111</applyUrl>
+        <companyId>11111</companyId>
+        <location>Seattle</location>
+        <alternateLocations>
+            <alternateLocation>Portland</alternateLocation>
+        </alternateLocations>
+        <city>Seattle</city>
+        <state>WA</state>
+        <country>USA</country>
+        <postalCode>98101</postalCode>
+        <industryCodes>
+            <industryCode>CC</industryCode>
+        </industryCodes>
+        <jobFunctions>
+            <jobFunction>Cloud Operations</jobFunction>
+        </jobFunctions>
+        <experienceLevel>Mid-Level</experienceLevel>
+        <jobtype>Full-Time</jobtype>
+        <skills>
+            <skill>Cloud Management</skill>
+            <skill>Infrastructure as Code</skill>
+        </skills>
+        <salaries>
+            <salary>
+                <highEnd>
+                    <amount>100000</amount>
+                    <currencyCode>USD</currencyCode>
+                </highEnd>
+                <lowEnd>
+                    <amount>80000</amount>
+                    <currencyCode>USD</currencyCode>
+                </lowEnd>
+                <period>Yearly</period>
+                <type>Salary</type>
+            </salary>
+        </salaries>
+        <workplaceTypes>Office</workplaceTypes>
+        <listDate>2023-09-26</listDate>
+        <expirationDate>2023-10-26</expirationDate>
+    </job>
+
+    <!-- Job Posting 2 -->
+    <job>
+        <partnerJobId>22222</partnerJobId>
+        <company>Data Innovators</company>
+        <title>Data Scientist</title>
+        <description>We are seeking a Data Scientist to analyze data and provide valuable insights.</description>
+        <industry>Data Analytics</industry>
+        <applyUrl>https://www.example6.com/apply/22222</applyUrl>
+        <companyId>22222</companyId>
+        <location>San Francisco</location>
+        <alternateLocations>
+            <alternateLocation>Los Angeles</alternateLocation>
+        </alternateLocations>
+        <city>San Francisco</city>
+        <state>CA</state>
+        <country>USA</country>
+        <postalCode>94101</postalCode>
+        <industryCodes>
+            <industryCode>DA</industryCode>
+        </industryCodes>
+        <jobFunctions>
+            <jobFunction>Data Analysis</jobFunction>
+        </jobFunctions>
+        <experienceLevel>Mid-Level</experienceLevel>
+        <jobtype>Full-Time</jobtype>
+        <skills>
+            <skill>Machine Learning</skill>
+            <skill>Data Visualization</skill>
+        </skills>
+        <salaries>
+            <salary>
+                <highEnd>
+                    <amount>90000</amount>
+                    <currencyCode>USD</currencyCode>
+                </highEnd>
+                <lowEnd>
+                    <amount>70000</amount>
+                    <currencyCode>USD</currencyCode>
+                </lowEnd>
+                <period>Yearly</period>
+                <type>Salary</type>
+            </salary>
+        </salaries>
+        <workplaceTypes>Office</workplaceTypes>
+        <listDate>2023-09-26</listDate>
+        <expirationDate>2023-10-26</expirationDate>
+    </job>
+
+    <!-- Job Posting 3 -->
+    <job>
+        <partnerJobId>33333</partnerJobId>
+        <company>AI Wizards</company>
+        <title>Machine Learning Engineer</title>
+        <description>We are seeking a Machine Learning Engineer to develop AI-powered solutions.</description>
+        <industry>Artificial Intelligence</industry>
+        <applyUrl>https://www.example6.com/apply/33333</applyUrl>
+        <companyId>33333</companyId>
+        <location>San Jose</location>
+        <alternateLocations>
+            <alternateLocation>Santa Clara</alternateLocation>
+        </alternateLocations>
+        <city>San Jose</city>
+        <state>CA</state>
+        <country>USA</country>
+        <postalCode>95101</postalCode>
+        <industryCodes>
+            <industryCode>AI</industryCode>
+        </industryCodes>
+        <jobFunctions>
+            <jobFunction>Machine Learning</jobFunction>
+        </jobFunctions>
+        <experienceLevel>Mid-Level</experienceLevel>
+        <jobtype>Full-Time</jobtype>
+        <skills>
+            <skill>Python</skill>
+            <skill>Deep Learning</skill>
+        </skills>
+        <salaries>
+            <salary>
+                <highEnd>
+                    <amount>95000</amount>
+                    <currencyCode>USD</currencyCode>
+                </highEnd>
+                <lowEnd>
+                    <amount>75000</amount>
+                    <currencyCode>USD</currencyCode>
+                </lowEnd>
+                <period>Yearly</period>
+                <type>Salary</type>
+            </salary>
+        </salaries>
+        <workplaceTypes>Office</workplaceTypes>
+        <listDate>2023-09-26</listDate>
+        <expirationDate>2023-10-26</expirationDate>
+    </job>
+
+    <!-- Job Posting 4 -->
+    <job>
+        <partnerJobId>44444</partnerJobId>
+        <company>WebTech Solutions</company>
+        <title>Web Developer</title>
+        <description>We are seeking a Web Developer to create dynamic and user-friendly websites.</description>
+        <industry>Web Development</industry>
+        <applyUrl>https://www.example6.com/apply/44444</applyUrl>
+        <companyId>44444</companyId>
+        <location>Los Angeles</location>
+        <alternateLocations>
+            <alternateLocation>San Diego</alternateLocation>
+        </alternateLocations>
+        <city>Los Angeles</city>
+        <state>CA</state>
+        <country>USA</country>
+        <postalCode>90001</postalCode>
+        <industryCodes>
+            <industryCode>WD</industryCode>
+        </industryCodes>
+        <jobFunctions>
+            <jobFunction>Web Development</jobFunction>
+        </jobFunctions>
+        <experienceLevel>Entry-Level</experienceLevel>
+        <jobtype>Full-Time</jobtype>
+        <skills>
+            <skill>HTML</skill>
+            <skill>CSS</skill>
+            <skill>JavaScript</skill>
+        </skills>
+        <salaries>
+            <salary>
+                <highEnd>
+                    <amount>60000</amount>
+                    <currencyCode>USD</currencyCode>
+                </highEnd>
+                <lowEnd>
+                    <amount>45000</amount>
+                    <currencyCode>USD</currencyCode>
+                </lowEnd>
+                <period>Yearly</period>
+                <type>Salary</type>
+            </salary>
+        </salaries>
+        <workplaceTypes>Office</workplaceTypes>
+        <listDate>2023-09-26</listDate>
+        <expirationDate>2023-10-26</expirationDate>
+    </job>
+
+    <!-- Job Posting 5 -->
+    <job>
+        <partnerJobId>55555</partnerJobId>
+        <company>DataTech Solutions</company>
+        <title>Data Analyst</title>
+        <description>We are seeking a Data Analyst to analyze and interpret data for insights.</description>
+        <industry>Data Analytics</industry>
+        <applyUrl>https://www.example6.com/apply/55555</applyUrl>
+        <companyId>55555</companyId>
+        <location>New York</location>
+        <alternateLocations>
+            <alternateLocation>Boston</alternateLocation>
+        </alternateLocations>
+        <city>New York</city>
+        <state>NY</state>
+        <country>USA</country>
+        <postalCode>10001</postalCode>
+        <industryCodes>
+            <industryCode>DA</industryCode>
+        </industryCodes>
+        <jobFunctions>
+            <jobFunction>Data Analysis</jobFunction>
+        </jobFunctions>
+        <experienceLevel>Mid-Level</experienceLevel>
+        <jobtype>Full-Time</jobtype>
+        <skills>
+            <skill>Data Analysis</skill>
+            <skill>Statistical Analysis</skill>
+        </skills>
+        <salaries>
+            <salary>
+                <highEnd>
+                    <amount>75000</amount>
+                    <currencyCode>USD</currencyCode>
+                </highEnd>
+                <lowEnd>
+                    <amount>60000</amount>
+                    <currencyCode>USD</currencyCode>
+                </lowEnd>
+                <period>Yearly</period>
+                <type>Salary</type>
+            </salary>
+        </salaries>
+        <workplaceTypes>Office</workplaceTypes>
+        <listDate>2023-09-26</listDate>
+        <expirationDate>2023-10-26</expirationDate>
+    </job>
+</source>
