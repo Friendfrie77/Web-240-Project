@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+load_dotenv(override=True)
 from flask import Flask, redirect, render_template, request, flash, json, url_for, jsonify, Response
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
