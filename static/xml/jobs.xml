@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Jobs>
+
+    <Job>
+        <txtJobName>Brush Cats</txtJobName>
+        <txtJobdes>This is the purrfect job for those that just want to spend time getting to know our friendly cats. Most of our cats love to have people come and brush out their fur. It is also very helpful to get all their dead fur off, helping to reduce the number of hairballs that our cats get. It also helps show the wilder ones that humans can be trusted, helping them get closer to their forever homes. If you would like to help brush our furry friends you can click the picture to see available dates. Please note if you are planning to come on the weekend no appointment is needed. If you are planning to come on the weekend feel free to contact us so we can send you a waiver so you can save time on filling it out.</txtJobdes>
+        <txtJobpic>static/images/volunteer_pictures/volunteer_imgs/test.webp</txtJobpic>
+        <txtImgalt>Cat being brushed</txtImgalt>
+    </Job>
+
+    <Job>
+        <txtJobName>Feed Cats</txtJobName>
+        <txtJobdes>Feeding all these cats can be quite a handful. While there are many food dishes to fill, it is quite an easy job to do, leaving lots of time for playing with the cats too. If you can't make it for our normal feeding times, you can help socialize the cats by feeding them treats. This job is perfect for someone that only has free time in the morning or evening. Be warned that you will get a lot of rubs from the friendly cats and will make friends quickly. You might even end up taking one of our furry friends home! We don’t need that many people to help with this, only needing about 3 people a day.</txtJobdes>
+        <txtJobpic>static/images/volunteer_pictures/volunteer_imgs/feeding_cats.webp</txtJobpic>
+        <txtImgalt>Cat eating food</txtImgalt>
+    </Job>
+
+    <Job>
+        <txtJobName>Washing</txtJobName>
+        <txtJobdes>Doing the dishes at home might be bad, but you should try doing them for 100 cats! Most of our full-time employees handle this, but you are more than welcome to come and help with it. While it might seem like a large task, don’t be alarmed — we have lots of extra dishes for our furry friends. It is a low-intensity job, purrfect for both the young and old alike! You can swing by and wash a few dishes then go out and play with the cats, or wash a ton of dishes — the amount is up to you.</txtJobdes>
+        <txtJobpic>static/images/volunteer_pictures/volunteer_imgs/washing.webp</txtJobpic>
+        <txtImgalt>Washing cat dishes</txtImgalt>
+    </Job>
+
+    <Job>
+        <txtJobName>Clean Out Houses</txtJobName>
+        <txtJobdes>Everyone knows the good feeling of having a nice clean house. You can help our cats know that feeling now. This is a very busy job, as we have many cat houses of different shapes and sizes, ranging from old sheds to single-cat homes. This is a very important job around spring and fall as we need lots of help winterizing homes and preparing them for summer. You can clean as many homes as you want — just let us know what dirt level you are comfortable with and we will find the purrfect home for you to clean.</txtJobdes>
+        <txtJobpic>static/images/volunteer_pictures/volunteer_imgs/cleaning_out_houses.webp</txtJobpic>
+        <txtImgalt>Cleaning outdoor cat houses</txtImgalt>
+    </Job>
+
+    <Job>
+        <txtJobName>Cleaning Litter Boxes</txtJobName>
+        <txtJobdes>Our cats’ litter boxes are their bathrooms — and much like how no one likes a stinky bathroom, neither do cats. Cats are even more affected because of their stronger sense of smell. Keeping their litter boxes clean might be a smelly job, but you are helping keep the rest of the sanctuary clean, as cats are more likely to use a litter box that is clean. As the litter boxes are cleaned daily, they can be gross, and we would not recommend this job for someone who has a suppressed immune system, as there is a chance that you could get sick.</txtJobdes>
+        <txtJobpic>static/images/volunteer_pictures/volunteer_imgs/litter_test.webp</txtJobpic>
+        <txtImgalt>Cleaning a cat litter box</txtImgalt>
+    </Job>
+
+    <Job>
+        <txtJobName>Spend Time With Cats</txtJobName>
+        <txtJobdes>While this might seem like a walk in the park, don’t be fooled — there are no dogs here! This is a really important job; not only do you give the cats an outlet for their energy, you also do vital socialization work to help prepare them for their forever homes. Many of our cats are feral and must learn that humans can be trusted. One of the best ways to do this is to play with them and get them used to people. It’s truly a win-win: you have fun with a cat, while helping them learn that humans aren’t so bad!</txtJobdes>
+        <txtJobpic>static/images/volunteer_pictures/volunteer_imgs/spending_time_with_cats.webp</txtJobpic>
+        <txtImgalt>Playing with a cat</txtImgalt>
+    </Job>
+
+</Jobs>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CatsCollection>
+    <Cat>
+        <txtCatName>Scout</txtCatName>
+        <txtCatGender>Male</txtCatGender>
+        <txtCatAbout>Scout is a friendly middle age male cat that is looking for a good home. He knows how to use the litter box, and has no major medical issues. While he is friendly he might take a little bit to let his personality shine as he is a little skittish around new people. He will do fine in a single cat household, but will require a little bit more attention in that case.</txtCatAbout>
+        <txtCatImg>static\images\adopt\scout.webp</txtCatImg>
+    </Cat>
+    <Cat>
+        <txtCatName>Beanca</txtCatName>
+        <txtCatGender>Female</txtCatGender>
+        <txtCatAbout>Beanca is one of our younger cats. She is very friendly and enjoys getting pets and loves being brushed. She has no major medical issues and is healthy and playful. She is the happiest with other cats. She is perfect for a family with young kids or anyone else that can give her lots of love and play time. She also likes having higher places to sit so she can watch over her new kingdom.</txtCatAbout>
+        <txtCatImg>static\images\adopt\Beanca.webp</txtCatImg>
+    </Cat>
+    <Cat>
+        <txtCatName>Charly</txtCatName>
+        <txtCatGender>Male</txtCatGender>
+        <txtCatAbout>Charly is a loving cat that will make great company for any family. He is on the older side, but still has a lot of love left to give. He is perfect if you want a cat that is relatively low energy as while he does play, he is not nearly as hyper as a younger cat. He would really enjoy the company of another cat as he is very social.</txtCatAbout>
+        <txtCatImg>static\images\adopt\charly.webp</txtCatImg>
+    </Cat>
+    <Cat>
+        <txtCatName>Bethie Honey</txtCatName>
+        <txtCatGender>Female</txtCatGender>
+        <txtCatAbout>Bethie Honey is a female cat looking for a great quiet home. She is a middle-aged cat with lots of life left in her. She likes to be close to people and would love to have a home where she can curl up on someone’s lap and nap. She would work best in a single house cat environment with no other pets. She would do okay with older kids, but not very well with younger kids that might not give her the space that she wants.</txtCatAbout>
+        <txtCatImg>static\images\adopt\Bethie_Honey.webp</txtCatImg>
+    </Cat>
+    <Cat>
+        <txtCatName>Sherman</txtCatName>
+        <txtCatGender>Male</txtCatGender>
+        <txtCatAbout>Sherman is a friendly cat that needs a lot of love. He would do better with another cat to have as a friend. He requires a lot of brushing due to his long hair. He loves to cuddle and would make a great pet for someone that can work from home. He likes playing with toys and laying in the sun. He is just waiting for a loving home to cuddle and live out his life.</txtCatAbout>
+        <txtCatImg>static\images\adopt\Sherman.webp</txtCatImg>
+    </Cat>
+    <Cat>
+        <txtCatName>Farrah</txtCatName>
+        <txtCatGender>Female</txtCatGender>
+        <txtCatAbout>Farrah is a friendly female cat who is on the older side. She can be a little on the feisty side when she wants to be alone but can also be very loving. She wants a quiet home, with no other pets and no children. She also would do better if she had a place to hide. Overall, she would make a great cat for a quiet home with low stress.</txtCatAbout>
+        <txtCatImg>static\images\adopt\Farrah.webp</txtCatImg>
+    </Cat>
+</CatsCollection>
